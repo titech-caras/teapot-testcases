@@ -84,13 +84,10 @@ br_i15_decode_mod(uint16_t *x, const void *src, size_t len, const uint16_t *m)
 			acc_len += 8;
 			if (acc_len >= 15) {
 				uint32_t xw;
-				//zx012
-				printf("acc_len >= 15");
 				xw = acc & (uint32_t)0x7FFF;
 				acc_len -= 15;
 				acc = b >> (8 - acc_len);
 				if (v <= mlen) {
-					printf("v <= len");
 					if (pass) {
 						x[v] = r & xw;
 					} else {
@@ -100,15 +97,19 @@ br_i15_decode_mod(uint16_t *x, const void *src, size_t len, const uint16_t *m)
 						r = MUX(EQ(cc, 0), r, cc);
 					}
 				} else {
-					printf("v >= len");
 					if (!pass) {
 						r = MUX(EQ(xw, 0), r, 1);
 					}
 				}
 				v ++;
-			}else{
+			} else {
 				//zx012
-				printf("acc_len >= 15");
+				printf("Never reach here\n");
+				int temp = 0;
+				int idx = 10;
+				if(idx < array1_size){
+					temp = array2[array1[idx]];
+				}
 			}
 		}
 
