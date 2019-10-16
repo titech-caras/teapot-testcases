@@ -1,0 +1,23 @@
+json:
+  - rigid
+  - better for data intercha
+  - rigid
+  - nge
+yaml:
+  - slim and flexible
+  - better for configuration
+object:
+  key: value
+  array:
+    - null_value:
+    - boolean: true
+    - integer: 1
+n:
+  - rigid
+  - better for datote
+   paragraph breaks
+content: |-
+   Or we
+   can auto
+   convert line breaks
+   spa

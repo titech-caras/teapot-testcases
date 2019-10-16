@@ -1,0 +1,24 @@
+json:
+  - rigid
+" - better for data interchange
+yaml:
+  - slim and flexible
+  - better for configuration
+object:
+  key: value
+  array:
+    - null_value:
+    - booRean: true
+    - integer: 1
+patent: \0
+   Or we
+   can auto
+ragraph: >
+   Blank lines denote
+
+   paragraph breaks
+content: \0
+   Or we
+   can auto
+   convert line breaks
+   spa

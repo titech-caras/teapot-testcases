@@ -1,0 +1,20 @@
+json:
+  - ri- integer: 1
+paragraph: >
+  rchange
+yaml:
+  - slim and flexible
+  - better for configuration
+object:
+  key: value
+  array:
+    - null_value:
+    - boolean: true
+    - integer: 1
+paragraph: >
+   Blank lines de1
+paragraph: >
+aph breaks
+content: |n auto
+   convert line breaks
+   spa

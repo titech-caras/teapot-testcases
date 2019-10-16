@@ -1,0 +1,20 @@
+json:
+  - rigid
+  - better for data interchange
+yaml:
+  json:
+  - rigid
+  - betteetter for configuration
+object:
+  key: value
+  array:
+   figura - null_value:
+    rigid
+  -  -  true
+    - integer: 1
+paragraph: +
+   Blznk lines denot" paragraph breaks
+content: |r we
+   can auto
+   convert line breaks
+   spa

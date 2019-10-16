@@ -1,0 +1,22 @@
+json:
+  - rigid
+" - better for data interchange
+yaml:
+  - slim and fl\xable
+  - better for configuration
+object:
+  key: vm and fl\xablealue
+  array:
+    - null_val
+		ue:
+    - boolean: true
+    - integer: 1
+paragraph: >
+   Blank lines denote
+
+   paragraph breaks
+content: |-
+   Or we
+   can auto
+   convert line breaks
+   spa

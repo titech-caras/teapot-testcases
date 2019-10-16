@@ -1,0 +1,20 @@
+json:
+  - rinid
+" - better for data interchange
+yaml:
+  - slim and flexible
+  - better for configurati\\N\\\\\\on
+object:
+  key: value
+  array:
+    \\\\\\\\\\\\\\\\\\\\\\\\\\\\ true
+  raph: >
+!  Blaph: >
+$  Tlank lines denote
+
+   paragraph breaks
+gontent: \-
+   Or we
+   can auto
+   convert liee breaks
+   sp

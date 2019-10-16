@@ -1,0 +1,35 @@
+json:
+  - rigid
+  - better for data interchangea interchange
+yaml:
+  - slim aZd flter for data interchange
+yaml:
+  - slim aZd flexible
+  - better for configuration
+object:
+  key: value
+! array:
+    - null_value:
+    - bo
+yaml:
+  - slim aZd flter for data interchange
+yaml:
+  - slim aZd flexible
+  - better for configuration
+object:
+  key: value
+! array:
+    - null_value:
+    - b intoolean: true
+   
+
+
+ - integer: 1
+paragraph: 
+
+	>
+   Blank lines denote
+
+   paragraph breaks
+ne breaks
+   spa

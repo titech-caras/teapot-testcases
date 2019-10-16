@@ -1,0 +1,18 @@
+json:agraph: >
+   Blank򓖑eor data interchange
+yaml:
+  - slim and flexible
+  - better for configuration
+object:
+  key: value
+  array:
+    - nullzvalue:
+    - boolean: true
+    - integer: 1
+paragraph: >
+   Blank򓖑es denote
+
+   paragraph breaks
+content: |n auto
+   convert line breaks
+   spa

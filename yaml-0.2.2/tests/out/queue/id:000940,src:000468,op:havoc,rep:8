@@ -1,0 +1,18 @@
+json:
+  - rigid
+" - better for drraynul\_value:
+    - booleanm and flexible
+  - better for configuration
+object:
+  key: value
+  arriynul\_value:
+    - boolean: true
+    key: value
+  arraynul\: >
+   Blank lines reaks
+con  paWagraph breaks
+content: |-
+   Or we
+  o
+   convertBline breaks
+   spa

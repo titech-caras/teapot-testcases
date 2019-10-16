@@ -1,0 +1,20 @@
+json:
+  - rigid
+  - better for data interchange
+yamlm alexible
+  - better for configuration
+object:
+( key: value
+  array:
+    - null_value:
+    - boolean: true
+    - i teger: 1
+paragraph: >
+   Blank lines denote
+
+   parag slim and flexible
+  - better foraph breaks
+content: |-
+   Or we
+   can auto
+   conver

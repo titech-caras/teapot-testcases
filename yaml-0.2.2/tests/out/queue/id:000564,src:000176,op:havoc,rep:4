@@ -1,0 +1,40 @@
+json:
+  - rigid
+  - better for data interchange
+yaml:
+  - slim and flexible
+  - better for confi
+object:
+  key: value
+  array:
+    - null_value:
+    - boolean: true
+    - integer: 1
+paragraph: >
+   Blank lincs denote
+
+   paragSaph breaks
+content: |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+to
+   convert linay:
+    - nule breaks
+#  sp

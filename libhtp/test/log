@@ -1,0 +1,23 @@
+make  libgtest.a test_all test_fuzz
+make[1]: Entering directory `/home/user/libhtp/test'
+depbase=`echo gtest/gtest-all.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+	g++ -DHAVE_CONFIG_H -I. -I..  -I.. -I../htp -Wno-write-strings -DGTEST_USE_OWN_TR1_TUPLE=1 -D_GNU_SOURCE -g -Wall -Wextra -Wno-unused-parameter -Wno-sign-compare -O2  -g -O2 -MT gtest/gtest-all.o -MD -MP -MF $depbase.Tpo -c -o gtest/gtest-all.o gtest/gtest-all.cc &&\
+	mv -f $depbase.Tpo $depbase.Po
+depbase=`echo gtest/gtest_main.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+	g++ -DHAVE_CONFIG_H -I. -I..  -I.. -I../htp -Wno-write-strings -DGTEST_USE_OWN_TR1_TUPLE=1 -D_GNU_SOURCE -g -Wall -Wextra -Wno-unused-parameter -Wno-sign-compare -O2  -g -O2 -MT gtest/gtest_main.o -MD -MP -MF $depbase.Tpo -c -o gtest/gtest_main.o gtest/gtest_main.cc &&\
+	mv -f $depbase.Tpo $depbase.Po
+rm -f libgtest.a
+ar cru libgtest.a gtest/gtest-all.o gtest/gtest_main.o 
+ranlib libgtest.a
+depbase=`echo test_bstr.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+	g++ -DHAVE_CONFIG_H -I. -I..  -I.. -I../htp -Wno-write-strings -DGTEST_USE_OWN_TR1_TUPLE=1 -D_GNU_SOURCE -g -Wall -Wextra -Wno-unused-parameter -Wno-sign-compare -O2  -g -O2 -MT test_bstr.o -MD -MP -MF $depbase.Tpo -c -o test_bstr.o test_bstr.cpp &&\
+	mv -f $depbase.Tpo $depbase.Po
+depbase=`echo test_gunzip.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+	g++ -DHAVE_CONFIG_H -I. -I..  -I.. -I../htp -Wno-write-strings -DGTEST_USE_OWN_TR1_TUPLE=1 -D_GNU_SOURCE -g -Wall -Wextra -Wno-unused-parameter -Wno-sign-compare -O2  -g -O2 -MT test_gunzip.o -MD -MP -MF $depbase.Tpo -c -o test_gunzip.o test_gunzip.cpp &&\
+	mv -f $depbase.Tpo $depbase.Po
+depbase=`echo test_hybrid.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+	g++ -DHAVE_CONFIG_H -I. -I..  -I.. -I../htp -Wno-write-strings -DGTEST_USE_OWN_TR1_TUPLE=1 -D_GNU_SOURCE -g -Wall -Wextra -Wno-unused-parameter -Wno-sign-compare -O2  -g -O2 -MT test_hybrid.o -MD -MP -MF $depbase.Tpo -c -o test_hybrid.o test_hybrid.cpp &&\
+	mv -f $depbase.Tpo $depbase.Po
+depbase=`echo test_main.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+	g++ -DHAVE_CONFIG_H -I. -I..  -I.. -I../htp -Wno-write-strings -DGTEST_USE_OWN_TR1_TUPLE=1 -D_GNU_SOURCE -g -Wall -Wextra -Wno-unused-parameter -Wno-sign-compare -O2  -g -O2 -MT test_main.o -MD -MP -MF $depbase.Tpo -c -o test_main.o test_main.cpp &&\
+	mv -f $depbase.Tpo $depbase.Po

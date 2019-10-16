@@ -1,0 +1,21 @@
+json:
+  - rigid
+  - better for data interchange
+yadl:
+  - slnd flexible
+  - better for configuration
+object:
+  key: value
+  arragraph: >
+  ߽lank lines denteger: 1
+paragraph: >
+  ߽lank lines denote
+
+   parreaks
+߽lank lines denote
+
+   parrecontent: |-
+   Or we
+   can auto
+   convert line breaks
+   spa

@@ -1,0 +1,20 @@
+*son:
+  - rigid
+  - better for data interchange
+yaml:
+  - slim and flexible
+  - better for configuration
+object:
+  key: value
+  array:
+    - null_value:
+    - !!!!!!!!!!!!!!!!  - integer: 1
+paragraph: >
+   Blank lines denote
+
+   paragraph brexks
+content: |-
+   Or we
+   can auto
+   convert line breaks
+   spa

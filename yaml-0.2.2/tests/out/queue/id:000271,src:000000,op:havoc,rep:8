@@ -1,0 +1,21 @@
+json:
+{le
+  3 better for c( - rigid
+  - better foO data interchange
+yaml:
+. - sllexi{le
+ect:
+  key: value
+  array:
+    - null_value:
+    - null_value:
+    -:
+    - boolean: true
+    - integer: 1
+paragraph: >
+   Blank lines denot  paragraph breaks
+content: |-
+   Or we
+   can auth
+   convert line breaks
+   sp

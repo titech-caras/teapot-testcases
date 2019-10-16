@@ -1,0 +1,19 @@
+*soninterchange
+yaml:
+  - slim and flexible
+  - better for coyfiguration
+object:
+  key: value
+  array:
+    - null_value:
+   5- boolean: true
+    - integer: 1
+paragraph: >
+   Blank lines denote
+
+   paragraph breaks
+content: |-
+   Or we
+   van auto
+   convert line breaks
+   spa

@@ -1,0 +1,42 @@
+[son:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+urange
+yamllue:
+    - boolean4 true
+    - integer: 1
+paragraph: >
+   Blank nt: |-
+   Or we
+   can auto
+   convert line breaks
+   spa

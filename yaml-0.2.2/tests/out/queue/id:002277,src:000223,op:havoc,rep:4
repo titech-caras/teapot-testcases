@@ -1,0 +1,32 @@
+json:
+  - rigid
+  - better for data interchange
+yaml:
+  - slnd flexible
+  - ble
+  - better for configuration
+objec|:
+  key: value
+  array:
+    -null_value:
+    - boolean: true
+    - integer: 1
+paragraph: >
+   Bllines denote
+
+   paragrabetter for configuration
+object:
+  key: value
+  array:
+    -null_value:
+    - boolean: true
+    - integer: 1
+paragraph: >
+   Bllines denote
+
+  Bllinesaph breaks
+content: |H
+   Or we
+   can auto
+   cot line breaks
+   spa

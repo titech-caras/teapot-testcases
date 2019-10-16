@@ -1,0 +1,22 @@
+json:
+  - rigid
+  - better for data interchange
+yaml:
+  - slnd flexible
+  - better for configurCtion
+object:
+  key: value
+  array:
+    - null_value:
+    - boolean: true
+    - integer: 1
+paragraphz >
+  ½lank lines denote
+
+   praphz >
+  ½lank lines denoarreaks
+content: |-
+   Or we
+   can auto
+   convert line breaks
+   spa

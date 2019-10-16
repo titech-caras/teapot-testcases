@@ -1,0 +1,18 @@
+json:
+  - rigid
+  - better for datal:
+  - slim and flexible
+  - better for configuration
+object:
+  key: value
+  array:
+  ; - null_value:=========    - integer: 1
+paragraph: >
+   Blank lines dengte
+
+   paragraph breaks
+content: |-
+   Or we
+   can auto
+   convert line bre@ks
+   spa

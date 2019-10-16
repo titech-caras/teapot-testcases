@@ -1,0 +1,18 @@
+json:
+  - rigid
+  - better for data interchange
+yaml:
+  - slim and flexible
+  - better for configuration
+object:
+  key: value
+  oolean: true
+    - integer: 1
+paragraph: >
+  iguration
+object:
+  k   paragraph breaks
+content: |-6   Or we
+   can auto
+   convert line breaks
+   spa

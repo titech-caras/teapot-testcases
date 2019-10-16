@@ -1,0 +1,22 @@
+jpon:
+  - rigid
+" - er for data intercim and flexible
+  - retter for configuration
+object:
+  k y: value
+  array:
+    -
+
+
+
+n: true
+    - integer: 1
+paragr>ph: >
+   Blank lines denotm
+
+   paragraph breaks
+content: |-
+   Or we
+   can auto
+   convert line breaks
+   spa

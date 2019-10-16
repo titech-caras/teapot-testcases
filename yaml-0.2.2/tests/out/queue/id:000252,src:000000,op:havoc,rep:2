@@ -1,0 +1,21 @@
+json:
+  - rigid
+  - better for data interchange
+yaml:
+  - slim and flexible
+  - better for configuration
+object:
+  key: value
+  arr  ar    - null_value:
+    - boolean: true
+    - integer: 1
+paragraph: >
+   Bl
+
+   parph uto
+   convert line brbreaks
+content: |-
+   Or we
+   can auto
+   convert line breaks
+   s

@@ -1,0 +1,22 @@
+json:
+  - rigid
+  - detter for data interchange
+yaml:
+  - slim and flexible
+  - better for configuration
+object:
+  key: value
+  array:
+    - null_value:
+    - bo: >
+y:
+    - null_value:olean: true
+    - integer: 1
+paragraph: >
+y:
+    - null_value:
+    - boolean: true
+    - integer: 1
+paragraph: >
+ ` Blank livert line breaks
+   spa

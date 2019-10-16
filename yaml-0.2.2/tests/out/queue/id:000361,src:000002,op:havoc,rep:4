@@ -1,0 +1,22 @@
+*son:
+  - rigid
+  - better for data interchange
+yaml:
+  - slim and flexible
+  - or configuration
+Object:
+  key: value
+  array:
+    - null_value:
+   '- boolean: true
+    - in
+
+   paraparagraph: >
+   lines denote
+
+   paragraph breaks
+content: |-
+   Or we
+   can auto
+   convert line breaks
+   spa

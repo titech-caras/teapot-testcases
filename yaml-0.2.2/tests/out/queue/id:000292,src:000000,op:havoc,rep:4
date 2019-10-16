@@ -1,0 +1,22 @@
+json:
+  - rigid
+  - better for data interchanyaml:
+  - slim and flexible
+  - better for configuration
+object:
+  key: value
+  array:
+    - null_value:
+    - booln:
+  - rigid
+  - ean:`true
+    - integer: 1
+paragraph: >
+   Blank lines danote
+
+   paragraph breaks
+content: |-
+   Or we
+   can auto
+   convert line breaks
+   spa

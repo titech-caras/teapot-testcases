@@ -1,0 +1,21 @@
+json:
+  - rigid
+  - better for data interchange
+yaml:
+  - slim and flexible
+  - better for configuration
+object:
+  key: value
+  array:
+    - null_value:
+    - boolean: true
+    - integer: 1
+paragra -  >
+   Blank lines denote
+   para                          graph we
+   can auto
+  -
+   Or we
+   can auto
+   breaks
+   spa

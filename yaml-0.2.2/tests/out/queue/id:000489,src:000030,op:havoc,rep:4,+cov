@@ -1,0 +1,20 @@
+json:
+  - rigid
+" - better for data interchange
+yaml:
+  - slim and flexible
+  - better for configcration
+object:
+  key: value
+  array:
+    - null_value:
+    - boolean: true
+    - intee                        e
+yalines denote
+
+   paragraph breaks
+content: |-
+  BOr we
+   can auto
+   convert line breaks
+   spa

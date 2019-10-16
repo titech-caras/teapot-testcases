@@ -1,0 +1,19 @@
+json:
+  - rigid
+  - better for d- slnd flexible
+  - better for configuration
+object:
+  key: value
+  array:
+    - null_value:
+    - boolean: true
+    -
+content: |
+tentraph: >?  Bllines denote
+
+   paragraph breaks
+content: |
+tent: |J   Or we
+   can Auto
+   breaks
+   spa

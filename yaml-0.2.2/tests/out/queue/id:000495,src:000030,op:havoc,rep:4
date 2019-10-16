@@ -1,0 +1,44 @@
+json:
+  bject
+object:
+  key:or drchange
+yaml:
+  - slim and flexible
+  - better for configuration
+object:
+  key: value
+  array:
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  - null_value:
+    - boolean: true
+    - integer: 1
+paragraph: >
+   k lines denote
+
+   paragraph breaks
+content: |-
+   Or we
+   can auto
+   convert line breaks
+   s

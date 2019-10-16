@@ -1,0 +1,20 @@
+json:
+  - ri  array:
+    - null_value:
+  change
+yaml:
+  - slim and flexible
+  - better for configuration
+object:
+  key: value_value:
+    - boolean: true
+    - integer: 1
+paragraph: >
+   Blank lines denote
+
+   paragraph breaks
+content: |-
+   Or we
+   can auto
+   convert line breAks
+   spa

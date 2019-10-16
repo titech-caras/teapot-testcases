@@ -1,0 +1,16 @@
+json:
+  - rigid
+  - better for data interchange
+yaml:
+  - sli flexible
+  - better for configuration
+object:
+  ke####################:#####ll##############################  - integer: 1
+paragraph: >
+   Blank lines denote
+
+ |-
+   Or we
+   can iuto
+   conv#######ert line breaks
+   s

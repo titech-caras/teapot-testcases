@@ -1,0 +1,1303 @@
+
+simple_fuzz:     file format elf32-i386
+
+
+Disassembly of section .init:
+
+08048314 <_init>:
+ 8048314:	53                   	push   %ebx
+ 8048315:	83 ec 08             	sub    $0x8,%esp
+ 8048318:	e8 c3 00 00 00       	call   80483e0 <__x86.get_pc_thunk.bx>
+ 804831d:	81 c3 e3 2c 00 00    	add    $0x2ce3,%ebx
+ 8048323:	8b 83 fc ff ff ff    	mov    -0x4(%ebx),%eax
+ 8048329:	85 c0                	test   %eax,%eax
+ 804832b:	74 05                	je     8048332 <_init+0x1e>
+ 804832d:	e8 3e 00 00 00       	call   8048370 <__gmon_start__@plt>
+ 8048332:	83 c4 08             	add    $0x8,%esp
+ 8048335:	5b                   	pop    %ebx
+ 8048336:	c3                   	ret    
+
+Disassembly of section .plt:
+
+08048340 <printf@plt-0x10>:
+ 8048340:	ff 35 04 b0 04 08    	pushl  0x804b004
+ 8048346:	ff 25 08 b0 04 08    	jmp    *0x804b008
+ 804834c:	00 00                	add    %al,(%eax)
+	...
+
+08048350 <printf@plt>:
+ 8048350:	ff 25 0c b0 04 08    	jmp    *0x804b00c
+ 8048356:	68 00 00 00 00       	push   $0x0
+ 804835b:	e9 e0 ff ff ff       	jmp    8048340 <_init+0x2c>
+
+08048360 <puts@plt>:
+ 8048360:	ff 25 10 b0 04 08    	jmp    *0x804b010
+ 8048366:	68 08 00 00 00       	push   $0x8
+ 804836b:	e9 d0 ff ff ff       	jmp    8048340 <_init+0x2c>
+
+08048370 <__gmon_start__@plt>:
+ 8048370:	ff 25 14 b0 04 08    	jmp    *0x804b014
+ 8048376:	68 10 00 00 00       	push   $0x10
+ 804837b:	e9 c0 ff ff ff       	jmp    8048340 <_init+0x2c>
+
+08048380 <strlen@plt>:
+ 8048380:	ff 25 18 b0 04 08    	jmp    *0x804b018
+ 8048386:	68 18 00 00 00       	push   $0x18
+ 804838b:	e9 b0 ff ff ff       	jmp    8048340 <_init+0x2c>
+
+08048390 <__libc_start_main@plt>:
+ 8048390:	ff 25 1c b0 04 08    	jmp    *0x804b01c
+ 8048396:	68 20 00 00 00       	push   $0x20
+ 804839b:	e9 a0 ff ff ff       	jmp    8048340 <_init+0x2c>
+
+080483a0 <strncmp@plt>:
+ 80483a0:	ff 25 20 b0 04 08    	jmp    *0x804b020
+ 80483a6:	68 28 00 00 00       	push   $0x28
+ 80483ab:	e9 90 ff ff ff       	jmp    8048340 <_init+0x2c>
+
+Disassembly of section .text:
+
+080483b0 <_start>:
+ 80483b0:	31 ed                	xor    %ebp,%ebp
+ 80483b2:	5e                   	pop    %esi
+ 80483b3:	89 e1                	mov    %esp,%ecx
+ 80483b5:	83 e4 f0             	and    $0xfffffff0,%esp
+ 80483b8:	50                   	push   %eax
+ 80483b9:	54                   	push   %esp
+ 80483ba:	52                   	push   %edx
+ 80483bb:	68 80 92 04 08       	push   $0x8049280
+ 80483c0:	68 10 92 04 08       	push   $0x8049210
+ 80483c5:	51                   	push   %ecx
+ 80483c6:	56                   	push   %esi
+ 80483c7:	68 e2 91 04 08       	push   $0x80491e2
+ 80483cc:	e8 bf ff ff ff       	call   8048390 <__libc_start_main@plt>
+ 80483d1:	f4                   	hlt    
+ 80483d2:	66 90                	xchg   %ax,%ax
+ 80483d4:	66 90                	xchg   %ax,%ax
+ 80483d6:	66 90                	xchg   %ax,%ax
+ 80483d8:	66 90                	xchg   %ax,%ax
+ 80483da:	66 90                	xchg   %ax,%ax
+ 80483dc:	66 90                	xchg   %ax,%ax
+ 80483de:	66 90                	xchg   %ax,%ax
+
+080483e0 <__x86.get_pc_thunk.bx>:
+ 80483e0:	8b 1c 24             	mov    (%esp),%ebx
+ 80483e3:	c3                   	ret    
+ 80483e4:	66 90                	xchg   %ax,%ax
+ 80483e6:	66 90                	xchg   %ax,%ax
+ 80483e8:	66 90                	xchg   %ax,%ax
+ 80483ea:	66 90                	xchg   %ax,%ax
+ 80483ec:	66 90                	xchg   %ax,%ax
+ 80483ee:	66 90                	xchg   %ax,%ax
+
+080483f0 <deregister_tm_clones>:
+ 80483f0:	b8 2f b0 04 08       	mov    $0x804b02f,%eax
+ 80483f5:	2d 2c b0 04 08       	sub    $0x804b02c,%eax
+ 80483fa:	83 f8 06             	cmp    $0x6,%eax
+ 80483fd:	77 01                	ja     8048400 <deregister_tm_clones+0x10>
+ 80483ff:	c3                   	ret    
+ 8048400:	b8 00 00 00 00       	mov    $0x0,%eax
+ 8048405:	85 c0                	test   %eax,%eax
+ 8048407:	74 f6                	je     80483ff <deregister_tm_clones+0xf>
+ 8048409:	55                   	push   %ebp
+ 804840a:	89 e5                	mov    %esp,%ebp
+ 804840c:	83 ec 18             	sub    $0x18,%esp
+ 804840f:	c7 04 24 2c b0 04 08 	movl   $0x804b02c,(%esp)
+ 8048416:	ff d0                	call   *%eax
+ 8048418:	c9                   	leave  
+ 8048419:	c3                   	ret    
+ 804841a:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
+
+08048420 <register_tm_clones>:
+ 8048420:	b8 2c b0 04 08       	mov    $0x804b02c,%eax
+ 8048425:	2d 2c b0 04 08       	sub    $0x804b02c,%eax
+ 804842a:	c1 f8 02             	sar    $0x2,%eax
+ 804842d:	89 c2                	mov    %eax,%edx
+ 804842f:	c1 ea 1f             	shr    $0x1f,%edx
+ 8048432:	01 d0                	add    %edx,%eax
+ 8048434:	d1 f8                	sar    %eax
+ 8048436:	75 01                	jne    8048439 <register_tm_clones+0x19>
+ 8048438:	c3                   	ret    
+ 8048439:	ba 00 00 00 00       	mov    $0x0,%edx
+ 804843e:	85 d2                	test   %edx,%edx
+ 8048440:	74 f6                	je     8048438 <register_tm_clones+0x18>
+ 8048442:	55                   	push   %ebp
+ 8048443:	89 e5                	mov    %esp,%ebp
+ 8048445:	83 ec 18             	sub    $0x18,%esp
+ 8048448:	89 44 24 04          	mov    %eax,0x4(%esp)
+ 804844c:	c7 04 24 2c b0 04 08 	movl   $0x804b02c,(%esp)
+ 8048453:	ff d2                	call   *%edx
+ 8048455:	c9                   	leave  
+ 8048456:	c3                   	ret    
+ 8048457:	89 f6                	mov    %esi,%esi
+ 8048459:	8d bc 27 00 00 00 00 	lea    0x0(%edi,%eiz,1),%edi
+
+08048460 <__do_global_dtors_aux>:
+ 8048460:	80 3d 2c b0 04 08 00 	cmpb   $0x0,0x804b02c
+ 8048467:	75 13                	jne    804847c <__do_global_dtors_aux+0x1c>
+ 8048469:	55                   	push   %ebp
+ 804846a:	89 e5                	mov    %esp,%ebp
+ 804846c:	83 ec 08             	sub    $0x8,%esp
+ 804846f:	e8 7c ff ff ff       	call   80483f0 <deregister_tm_clones>
+ 8048474:	c6 05 2c b0 04 08 01 	movb   $0x1,0x804b02c
+ 804847b:	c9                   	leave  
+ 804847c:	f3 c3                	repz ret 
+ 804847e:	66 90                	xchg   %ax,%ax
+
+08048480 <frame_dummy>:
+ 8048480:	a1 10 af 04 08       	mov    0x804af10,%eax
+ 8048485:	85 c0                	test   %eax,%eax
+ 8048487:	74 1f                	je     80484a8 <frame_dummy+0x28>
+ 8048489:	b8 00 00 00 00       	mov    $0x0,%eax
+ 804848e:	85 c0                	test   %eax,%eax
+ 8048490:	74 16                	je     80484a8 <frame_dummy+0x28>
+ 8048492:	55                   	push   %ebp
+ 8048493:	89 e5                	mov    %esp,%ebp
+ 8048495:	83 ec 18             	sub    $0x18,%esp
+ 8048498:	c7 04 24 10 af 04 08 	movl   $0x804af10,(%esp)
+ 804849f:	ff d0                	call   *%eax
+ 80484a1:	c9                   	leave  
+ 80484a2:	e9 79 ff ff ff       	jmp    8048420 <register_tm_clones>
+ 80484a7:	90                   	nop
+ 80484a8:	e9 73 ff ff ff       	jmp    8048420 <register_tm_clones>
+
+080484ad <jsmn_alloc_token>:
+ 80484ad:	55                   	push   %ebp
+ 80484ae:	89 e5                	mov    %esp,%ebp
+ 80484b0:	83 ec 10             	sub    $0x10,%esp
+ 80484b3:	8b 45 08             	mov    0x8(%ebp),%eax
+ 80484b6:	8b 40 04             	mov    0x4(%eax),%eax
+ 80484b9:	3b 45 10             	cmp    0x10(%ebp),%eax
+ 80484bc:	72 07                	jb     80484c5 <jsmn_alloc_token+0x18>
+ 80484be:	b8 00 00 00 00       	mov    $0x0,%eax
+ 80484c3:	eb 3f                	jmp    8048504 <jsmn_alloc_token+0x57>
+ 80484c5:	8b 45 08             	mov    0x8(%ebp),%eax
+ 80484c8:	8b 40 04             	mov    0x4(%eax),%eax
+ 80484cb:	8d 48 01             	lea    0x1(%eax),%ecx
+ 80484ce:	8b 55 08             	mov    0x8(%ebp),%edx
+ 80484d1:	89 4a 04             	mov    %ecx,0x4(%edx)
+ 80484d4:	c1 e0 04             	shl    $0x4,%eax
+ 80484d7:	89 c2                	mov    %eax,%edx
+ 80484d9:	8b 45 0c             	mov    0xc(%ebp),%eax
+ 80484dc:	01 d0                	add    %edx,%eax
+ 80484de:	89 45 fc             	mov    %eax,-0x4(%ebp)
+ 80484e1:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 80484e4:	c7 40 08 ff ff ff ff 	movl   $0xffffffff,0x8(%eax)
+ 80484eb:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 80484ee:	8b 50 08             	mov    0x8(%eax),%edx
+ 80484f1:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 80484f4:	89 50 04             	mov    %edx,0x4(%eax)
+ 80484f7:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 80484fa:	c7 40 0c 00 00 00 00 	movl   $0x0,0xc(%eax)
+ 8048501:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 8048504:	c9                   	leave  
+ 8048505:	c3                   	ret    
+
+08048506 <jsmn_fill_token>:
+ 8048506:	55                   	push   %ebp
+ 8048507:	89 e5                	mov    %esp,%ebp
+ 8048509:	8b 45 08             	mov    0x8(%ebp),%eax
+ 804850c:	8b 55 0c             	mov    0xc(%ebp),%edx
+ 804850f:	89 10                	mov    %edx,(%eax)
+ 8048511:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048514:	8b 55 10             	mov    0x10(%ebp),%edx
+ 8048517:	89 50 04             	mov    %edx,0x4(%eax)
+ 804851a:	8b 45 08             	mov    0x8(%ebp),%eax
+ 804851d:	8b 55 14             	mov    0x14(%ebp),%edx
+ 8048520:	89 50 08             	mov    %edx,0x8(%eax)
+ 8048523:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048526:	c7 40 0c 00 00 00 00 	movl   $0x0,0xc(%eax)
+ 804852d:	5d                   	pop    %ebp
+ 804852e:	c3                   	ret    
+
+0804852f <jsmn_parse_primitive>:
+ 804852f:	55                   	push   %ebp
+ 8048530:	89 e5                	mov    %esp,%ebp
+ 8048532:	83 ec 20             	sub    $0x20,%esp
+ 8048535:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048538:	8b 00                	mov    (%eax),%eax
+ 804853a:	89 45 f8             	mov    %eax,-0x8(%ebp)
+ 804853d:	e9 94 00 00 00       	jmp    80485d6 <jsmn_parse_primitive+0xa7>
+ 8048542:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048545:	8b 10                	mov    (%eax),%edx
+ 8048547:	8b 45 0c             	mov    0xc(%ebp),%eax
+ 804854a:	01 d0                	add    %edx,%eax
+ 804854c:	0f b6 00             	movzbl (%eax),%eax
+ 804854f:	0f be c0             	movsbl %al,%eax
+ 8048552:	83 f8 20             	cmp    $0x20,%eax
+ 8048555:	0f 84 9c 00 00 00    	je     80485f7 <jsmn_parse_primitive+0xc8>
+ 804855b:	83 f8 20             	cmp    $0x20,%eax
+ 804855e:	7f 19                	jg     8048579 <jsmn_parse_primitive+0x4a>
+ 8048560:	83 f8 09             	cmp    $0x9,%eax
+ 8048563:	7c 2f                	jl     8048594 <jsmn_parse_primitive+0x65>
+ 8048565:	83 f8 0a             	cmp    $0xa,%eax
+ 8048568:	0f 8e 89 00 00 00    	jle    80485f7 <jsmn_parse_primitive+0xc8>
+ 804856e:	83 f8 0d             	cmp    $0xd,%eax
+ 8048571:	0f 84 80 00 00 00    	je     80485f7 <jsmn_parse_primitive+0xc8>
+ 8048577:	eb 1b                	jmp    8048594 <jsmn_parse_primitive+0x65>
+ 8048579:	83 f8 3a             	cmp    $0x3a,%eax
+ 804857c:	74 79                	je     80485f7 <jsmn_parse_primitive+0xc8>
+ 804857e:	83 f8 3a             	cmp    $0x3a,%eax
+ 8048581:	7f 07                	jg     804858a <jsmn_parse_primitive+0x5b>
+ 8048583:	83 f8 2c             	cmp    $0x2c,%eax
+ 8048586:	74 6f                	je     80485f7 <jsmn_parse_primitive+0xc8>
+ 8048588:	eb 0a                	jmp    8048594 <jsmn_parse_primitive+0x65>
+ 804858a:	83 f8 5d             	cmp    $0x5d,%eax
+ 804858d:	74 68                	je     80485f7 <jsmn_parse_primitive+0xc8>
+ 804858f:	83 f8 7d             	cmp    $0x7d,%eax
+ 8048592:	74 63                	je     80485f7 <jsmn_parse_primitive+0xc8>
+ 8048594:	90                   	nop
+ 8048595:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048598:	8b 10                	mov    (%eax),%edx
+ 804859a:	8b 45 0c             	mov    0xc(%ebp),%eax
+ 804859d:	01 d0                	add    %edx,%eax
+ 804859f:	0f b6 00             	movzbl (%eax),%eax
+ 80485a2:	3c 1f                	cmp    $0x1f,%al
+ 80485a4:	7e 11                	jle    80485b7 <jsmn_parse_primitive+0x88>
+ 80485a6:	8b 45 08             	mov    0x8(%ebp),%eax
+ 80485a9:	8b 10                	mov    (%eax),%edx
+ 80485ab:	8b 45 0c             	mov    0xc(%ebp),%eax
+ 80485ae:	01 d0                	add    %edx,%eax
+ 80485b0:	0f b6 00             	movzbl (%eax),%eax
+ 80485b3:	3c 7f                	cmp    $0x7f,%al
+ 80485b5:	75 12                	jne    80485c9 <jsmn_parse_primitive+0x9a>
+ 80485b7:	8b 55 f8             	mov    -0x8(%ebp),%edx
+ 80485ba:	8b 45 08             	mov    0x8(%ebp),%eax
+ 80485bd:	89 10                	mov    %edx,(%eax)
+ 80485bf:	b8 fe ff ff ff       	mov    $0xfffffffe,%eax
+ 80485c4:	e9 af 00 00 00       	jmp    8048678 <jsmn_parse_primitive+0x149>
+ 80485c9:	8b 45 08             	mov    0x8(%ebp),%eax
+ 80485cc:	8b 00                	mov    (%eax),%eax
+ 80485ce:	8d 50 01             	lea    0x1(%eax),%edx
+ 80485d1:	8b 45 08             	mov    0x8(%ebp),%eax
+ 80485d4:	89 10                	mov    %edx,(%eax)
+ 80485d6:	8b 45 08             	mov    0x8(%ebp),%eax
+ 80485d9:	8b 00                	mov    (%eax),%eax
+ 80485db:	3b 45 10             	cmp    0x10(%ebp),%eax
+ 80485de:	73 18                	jae    80485f8 <jsmn_parse_primitive+0xc9>
+ 80485e0:	8b 45 08             	mov    0x8(%ebp),%eax
+ 80485e3:	8b 10                	mov    (%eax),%edx
+ 80485e5:	8b 45 0c             	mov    0xc(%ebp),%eax
+ 80485e8:	01 d0                	add    %edx,%eax
+ 80485ea:	0f b6 00             	movzbl (%eax),%eax
+ 80485ed:	84 c0                	test   %al,%al
+ 80485ef:	0f 85 4d ff ff ff    	jne    8048542 <jsmn_parse_primitive+0x13>
+ 80485f5:	eb 01                	jmp    80485f8 <jsmn_parse_primitive+0xc9>
+ 80485f7:	90                   	nop
+ 80485f8:	83 7d 14 00          	cmpl   $0x0,0x14(%ebp)
+ 80485fc:	75 14                	jne    8048612 <jsmn_parse_primitive+0xe3>
+ 80485fe:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048601:	8b 00                	mov    (%eax),%eax
+ 8048603:	8d 50 ff             	lea    -0x1(%eax),%edx
+ 8048606:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048609:	89 10                	mov    %edx,(%eax)
+ 804860b:	b8 00 00 00 00       	mov    $0x0,%eax
+ 8048610:	eb 66                	jmp    8048678 <jsmn_parse_primitive+0x149>
+ 8048612:	8b 45 18             	mov    0x18(%ebp),%eax
+ 8048615:	89 44 24 08          	mov    %eax,0x8(%esp)
+ 8048619:	8b 45 14             	mov    0x14(%ebp),%eax
+ 804861c:	89 44 24 04          	mov    %eax,0x4(%esp)
+ 8048620:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048623:	89 04 24             	mov    %eax,(%esp)
+ 8048626:	e8 82 fe ff ff       	call   80484ad <jsmn_alloc_token>
+ 804862b:	89 45 fc             	mov    %eax,-0x4(%ebp)
+ 804862e:	83 7d fc 00          	cmpl   $0x0,-0x4(%ebp)
+ 8048632:	75 0f                	jne    8048643 <jsmn_parse_primitive+0x114>
+ 8048634:	8b 55 f8             	mov    -0x8(%ebp),%edx
+ 8048637:	8b 45 08             	mov    0x8(%ebp),%eax
+ 804863a:	89 10                	mov    %edx,(%eax)
+ 804863c:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+ 8048641:	eb 35                	jmp    8048678 <jsmn_parse_primitive+0x149>
+ 8048643:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048646:	8b 00                	mov    (%eax),%eax
+ 8048648:	89 44 24 0c          	mov    %eax,0xc(%esp)
+ 804864c:	8b 45 f8             	mov    -0x8(%ebp),%eax
+ 804864f:	89 44 24 08          	mov    %eax,0x8(%esp)
+ 8048653:	c7 44 24 04 04 00 00 	movl   $0x4,0x4(%esp)
+ 804865a:	00 
+ 804865b:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 804865e:	89 04 24             	mov    %eax,(%esp)
+ 8048661:	e8 a0 fe ff ff       	call   8048506 <jsmn_fill_token>
+ 8048666:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048669:	8b 00                	mov    (%eax),%eax
+ 804866b:	8d 50 ff             	lea    -0x1(%eax),%edx
+ 804866e:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048671:	89 10                	mov    %edx,(%eax)
+ 8048673:	b8 00 00 00 00       	mov    $0x0,%eax
+ 8048678:	c9                   	leave  
+ 8048679:	c3                   	ret    
+
+0804867a <jsmn_parse_string>:
+ 804867a:	55                   	push   %ebp
+ 804867b:	89 e5                	mov    %esp,%ebp
+ 804867d:	83 ec 20             	sub    $0x20,%esp
+ 8048680:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048683:	8b 00                	mov    (%eax),%eax
+ 8048685:	89 45 f8             	mov    %eax,-0x8(%ebp)
+ 8048688:	8b 45 08             	mov    0x8(%ebp),%eax
+ 804868b:	8b 00                	mov    (%eax),%eax
+ 804868d:	8d 50 01             	lea    0x1(%eax),%edx
+ 8048690:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048693:	89 10                	mov    %edx,(%eax)
+ 8048695:	e9 ca 01 00 00       	jmp    8048864 <jsmn_parse_string+0x1ea>
+ 804869a:	8b 45 08             	mov    0x8(%ebp),%eax
+ 804869d:	8b 10                	mov    (%eax),%edx
+ 804869f:	8b 45 0c             	mov    0xc(%ebp),%eax
+ 80486a2:	01 d0                	add    %edx,%eax
+ 80486a4:	0f b6 00             	movzbl (%eax),%eax
+ 80486a7:	88 45 f3             	mov    %al,-0xd(%ebp)
+ 80486aa:	80 7d f3 22          	cmpb   $0x22,-0xd(%ebp)
+ 80486ae:	75 74                	jne    8048724 <jsmn_parse_string+0xaa>
+ 80486b0:	83 7d 14 00          	cmpl   $0x0,0x14(%ebp)
+ 80486b4:	75 0a                	jne    80486c0 <jsmn_parse_string+0x46>
+ 80486b6:	b8 00 00 00 00       	mov    $0x0,%eax
+ 80486bb:	e9 d0 01 00 00       	jmp    8048890 <jsmn_parse_string+0x216>
+ 80486c0:	8b 45 18             	mov    0x18(%ebp),%eax
+ 80486c3:	89 44 24 08          	mov    %eax,0x8(%esp)
+ 80486c7:	8b 45 14             	mov    0x14(%ebp),%eax
+ 80486ca:	89 44 24 04          	mov    %eax,0x4(%esp)
+ 80486ce:	8b 45 08             	mov    0x8(%ebp),%eax
+ 80486d1:	89 04 24             	mov    %eax,(%esp)
+ 80486d4:	e8 d4 fd ff ff       	call   80484ad <jsmn_alloc_token>
+ 80486d9:	89 45 fc             	mov    %eax,-0x4(%ebp)
+ 80486dc:	83 7d fc 00          	cmpl   $0x0,-0x4(%ebp)
+ 80486e0:	75 12                	jne    80486f4 <jsmn_parse_string+0x7a>
+ 80486e2:	8b 55 f8             	mov    -0x8(%ebp),%edx
+ 80486e5:	8b 45 08             	mov    0x8(%ebp),%eax
+ 80486e8:	89 10                	mov    %edx,(%eax)
+ 80486ea:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+ 80486ef:	e9 9c 01 00 00       	jmp    8048890 <jsmn_parse_string+0x216>
+ 80486f4:	8b 45 08             	mov    0x8(%ebp),%eax
+ 80486f7:	8b 00                	mov    (%eax),%eax
+ 80486f9:	8b 55 f8             	mov    -0x8(%ebp),%edx
+ 80486fc:	83 c2 01             	add    $0x1,%edx
+ 80486ff:	89 44 24 0c          	mov    %eax,0xc(%esp)
+ 8048703:	89 54 24 08          	mov    %edx,0x8(%esp)
+ 8048707:	c7 44 24 04 03 00 00 	movl   $0x3,0x4(%esp)
+ 804870e:	00 
+ 804870f:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 8048712:	89 04 24             	mov    %eax,(%esp)
+ 8048715:	e8 ec fd ff ff       	call   8048506 <jsmn_fill_token>
+ 804871a:	b8 00 00 00 00       	mov    $0x0,%eax
+ 804871f:	e9 6c 01 00 00       	jmp    8048890 <jsmn_parse_string+0x216>
+ 8048724:	80 7d f3 5c          	cmpb   $0x5c,-0xd(%ebp)
+ 8048728:	0f 85 29 01 00 00    	jne    8048857 <jsmn_parse_string+0x1dd>
+ 804872e:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048731:	8b 00                	mov    (%eax),%eax
+ 8048733:	83 c0 01             	add    $0x1,%eax
+ 8048736:	3b 45 10             	cmp    0x10(%ebp),%eax
+ 8048739:	0f 83 18 01 00 00    	jae    8048857 <jsmn_parse_string+0x1dd>
+ 804873f:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048742:	8b 00                	mov    (%eax),%eax
+ 8048744:	8d 50 01             	lea    0x1(%eax),%edx
+ 8048747:	8b 45 08             	mov    0x8(%ebp),%eax
+ 804874a:	89 10                	mov    %edx,(%eax)
+ 804874c:	8b 45 08             	mov    0x8(%ebp),%eax
+ 804874f:	8b 10                	mov    (%eax),%edx
+ 8048751:	8b 45 0c             	mov    0xc(%ebp),%eax
+ 8048754:	01 d0                	add    %edx,%eax
+ 8048756:	0f b6 00             	movzbl (%eax),%eax
+ 8048759:	0f be c0             	movsbl %al,%eax
+ 804875c:	83 e8 22             	sub    $0x22,%eax
+ 804875f:	83 f8 53             	cmp    $0x53,%eax
+ 8048762:	0f 87 df 00 00 00    	ja     8048847 <jsmn_parse_string+0x1cd>
+ 8048768:	8b 04 85 a0 92 04 08 	mov    0x80492a0(,%eax,4),%eax
+ 804876f:	ff e0                	jmp    *%eax
+ 8048771:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048774:	8b 00                	mov    (%eax),%eax
+ 8048776:	8d 50 01             	lea    0x1(%eax),%edx
+ 8048779:	8b 45 08             	mov    0x8(%ebp),%eax
+ 804877c:	89 10                	mov    %edx,(%eax)
+ 804877e:	c7 45 f4 00 00 00 00 	movl   $0x0,-0xc(%ebp)
+ 8048785:	e9 89 00 00 00       	jmp    8048813 <jsmn_parse_string+0x199>
+ 804878a:	8b 45 08             	mov    0x8(%ebp),%eax
+ 804878d:	8b 10                	mov    (%eax),%edx
+ 804878f:	8b 45 0c             	mov    0xc(%ebp),%eax
+ 8048792:	01 d0                	add    %edx,%eax
+ 8048794:	0f b6 00             	movzbl (%eax),%eax
+ 8048797:	3c 2f                	cmp    $0x2f,%al
+ 8048799:	7e 11                	jle    80487ac <jsmn_parse_string+0x132>
+ 804879b:	8b 45 08             	mov    0x8(%ebp),%eax
+ 804879e:	8b 10                	mov    (%eax),%edx
+ 80487a0:	8b 45 0c             	mov    0xc(%ebp),%eax
+ 80487a3:	01 d0                	add    %edx,%eax
+ 80487a5:	0f b6 00             	movzbl (%eax),%eax
+ 80487a8:	3c 39                	cmp    $0x39,%al
+ 80487aa:	7e 56                	jle    8048802 <jsmn_parse_string+0x188>
+ 80487ac:	8b 45 08             	mov    0x8(%ebp),%eax
+ 80487af:	8b 10                	mov    (%eax),%edx
+ 80487b1:	8b 45 0c             	mov    0xc(%ebp),%eax
+ 80487b4:	01 d0                	add    %edx,%eax
+ 80487b6:	0f b6 00             	movzbl (%eax),%eax
+ 80487b9:	3c 40                	cmp    $0x40,%al
+ 80487bb:	7e 11                	jle    80487ce <jsmn_parse_string+0x154>
+ 80487bd:	8b 45 08             	mov    0x8(%ebp),%eax
+ 80487c0:	8b 10                	mov    (%eax),%edx
+ 80487c2:	8b 45 0c             	mov    0xc(%ebp),%eax
+ 80487c5:	01 d0                	add    %edx,%eax
+ 80487c7:	0f b6 00             	movzbl (%eax),%eax
+ 80487ca:	3c 46                	cmp    $0x46,%al
+ 80487cc:	7e 34                	jle    8048802 <jsmn_parse_string+0x188>
+ 80487ce:	8b 45 08             	mov    0x8(%ebp),%eax
+ 80487d1:	8b 10                	mov    (%eax),%edx
+ 80487d3:	8b 45 0c             	mov    0xc(%ebp),%eax
+ 80487d6:	01 d0                	add    %edx,%eax
+ 80487d8:	0f b6 00             	movzbl (%eax),%eax
+ 80487db:	3c 60                	cmp    $0x60,%al
+ 80487dd:	7e 11                	jle    80487f0 <jsmn_parse_string+0x176>
+ 80487df:	8b 45 08             	mov    0x8(%ebp),%eax
+ 80487e2:	8b 10                	mov    (%eax),%edx
+ 80487e4:	8b 45 0c             	mov    0xc(%ebp),%eax
+ 80487e7:	01 d0                	add    %edx,%eax
+ 80487e9:	0f b6 00             	movzbl (%eax),%eax
+ 80487ec:	3c 66                	cmp    $0x66,%al
+ 80487ee:	7e 12                	jle    8048802 <jsmn_parse_string+0x188>
+ 80487f0:	8b 55 f8             	mov    -0x8(%ebp),%edx
+ 80487f3:	8b 45 08             	mov    0x8(%ebp),%eax
+ 80487f6:	89 10                	mov    %edx,(%eax)
+ 80487f8:	b8 fe ff ff ff       	mov    $0xfffffffe,%eax
+ 80487fd:	e9 8e 00 00 00       	jmp    8048890 <jsmn_parse_string+0x216>
+ 8048802:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048805:	8b 00                	mov    (%eax),%eax
+ 8048807:	8d 50 01             	lea    0x1(%eax),%edx
+ 804880a:	8b 45 08             	mov    0x8(%ebp),%eax
+ 804880d:	89 10                	mov    %edx,(%eax)
+ 804880f:	83 45 f4 01          	addl   $0x1,-0xc(%ebp)
+ 8048813:	83 7d f4 03          	cmpl   $0x3,-0xc(%ebp)
+ 8048817:	7f 1f                	jg     8048838 <jsmn_parse_string+0x1be>
+ 8048819:	8b 45 08             	mov    0x8(%ebp),%eax
+ 804881c:	8b 00                	mov    (%eax),%eax
+ 804881e:	3b 45 10             	cmp    0x10(%ebp),%eax
+ 8048821:	73 15                	jae    8048838 <jsmn_parse_string+0x1be>
+ 8048823:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048826:	8b 10                	mov    (%eax),%edx
+ 8048828:	8b 45 0c             	mov    0xc(%ebp),%eax
+ 804882b:	01 d0                	add    %edx,%eax
+ 804882d:	0f b6 00             	movzbl (%eax),%eax
+ 8048830:	84 c0                	test   %al,%al
+ 8048832:	0f 85 52 ff ff ff    	jne    804878a <jsmn_parse_string+0x110>
+ 8048838:	8b 45 08             	mov    0x8(%ebp),%eax
+ 804883b:	8b 00                	mov    (%eax),%eax
+ 804883d:	8d 50 ff             	lea    -0x1(%eax),%edx
+ 8048840:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048843:	89 10                	mov    %edx,(%eax)
+ 8048845:	eb 10                	jmp    8048857 <jsmn_parse_string+0x1dd>
+ 8048847:	8b 55 f8             	mov    -0x8(%ebp),%edx
+ 804884a:	8b 45 08             	mov    0x8(%ebp),%eax
+ 804884d:	89 10                	mov    %edx,(%eax)
+ 804884f:	b8 fe ff ff ff       	mov    $0xfffffffe,%eax
+ 8048854:	eb 3a                	jmp    8048890 <jsmn_parse_string+0x216>
+ 8048856:	90                   	nop
+ 8048857:	8b 45 08             	mov    0x8(%ebp),%eax
+ 804885a:	8b 00                	mov    (%eax),%eax
+ 804885c:	8d 50 01             	lea    0x1(%eax),%edx
+ 804885f:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048862:	89 10                	mov    %edx,(%eax)
+ 8048864:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048867:	8b 00                	mov    (%eax),%eax
+ 8048869:	3b 45 10             	cmp    0x10(%ebp),%eax
+ 804886c:	73 15                	jae    8048883 <jsmn_parse_string+0x209>
+ 804886e:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048871:	8b 10                	mov    (%eax),%edx
+ 8048873:	8b 45 0c             	mov    0xc(%ebp),%eax
+ 8048876:	01 d0                	add    %edx,%eax
+ 8048878:	0f b6 00             	movzbl (%eax),%eax
+ 804887b:	84 c0                	test   %al,%al
+ 804887d:	0f 85 17 fe ff ff    	jne    804869a <jsmn_parse_string+0x20>
+ 8048883:	8b 55 f8             	mov    -0x8(%ebp),%edx
+ 8048886:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048889:	89 10                	mov    %edx,(%eax)
+ 804888b:	b8 fd ff ff ff       	mov    $0xfffffffd,%eax
+ 8048890:	c9                   	leave  
+ 8048891:	c3                   	ret    
+
+08048892 <jsmn_parse>:
+ 8048892:	55                   	push   %ebp
+ 8048893:	89 e5                	mov    %esp,%ebp
+ 8048895:	83 ec 34             	sub    $0x34,%esp
+ 8048898:	8b 45 08             	mov    0x8(%ebp),%eax
+ 804889b:	8b 40 04             	mov    0x4(%eax),%eax
+ 804889e:	89 45 ec             	mov    %eax,-0x14(%ebp)
+ 80488a1:	e9 ce 03 00 00       	jmp    8048c74 <jsmn_parse+0x3e2>
+ 80488a6:	8b 45 08             	mov    0x8(%ebp),%eax
+ 80488a9:	8b 10                	mov    (%eax),%edx
+ 80488ab:	8b 45 0c             	mov    0xc(%ebp),%eax
+ 80488ae:	01 d0                	add    %edx,%eax
+ 80488b0:	0f b6 00             	movzbl (%eax),%eax
+ 80488b3:	88 45 e7             	mov    %al,-0x19(%ebp)
+ 80488b6:	0f be 45 e7          	movsbl -0x19(%ebp),%eax
+ 80488ba:	83 f8 2c             	cmp    $0x2c,%eax
+ 80488bd:	0f 84 77 02 00 00    	je     8048b3a <jsmn_parse+0x2a8>
+ 80488c3:	83 f8 2c             	cmp    $0x2c,%eax
+ 80488c6:	7f 36                	jg     80488fe <jsmn_parse+0x6c>
+ 80488c8:	83 f8 0d             	cmp    $0xd,%eax
+ 80488cb:	0f 84 95 03 00 00    	je     8048c66 <jsmn_parse+0x3d4>
+ 80488d1:	83 f8 0d             	cmp    $0xd,%eax
+ 80488d4:	7f 11                	jg     80488e7 <jsmn_parse+0x55>
+ 80488d6:	83 e8 09             	sub    $0x9,%eax
+ 80488d9:	83 f8 01             	cmp    $0x1,%eax
+ 80488dc:	0f 87 1a 03 00 00    	ja     8048bfc <jsmn_parse+0x36a>
+ 80488e2:	e9 7f 03 00 00       	jmp    8048c66 <jsmn_parse+0x3d4>
+ 80488e7:	83 f8 20             	cmp    $0x20,%eax
+ 80488ea:	0f 84 76 03 00 00    	je     8048c66 <jsmn_parse+0x3d4>
+ 80488f0:	83 f8 22             	cmp    $0x22,%eax
+ 80488f3:	0f 84 bb 01 00 00    	je     8048ab4 <jsmn_parse+0x222>
+ 80488f9:	e9 fe 02 00 00       	jmp    8048bfc <jsmn_parse+0x36a>
+ 80488fe:	83 f8 5d             	cmp    $0x5d,%eax
+ 8048901:	0f 84 cd 00 00 00    	je     80489d4 <jsmn_parse+0x142>
+ 8048907:	83 f8 5d             	cmp    $0x5d,%eax
+ 804890a:	7f 13                	jg     804891f <jsmn_parse+0x8d>
+ 804890c:	83 f8 3a             	cmp    $0x3a,%eax
+ 804890f:	0f 84 0f 02 00 00    	je     8048b24 <jsmn_parse+0x292>
+ 8048915:	83 f8 5b             	cmp    $0x5b,%eax
+ 8048918:	74 18                	je     8048932 <jsmn_parse+0xa0>
+ 804891a:	e9 dd 02 00 00       	jmp    8048bfc <jsmn_parse+0x36a>
+ 804891f:	83 f8 7b             	cmp    $0x7b,%eax
+ 8048922:	74 0e                	je     8048932 <jsmn_parse+0xa0>
+ 8048924:	83 f8 7d             	cmp    $0x7d,%eax
+ 8048927:	0f 84 a7 00 00 00    	je     80489d4 <jsmn_parse+0x142>
+ 804892d:	e9 ca 02 00 00       	jmp    8048bfc <jsmn_parse+0x36a>
+ 8048932:	83 45 ec 01          	addl   $0x1,-0x14(%ebp)
+ 8048936:	83 7d 14 00          	cmpl   $0x0,0x14(%ebp)
+ 804893a:	75 05                	jne    8048941 <jsmn_parse+0xaf>
+ 804893c:	e9 26 03 00 00       	jmp    8048c67 <jsmn_parse+0x3d5>
+ 8048941:	8b 45 18             	mov    0x18(%ebp),%eax
+ 8048944:	89 44 24 08          	mov    %eax,0x8(%esp)
+ 8048948:	8b 45 14             	mov    0x14(%ebp),%eax
+ 804894b:	89 44 24 04          	mov    %eax,0x4(%esp)
+ 804894f:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048952:	89 04 24             	mov    %eax,(%esp)
+ 8048955:	e8 53 fb ff ff       	call   80484ad <jsmn_alloc_token>
+ 804895a:	89 45 f0             	mov    %eax,-0x10(%ebp)
+ 804895d:	83 7d f0 00          	cmpl   $0x0,-0x10(%ebp)
+ 8048961:	75 0a                	jne    804896d <jsmn_parse+0xdb>
+ 8048963:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+ 8048968:	e9 78 03 00 00       	jmp    8048ce5 <jsmn_parse+0x453>
+ 804896d:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048970:	8b 40 08             	mov    0x8(%eax),%eax
+ 8048973:	83 f8 ff             	cmp    $0xffffffff,%eax
+ 8048976:	74 22                	je     804899a <jsmn_parse+0x108>
+ 8048978:	8b 45 08             	mov    0x8(%ebp),%eax
+ 804897b:	8b 40 08             	mov    0x8(%eax),%eax
+ 804897e:	c1 e0 04             	shl    $0x4,%eax
+ 8048981:	89 c2                	mov    %eax,%edx
+ 8048983:	8b 45 14             	mov    0x14(%ebp),%eax
+ 8048986:	01 d0                	add    %edx,%eax
+ 8048988:	89 45 f4             	mov    %eax,-0xc(%ebp)
+ 804898b:	8b 45 f4             	mov    -0xc(%ebp),%eax
+ 804898e:	8b 40 0c             	mov    0xc(%eax),%eax
+ 8048991:	8d 50 01             	lea    0x1(%eax),%edx
+ 8048994:	8b 45 f4             	mov    -0xc(%ebp),%eax
+ 8048997:	89 50 0c             	mov    %edx,0xc(%eax)
+ 804899a:	80 7d e7 7b          	cmpb   $0x7b,-0x19(%ebp)
+ 804899e:	75 07                	jne    80489a7 <jsmn_parse+0x115>
+ 80489a0:	b8 01 00 00 00       	mov    $0x1,%eax
+ 80489a5:	eb 05                	jmp    80489ac <jsmn_parse+0x11a>
+ 80489a7:	b8 02 00 00 00       	mov    $0x2,%eax
+ 80489ac:	8b 55 f0             	mov    -0x10(%ebp),%edx
+ 80489af:	89 02                	mov    %eax,(%edx)
+ 80489b1:	8b 45 08             	mov    0x8(%ebp),%eax
+ 80489b4:	8b 00                	mov    (%eax),%eax
+ 80489b6:	89 c2                	mov    %eax,%edx
+ 80489b8:	8b 45 f0             	mov    -0x10(%ebp),%eax
+ 80489bb:	89 50 04             	mov    %edx,0x4(%eax)
+ 80489be:	8b 45 08             	mov    0x8(%ebp),%eax
+ 80489c1:	8b 40 04             	mov    0x4(%eax),%eax
+ 80489c4:	83 e8 01             	sub    $0x1,%eax
+ 80489c7:	89 c2                	mov    %eax,%edx
+ 80489c9:	8b 45 08             	mov    0x8(%ebp),%eax
+ 80489cc:	89 50 08             	mov    %edx,0x8(%eax)
+ 80489cf:	e9 93 02 00 00       	jmp    8048c67 <jsmn_parse+0x3d5>
+ 80489d4:	83 7d 14 00          	cmpl   $0x0,0x14(%ebp)
+ 80489d8:	75 05                	jne    80489df <jsmn_parse+0x14d>
+ 80489da:	e9 88 02 00 00       	jmp    8048c67 <jsmn_parse+0x3d5>
+ 80489df:	80 7d e7 7d          	cmpb   $0x7d,-0x19(%ebp)
+ 80489e3:	75 07                	jne    80489ec <jsmn_parse+0x15a>
+ 80489e5:	b8 01 00 00 00       	mov    $0x1,%eax
+ 80489ea:	eb 05                	jmp    80489f1 <jsmn_parse+0x15f>
+ 80489ec:	b8 02 00 00 00       	mov    $0x2,%eax
+ 80489f1:	89 45 f8             	mov    %eax,-0x8(%ebp)
+ 80489f4:	8b 45 08             	mov    0x8(%ebp),%eax
+ 80489f7:	8b 40 04             	mov    0x4(%eax),%eax
+ 80489fa:	83 e8 01             	sub    $0x1,%eax
+ 80489fd:	89 45 e8             	mov    %eax,-0x18(%ebp)
+ 8048a00:	eb 5a                	jmp    8048a5c <jsmn_parse+0x1ca>
+ 8048a02:	8b 45 e8             	mov    -0x18(%ebp),%eax
+ 8048a05:	c1 e0 04             	shl    $0x4,%eax
+ 8048a08:	89 c2                	mov    %eax,%edx
+ 8048a0a:	8b 45 14             	mov    0x14(%ebp),%eax
+ 8048a0d:	01 d0                	add    %edx,%eax
+ 8048a0f:	89 45 f0             	mov    %eax,-0x10(%ebp)
+ 8048a12:	8b 45 f0             	mov    -0x10(%ebp),%eax
+ 8048a15:	8b 40 04             	mov    0x4(%eax),%eax
+ 8048a18:	83 f8 ff             	cmp    $0xffffffff,%eax
+ 8048a1b:	74 3b                	je     8048a58 <jsmn_parse+0x1c6>
+ 8048a1d:	8b 45 f0             	mov    -0x10(%ebp),%eax
+ 8048a20:	8b 40 08             	mov    0x8(%eax),%eax
+ 8048a23:	83 f8 ff             	cmp    $0xffffffff,%eax
+ 8048a26:	75 30                	jne    8048a58 <jsmn_parse+0x1c6>
+ 8048a28:	8b 45 f0             	mov    -0x10(%ebp),%eax
+ 8048a2b:	8b 00                	mov    (%eax),%eax
+ 8048a2d:	3b 45 f8             	cmp    -0x8(%ebp),%eax
+ 8048a30:	74 0a                	je     8048a3c <jsmn_parse+0x1aa>
+ 8048a32:	b8 fe ff ff ff       	mov    $0xfffffffe,%eax
+ 8048a37:	e9 a9 02 00 00       	jmp    8048ce5 <jsmn_parse+0x453>
+ 8048a3c:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048a3f:	c7 40 08 ff ff ff ff 	movl   $0xffffffff,0x8(%eax)
+ 8048a46:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048a49:	8b 00                	mov    (%eax),%eax
+ 8048a4b:	83 c0 01             	add    $0x1,%eax
+ 8048a4e:	89 c2                	mov    %eax,%edx
+ 8048a50:	8b 45 f0             	mov    -0x10(%ebp),%eax
+ 8048a53:	89 50 08             	mov    %edx,0x8(%eax)
+ 8048a56:	eb 0a                	jmp    8048a62 <jsmn_parse+0x1d0>
+ 8048a58:	83 6d e8 01          	subl   $0x1,-0x18(%ebp)
+ 8048a5c:	83 7d e8 00          	cmpl   $0x0,-0x18(%ebp)
+ 8048a60:	79 a0                	jns    8048a02 <jsmn_parse+0x170>
+ 8048a62:	83 7d e8 ff          	cmpl   $0xffffffff,-0x18(%ebp)
+ 8048a66:	75 0a                	jne    8048a72 <jsmn_parse+0x1e0>
+ 8048a68:	b8 fe ff ff ff       	mov    $0xfffffffe,%eax
+ 8048a6d:	e9 73 02 00 00       	jmp    8048ce5 <jsmn_parse+0x453>
+ 8048a72:	eb 35                	jmp    8048aa9 <jsmn_parse+0x217>
+ 8048a74:	8b 45 e8             	mov    -0x18(%ebp),%eax
+ 8048a77:	c1 e0 04             	shl    $0x4,%eax
+ 8048a7a:	89 c2                	mov    %eax,%edx
+ 8048a7c:	8b 45 14             	mov    0x14(%ebp),%eax
+ 8048a7f:	01 d0                	add    %edx,%eax
+ 8048a81:	89 45 f0             	mov    %eax,-0x10(%ebp)
+ 8048a84:	8b 45 f0             	mov    -0x10(%ebp),%eax
+ 8048a87:	8b 40 04             	mov    0x4(%eax),%eax
+ 8048a8a:	83 f8 ff             	cmp    $0xffffffff,%eax
+ 8048a8d:	74 16                	je     8048aa5 <jsmn_parse+0x213>
+ 8048a8f:	8b 45 f0             	mov    -0x10(%ebp),%eax
+ 8048a92:	8b 40 08             	mov    0x8(%eax),%eax
+ 8048a95:	83 f8 ff             	cmp    $0xffffffff,%eax
+ 8048a98:	75 0b                	jne    8048aa5 <jsmn_parse+0x213>
+ 8048a9a:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048a9d:	8b 55 e8             	mov    -0x18(%ebp),%edx
+ 8048aa0:	89 50 08             	mov    %edx,0x8(%eax)
+ 8048aa3:	eb 0a                	jmp    8048aaf <jsmn_parse+0x21d>
+ 8048aa5:	83 6d e8 01          	subl   $0x1,-0x18(%ebp)
+ 8048aa9:	83 7d e8 00          	cmpl   $0x0,-0x18(%ebp)
+ 8048aad:	79 c5                	jns    8048a74 <jsmn_parse+0x1e2>
+ 8048aaf:	e9 b3 01 00 00       	jmp    8048c67 <jsmn_parse+0x3d5>
+ 8048ab4:	8b 45 18             	mov    0x18(%ebp),%eax
+ 8048ab7:	89 44 24 10          	mov    %eax,0x10(%esp)
+ 8048abb:	8b 45 14             	mov    0x14(%ebp),%eax
+ 8048abe:	89 44 24 0c          	mov    %eax,0xc(%esp)
+ 8048ac2:	8b 45 10             	mov    0x10(%ebp),%eax
+ 8048ac5:	89 44 24 08          	mov    %eax,0x8(%esp)
+ 8048ac9:	8b 45 0c             	mov    0xc(%ebp),%eax
+ 8048acc:	89 44 24 04          	mov    %eax,0x4(%esp)
+ 8048ad0:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048ad3:	89 04 24             	mov    %eax,(%esp)
+ 8048ad6:	e8 9f fb ff ff       	call   804867a <jsmn_parse_string>
+ 8048adb:	89 45 fc             	mov    %eax,-0x4(%ebp)
+ 8048ade:	83 7d fc 00          	cmpl   $0x0,-0x4(%ebp)
+ 8048ae2:	79 08                	jns    8048aec <jsmn_parse+0x25a>
+ 8048ae4:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 8048ae7:	e9 f9 01 00 00       	jmp    8048ce5 <jsmn_parse+0x453>
+ 8048aec:	83 45 ec 01          	addl   $0x1,-0x14(%ebp)
+ 8048af0:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048af3:	8b 40 08             	mov    0x8(%eax),%eax
+ 8048af6:	83 f8 ff             	cmp    $0xffffffff,%eax
+ 8048af9:	74 24                	je     8048b1f <jsmn_parse+0x28d>
+ 8048afb:	83 7d 14 00          	cmpl   $0x0,0x14(%ebp)
+ 8048aff:	74 1e                	je     8048b1f <jsmn_parse+0x28d>
+ 8048b01:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048b04:	8b 40 08             	mov    0x8(%eax),%eax
+ 8048b07:	c1 e0 04             	shl    $0x4,%eax
+ 8048b0a:	89 c2                	mov    %eax,%edx
+ 8048b0c:	8b 45 14             	mov    0x14(%ebp),%eax
+ 8048b0f:	01 d0                	add    %edx,%eax
+ 8048b11:	8b 50 0c             	mov    0xc(%eax),%edx
+ 8048b14:	83 c2 01             	add    $0x1,%edx
+ 8048b17:	89 50 0c             	mov    %edx,0xc(%eax)
+ 8048b1a:	e9 48 01 00 00       	jmp    8048c67 <jsmn_parse+0x3d5>
+ 8048b1f:	e9 43 01 00 00       	jmp    8048c67 <jsmn_parse+0x3d5>
+ 8048b24:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048b27:	8b 40 04             	mov    0x4(%eax),%eax
+ 8048b2a:	83 e8 01             	sub    $0x1,%eax
+ 8048b2d:	89 c2                	mov    %eax,%edx
+ 8048b2f:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048b32:	89 50 08             	mov    %edx,0x8(%eax)
+ 8048b35:	e9 2d 01 00 00       	jmp    8048c67 <jsmn_parse+0x3d5>
+ 8048b3a:	83 7d 14 00          	cmpl   $0x0,0x14(%ebp)
+ 8048b3e:	0f 84 b6 00 00 00    	je     8048bfa <jsmn_parse+0x368>
+ 8048b44:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048b47:	8b 40 08             	mov    0x8(%eax),%eax
+ 8048b4a:	83 f8 ff             	cmp    $0xffffffff,%eax
+ 8048b4d:	0f 84 a7 00 00 00    	je     8048bfa <jsmn_parse+0x368>
+ 8048b53:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048b56:	8b 40 08             	mov    0x8(%eax),%eax
+ 8048b59:	c1 e0 04             	shl    $0x4,%eax
+ 8048b5c:	89 c2                	mov    %eax,%edx
+ 8048b5e:	8b 45 14             	mov    0x14(%ebp),%eax
+ 8048b61:	01 d0                	add    %edx,%eax
+ 8048b63:	8b 00                	mov    (%eax),%eax
+ 8048b65:	83 f8 02             	cmp    $0x2,%eax
+ 8048b68:	0f 84 8c 00 00 00    	je     8048bfa <jsmn_parse+0x368>
+ 8048b6e:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048b71:	8b 40 08             	mov    0x8(%eax),%eax
+ 8048b74:	c1 e0 04             	shl    $0x4,%eax
+ 8048b77:	89 c2                	mov    %eax,%edx
+ 8048b79:	8b 45 14             	mov    0x14(%ebp),%eax
+ 8048b7c:	01 d0                	add    %edx,%eax
+ 8048b7e:	8b 00                	mov    (%eax),%eax
+ 8048b80:	83 f8 01             	cmp    $0x1,%eax
+ 8048b83:	74 75                	je     8048bfa <jsmn_parse+0x368>
+ 8048b85:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048b88:	8b 40 04             	mov    0x4(%eax),%eax
+ 8048b8b:	83 e8 01             	sub    $0x1,%eax
+ 8048b8e:	89 45 e8             	mov    %eax,-0x18(%ebp)
+ 8048b91:	eb 61                	jmp    8048bf4 <jsmn_parse+0x362>
+ 8048b93:	8b 45 e8             	mov    -0x18(%ebp),%eax
+ 8048b96:	c1 e0 04             	shl    $0x4,%eax
+ 8048b99:	89 c2                	mov    %eax,%edx
+ 8048b9b:	8b 45 14             	mov    0x14(%ebp),%eax
+ 8048b9e:	01 d0                	add    %edx,%eax
+ 8048ba0:	8b 00                	mov    (%eax),%eax
+ 8048ba2:	83 f8 02             	cmp    $0x2,%eax
+ 8048ba5:	74 14                	je     8048bbb <jsmn_parse+0x329>
+ 8048ba7:	8b 45 e8             	mov    -0x18(%ebp),%eax
+ 8048baa:	c1 e0 04             	shl    $0x4,%eax
+ 8048bad:	89 c2                	mov    %eax,%edx
+ 8048baf:	8b 45 14             	mov    0x14(%ebp),%eax
+ 8048bb2:	01 d0                	add    %edx,%eax
+ 8048bb4:	8b 00                	mov    (%eax),%eax
+ 8048bb6:	83 f8 01             	cmp    $0x1,%eax
+ 8048bb9:	75 35                	jne    8048bf0 <jsmn_parse+0x35e>
+ 8048bbb:	8b 45 e8             	mov    -0x18(%ebp),%eax
+ 8048bbe:	c1 e0 04             	shl    $0x4,%eax
+ 8048bc1:	89 c2                	mov    %eax,%edx
+ 8048bc3:	8b 45 14             	mov    0x14(%ebp),%eax
+ 8048bc6:	01 d0                	add    %edx,%eax
+ 8048bc8:	8b 40 04             	mov    0x4(%eax),%eax
+ 8048bcb:	83 f8 ff             	cmp    $0xffffffff,%eax
+ 8048bce:	74 20                	je     8048bf0 <jsmn_parse+0x35e>
+ 8048bd0:	8b 45 e8             	mov    -0x18(%ebp),%eax
+ 8048bd3:	c1 e0 04             	shl    $0x4,%eax
+ 8048bd6:	89 c2                	mov    %eax,%edx
+ 8048bd8:	8b 45 14             	mov    0x14(%ebp),%eax
+ 8048bdb:	01 d0                	add    %edx,%eax
+ 8048bdd:	8b 40 08             	mov    0x8(%eax),%eax
+ 8048be0:	83 f8 ff             	cmp    $0xffffffff,%eax
+ 8048be3:	75 0b                	jne    8048bf0 <jsmn_parse+0x35e>
+ 8048be5:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048be8:	8b 55 e8             	mov    -0x18(%ebp),%edx
+ 8048beb:	89 50 08             	mov    %edx,0x8(%eax)
+ 8048bee:	eb 0a                	jmp    8048bfa <jsmn_parse+0x368>
+ 8048bf0:	83 6d e8 01          	subl   $0x1,-0x18(%ebp)
+ 8048bf4:	83 7d e8 00          	cmpl   $0x0,-0x18(%ebp)
+ 8048bf8:	79 99                	jns    8048b93 <jsmn_parse+0x301>
+ 8048bfa:	eb 6b                	jmp    8048c67 <jsmn_parse+0x3d5>
+ 8048bfc:	8b 45 18             	mov    0x18(%ebp),%eax
+ 8048bff:	89 44 24 10          	mov    %eax,0x10(%esp)
+ 8048c03:	8b 45 14             	mov    0x14(%ebp),%eax
+ 8048c06:	89 44 24 0c          	mov    %eax,0xc(%esp)
+ 8048c0a:	8b 45 10             	mov    0x10(%ebp),%eax
+ 8048c0d:	89 44 24 08          	mov    %eax,0x8(%esp)
+ 8048c11:	8b 45 0c             	mov    0xc(%ebp),%eax
+ 8048c14:	89 44 24 04          	mov    %eax,0x4(%esp)
+ 8048c18:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048c1b:	89 04 24             	mov    %eax,(%esp)
+ 8048c1e:	e8 0c f9 ff ff       	call   804852f <jsmn_parse_primitive>
+ 8048c23:	89 45 fc             	mov    %eax,-0x4(%ebp)
+ 8048c26:	83 7d fc 00          	cmpl   $0x0,-0x4(%ebp)
+ 8048c2a:	79 08                	jns    8048c34 <jsmn_parse+0x3a2>
+ 8048c2c:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 8048c2f:	e9 b1 00 00 00       	jmp    8048ce5 <jsmn_parse+0x453>
+ 8048c34:	83 45 ec 01          	addl   $0x1,-0x14(%ebp)
+ 8048c38:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048c3b:	8b 40 08             	mov    0x8(%eax),%eax
+ 8048c3e:	83 f8 ff             	cmp    $0xffffffff,%eax
+ 8048c41:	74 21                	je     8048c64 <jsmn_parse+0x3d2>
+ 8048c43:	83 7d 14 00          	cmpl   $0x0,0x14(%ebp)
+ 8048c47:	74 1b                	je     8048c64 <jsmn_parse+0x3d2>
+ 8048c49:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048c4c:	8b 40 08             	mov    0x8(%eax),%eax
+ 8048c4f:	c1 e0 04             	shl    $0x4,%eax
+ 8048c52:	89 c2                	mov    %eax,%edx
+ 8048c54:	8b 45 14             	mov    0x14(%ebp),%eax
+ 8048c57:	01 d0                	add    %edx,%eax
+ 8048c59:	8b 50 0c             	mov    0xc(%eax),%edx
+ 8048c5c:	83 c2 01             	add    $0x1,%edx
+ 8048c5f:	89 50 0c             	mov    %edx,0xc(%eax)
+ 8048c62:	eb 03                	jmp    8048c67 <jsmn_parse+0x3d5>
+ 8048c64:	eb 01                	jmp    8048c67 <jsmn_parse+0x3d5>
+ 8048c66:	90                   	nop
+ 8048c67:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048c6a:	8b 00                	mov    (%eax),%eax
+ 8048c6c:	8d 50 01             	lea    0x1(%eax),%edx
+ 8048c6f:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048c72:	89 10                	mov    %edx,(%eax)
+ 8048c74:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048c77:	8b 00                	mov    (%eax),%eax
+ 8048c79:	3b 45 10             	cmp    0x10(%ebp),%eax
+ 8048c7c:	73 15                	jae    8048c93 <jsmn_parse+0x401>
+ 8048c7e:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048c81:	8b 10                	mov    (%eax),%edx
+ 8048c83:	8b 45 0c             	mov    0xc(%ebp),%eax
+ 8048c86:	01 d0                	add    %edx,%eax
+ 8048c88:	0f b6 00             	movzbl (%eax),%eax
+ 8048c8b:	84 c0                	test   %al,%al
+ 8048c8d:	0f 85 13 fc ff ff    	jne    80488a6 <jsmn_parse+0x14>
+ 8048c93:	83 7d 14 00          	cmpl   $0x0,0x14(%ebp)
+ 8048c97:	74 49                	je     8048ce2 <jsmn_parse+0x450>
+ 8048c99:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048c9c:	8b 40 04             	mov    0x4(%eax),%eax
+ 8048c9f:	83 e8 01             	sub    $0x1,%eax
+ 8048ca2:	89 45 e8             	mov    %eax,-0x18(%ebp)
+ 8048ca5:	eb 35                	jmp    8048cdc <jsmn_parse+0x44a>
+ 8048ca7:	8b 45 e8             	mov    -0x18(%ebp),%eax
+ 8048caa:	c1 e0 04             	shl    $0x4,%eax
+ 8048cad:	89 c2                	mov    %eax,%edx
+ 8048caf:	8b 45 14             	mov    0x14(%ebp),%eax
+ 8048cb2:	01 d0                	add    %edx,%eax
+ 8048cb4:	8b 40 04             	mov    0x4(%eax),%eax
+ 8048cb7:	83 f8 ff             	cmp    $0xffffffff,%eax
+ 8048cba:	74 1c                	je     8048cd8 <jsmn_parse+0x446>
+ 8048cbc:	8b 45 e8             	mov    -0x18(%ebp),%eax
+ 8048cbf:	c1 e0 04             	shl    $0x4,%eax
+ 8048cc2:	89 c2                	mov    %eax,%edx
+ 8048cc4:	8b 45 14             	mov    0x14(%ebp),%eax
+ 8048cc7:	01 d0                	add    %edx,%eax
+ 8048cc9:	8b 40 08             	mov    0x8(%eax),%eax
+ 8048ccc:	83 f8 ff             	cmp    $0xffffffff,%eax
+ 8048ccf:	75 07                	jne    8048cd8 <jsmn_parse+0x446>
+ 8048cd1:	b8 fd ff ff ff       	mov    $0xfffffffd,%eax
+ 8048cd6:	eb 0d                	jmp    8048ce5 <jsmn_parse+0x453>
+ 8048cd8:	83 6d e8 01          	subl   $0x1,-0x18(%ebp)
+ 8048cdc:	83 7d e8 00          	cmpl   $0x0,-0x18(%ebp)
+ 8048ce0:	79 c5                	jns    8048ca7 <jsmn_parse+0x415>
+ 8048ce2:	8b 45 ec             	mov    -0x14(%ebp),%eax
+ 8048ce5:	c9                   	leave  
+ 8048ce6:	c3                   	ret    
+
+08048ce7 <jsmn_init>:
+ 8048ce7:	55                   	push   %ebp
+ 8048ce8:	89 e5                	mov    %esp,%ebp
+ 8048cea:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048ced:	c7 00 00 00 00 00    	movl   $0x0,(%eax)
+ 8048cf3:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048cf6:	c7 40 04 00 00 00 00 	movl   $0x0,0x4(%eax)
+ 8048cfd:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048d00:	c7 40 08 ff ff ff ff 	movl   $0xffffffff,0x8(%eax)
+ 8048d07:	5d                   	pop    %ebp
+ 8048d08:	c3                   	ret    
+
+08048d09 <jsoneq>:
+ 8048d09:	55                   	push   %ebp
+ 8048d0a:	89 e5                	mov    %esp,%ebp
+ 8048d0c:	83 ec 18             	sub    $0x18,%esp
+ 8048d0f:	8b 45 0c             	mov    0xc(%ebp),%eax
+ 8048d12:	8b 00                	mov    (%eax),%eax
+ 8048d14:	83 f8 03             	cmp    $0x3,%eax
+ 8048d17:	75 5c                	jne    8048d75 <jsoneq+0x6c>
+ 8048d19:	8b 45 10             	mov    0x10(%ebp),%eax
+ 8048d1c:	89 04 24             	mov    %eax,(%esp)
+ 8048d1f:	e8 5c f6 ff ff       	call   8048380 <strlen@plt>
+ 8048d24:	89 c2                	mov    %eax,%edx
+ 8048d26:	8b 45 0c             	mov    0xc(%ebp),%eax
+ 8048d29:	8b 48 08             	mov    0x8(%eax),%ecx
+ 8048d2c:	8b 45 0c             	mov    0xc(%ebp),%eax
+ 8048d2f:	8b 40 04             	mov    0x4(%eax),%eax
+ 8048d32:	29 c1                	sub    %eax,%ecx
+ 8048d34:	89 c8                	mov    %ecx,%eax
+ 8048d36:	39 c2                	cmp    %eax,%edx
+ 8048d38:	75 3b                	jne    8048d75 <jsoneq+0x6c>
+ 8048d3a:	8b 45 0c             	mov    0xc(%ebp),%eax
+ 8048d3d:	8b 50 08             	mov    0x8(%eax),%edx
+ 8048d40:	8b 45 0c             	mov    0xc(%ebp),%eax
+ 8048d43:	8b 40 04             	mov    0x4(%eax),%eax
+ 8048d46:	29 c2                	sub    %eax,%edx
+ 8048d48:	89 d0                	mov    %edx,%eax
+ 8048d4a:	8b 55 0c             	mov    0xc(%ebp),%edx
+ 8048d4d:	8b 52 04             	mov    0x4(%edx),%edx
+ 8048d50:	89 d1                	mov    %edx,%ecx
+ 8048d52:	8b 55 08             	mov    0x8(%ebp),%edx
+ 8048d55:	01 ca                	add    %ecx,%edx
+ 8048d57:	89 44 24 08          	mov    %eax,0x8(%esp)
+ 8048d5b:	8b 45 10             	mov    0x10(%ebp),%eax
+ 8048d5e:	89 44 24 04          	mov    %eax,0x4(%esp)
+ 8048d62:	89 14 24             	mov    %edx,(%esp)
+ 8048d65:	e8 36 f6 ff ff       	call   80483a0 <strncmp@plt>
+ 8048d6a:	85 c0                	test   %eax,%eax
+ 8048d6c:	75 07                	jne    8048d75 <jsoneq+0x6c>
+ 8048d6e:	b8 00 00 00 00       	mov    $0x0,%eax
+ 8048d73:	eb 05                	jmp    8048d7a <jsoneq+0x71>
+ 8048d75:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+ 8048d7a:	c9                   	leave  
+ 8048d7b:	c3                   	ret    
+
+08048d7c <LLVMFuzzerTestOneInput>:
+ 8048d7c:	55                   	push   %ebp
+ 8048d7d:	89 e5                	mov    %esp,%ebp
+ 8048d7f:	57                   	push   %edi
+ 8048d80:	56                   	push   %esi
+ 8048d81:	53                   	push   %ebx
+ 8048d82:	81 ec 5c 08 00 00    	sub    $0x85c,%esp
+ 8048d88:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048d8b:	89 85 cc f7 ff ff    	mov    %eax,-0x834(%ebp)
+ 8048d91:	8b 85 cc f7 ff ff    	mov    -0x834(%ebp),%eax
+ 8048d97:	89 04 24             	mov    %eax,(%esp)
+ 8048d9a:	e8 e1 f5 ff ff       	call   8048380 <strlen@plt>
+ 8048d9f:	89 85 d0 f7 ff ff    	mov    %eax,-0x830(%ebp)
+ 8048da5:	8d 85 dc f7 ff ff    	lea    -0x824(%ebp),%eax
+ 8048dab:	89 04 24             	mov    %eax,(%esp)
+ 8048dae:	e8 34 ff ff ff       	call   8048ce7 <jsmn_init>
+ 8048db3:	c7 44 24 10 80 00 00 	movl   $0x80,0x10(%esp)
+ 8048dba:	00 
+ 8048dbb:	8d 85 e8 f7 ff ff    	lea    -0x818(%ebp),%eax
+ 8048dc1:	89 44 24 0c          	mov    %eax,0xc(%esp)
+ 8048dc5:	8b 85 d0 f7 ff ff    	mov    -0x830(%ebp),%eax
+ 8048dcb:	89 44 24 08          	mov    %eax,0x8(%esp)
+ 8048dcf:	8b 85 cc f7 ff ff    	mov    -0x834(%ebp),%eax
+ 8048dd5:	89 44 24 04          	mov    %eax,0x4(%esp)
+ 8048dd9:	8d 85 dc f7 ff ff    	lea    -0x824(%ebp),%eax
+ 8048ddf:	89 04 24             	mov    %eax,(%esp)
+ 8048de2:	e8 ab fa ff ff       	call   8048892 <jsmn_parse>
+ 8048de7:	89 85 d4 f7 ff ff    	mov    %eax,-0x82c(%ebp)
+ 8048ded:	83 bd d4 f7 ff ff 00 	cmpl   $0x0,-0x82c(%ebp)
+ 8048df4:	79 20                	jns    8048e16 <LLVMFuzzerTestOneInput+0x9a>
+ 8048df6:	8b 85 d4 f7 ff ff    	mov    -0x82c(%ebp),%eax
+ 8048dfc:	89 44 24 04          	mov    %eax,0x4(%esp)
+ 8048e00:	c7 04 24 f0 93 04 08 	movl   $0x80493f0,(%esp)
+ 8048e07:	e8 44 f5 ff ff       	call   8048350 <printf@plt>
+ 8048e0c:	b8 01 00 00 00       	mov    $0x1,%eax
+ 8048e11:	e9 c1 03 00 00       	jmp    80491d7 <LLVMFuzzerTestOneInput+0x45b>
+ 8048e16:	83 bd d4 f7 ff ff 00 	cmpl   $0x0,-0x82c(%ebp)
+ 8048e1d:	7e 0b                	jle    8048e2a <LLVMFuzzerTestOneInput+0xae>
+ 8048e1f:	8b 85 e8 f7 ff ff    	mov    -0x818(%ebp),%eax
+ 8048e25:	83 f8 01             	cmp    $0x1,%eax
+ 8048e28:	74 16                	je     8048e40 <LLVMFuzzerTestOneInput+0xc4>
+ 8048e2a:	c7 04 24 0a 94 04 08 	movl   $0x804940a,(%esp)
+ 8048e31:	e8 2a f5 ff ff       	call   8048360 <puts@plt>
+ 8048e36:	b8 01 00 00 00       	mov    $0x1,%eax
+ 8048e3b:	e9 97 03 00 00       	jmp    80491d7 <LLVMFuzzerTestOneInput+0x45b>
+ 8048e40:	c7 85 c4 f7 ff ff 01 	movl   $0x1,-0x83c(%ebp)
+ 8048e47:	00 00 00 
+ 8048e4a:	e9 71 03 00 00       	jmp    80491c0 <LLVMFuzzerTestOneInput+0x444>
+ 8048e4f:	8d 85 e8 f7 ff ff    	lea    -0x818(%ebp),%eax
+ 8048e55:	8b 95 c4 f7 ff ff    	mov    -0x83c(%ebp),%edx
+ 8048e5b:	c1 e2 04             	shl    $0x4,%edx
+ 8048e5e:	01 d0                	add    %edx,%eax
+ 8048e60:	c7 44 24 08 1a 94 04 	movl   $0x804941a,0x8(%esp)
+ 8048e67:	08 
+ 8048e68:	89 44 24 04          	mov    %eax,0x4(%esp)
+ 8048e6c:	8b 85 cc f7 ff ff    	mov    -0x834(%ebp),%eax
+ 8048e72:	89 04 24             	mov    %eax,(%esp)
+ 8048e75:	e8 8f fe ff ff       	call   8048d09 <jsoneq>
+ 8048e7a:	85 c0                	test   %eax,%eax
+ 8048e7c:	75 76                	jne    8048ef4 <LLVMFuzzerTestOneInput+0x178>
+ 8048e7e:	8b 85 c4 f7 ff ff    	mov    -0x83c(%ebp),%eax
+ 8048e84:	83 c0 01             	add    $0x1,%eax
+ 8048e87:	c1 e0 04             	shl    $0x4,%eax
+ 8048e8a:	8d 5d e8             	lea    -0x18(%ebp),%ebx
+ 8048e8d:	01 d8                	add    %ebx,%eax
+ 8048e8f:	2d fc 07 00 00       	sub    $0x7fc,%eax
+ 8048e94:	8b 00                	mov    (%eax),%eax
+ 8048e96:	89 c2                	mov    %eax,%edx
+ 8048e98:	8b 85 cc f7 ff ff    	mov    -0x834(%ebp),%eax
+ 8048e9e:	01 c2                	add    %eax,%edx
+ 8048ea0:	8b 85 c4 f7 ff ff    	mov    -0x83c(%ebp),%eax
+ 8048ea6:	83 c0 01             	add    $0x1,%eax
+ 8048ea9:	c1 e0 04             	shl    $0x4,%eax
+ 8048eac:	8d 75 e8             	lea    -0x18(%ebp),%esi
+ 8048eaf:	01 f0                	add    %esi,%eax
+ 8048eb1:	2d f8 07 00 00       	sub    $0x7f8,%eax
+ 8048eb6:	8b 08                	mov    (%eax),%ecx
+ 8048eb8:	8b 85 c4 f7 ff ff    	mov    -0x83c(%ebp),%eax
+ 8048ebe:	83 c0 01             	add    $0x1,%eax
+ 8048ec1:	c1 e0 04             	shl    $0x4,%eax
+ 8048ec4:	8d 7d e8             	lea    -0x18(%ebp),%edi
+ 8048ec7:	01 f8                	add    %edi,%eax
+ 8048ec9:	2d fc 07 00 00       	sub    $0x7fc,%eax
+ 8048ece:	8b 00                	mov    (%eax),%eax
+ 8048ed0:	29 c1                	sub    %eax,%ecx
+ 8048ed2:	89 c8                	mov    %ecx,%eax
+ 8048ed4:	89 54 24 08          	mov    %edx,0x8(%esp)
+ 8048ed8:	89 44 24 04          	mov    %eax,0x4(%esp)
+ 8048edc:	c7 04 24 1f 94 04 08 	movl   $0x804941f,(%esp)
+ 8048ee3:	e8 68 f4 ff ff       	call   8048350 <printf@plt>
+ 8048ee8:	83 85 c4 f7 ff ff 01 	addl   $0x1,-0x83c(%ebp)
+ 8048eef:	e9 c5 02 00 00       	jmp    80491b9 <LLVMFuzzerTestOneInput+0x43d>
+ 8048ef4:	8d 85 e8 f7 ff ff    	lea    -0x818(%ebp),%eax
+ 8048efa:	8b 95 c4 f7 ff ff    	mov    -0x83c(%ebp),%edx
+ 8048f00:	c1 e2 04             	shl    $0x4,%edx
+ 8048f03:	01 d0                	add    %edx,%eax
+ 8048f05:	c7 44 24 08 2d 94 04 	movl   $0x804942d,0x8(%esp)
+ 8048f0c:	08 
+ 8048f0d:	89 44 24 04          	mov    %eax,0x4(%esp)
+ 8048f11:	8b 85 cc f7 ff ff    	mov    -0x834(%ebp),%eax
+ 8048f17:	89 04 24             	mov    %eax,(%esp)
+ 8048f1a:	e8 ea fd ff ff       	call   8048d09 <jsoneq>
+ 8048f1f:	85 c0                	test   %eax,%eax
+ 8048f21:	75 76                	jne    8048f99 <LLVMFuzzerTestOneInput+0x21d>
+ 8048f23:	8b 85 c4 f7 ff ff    	mov    -0x83c(%ebp),%eax
+ 8048f29:	83 c0 01             	add    $0x1,%eax
+ 8048f2c:	c1 e0 04             	shl    $0x4,%eax
+ 8048f2f:	8d 5d e8             	lea    -0x18(%ebp),%ebx
+ 8048f32:	01 d8                	add    %ebx,%eax
+ 8048f34:	2d fc 07 00 00       	sub    $0x7fc,%eax
+ 8048f39:	8b 00                	mov    (%eax),%eax
+ 8048f3b:	89 c2                	mov    %eax,%edx
+ 8048f3d:	8b 85 cc f7 ff ff    	mov    -0x834(%ebp),%eax
+ 8048f43:	01 c2                	add    %eax,%edx
+ 8048f45:	8b 85 c4 f7 ff ff    	mov    -0x83c(%ebp),%eax
+ 8048f4b:	83 c0 01             	add    $0x1,%eax
+ 8048f4e:	c1 e0 04             	shl    $0x4,%eax
+ 8048f51:	8d 75 e8             	lea    -0x18(%ebp),%esi
+ 8048f54:	01 f0                	add    %esi,%eax
+ 8048f56:	2d f8 07 00 00       	sub    $0x7f8,%eax
+ 8048f5b:	8b 08                	mov    (%eax),%ecx
+ 8048f5d:	8b 85 c4 f7 ff ff    	mov    -0x83c(%ebp),%eax
+ 8048f63:	83 c0 01             	add    $0x1,%eax
+ 8048f66:	c1 e0 04             	shl    $0x4,%eax
+ 8048f69:	8d 7d e8             	lea    -0x18(%ebp),%edi
+ 8048f6c:	01 f8                	add    %edi,%eax
+ 8048f6e:	2d fc 07 00 00       	sub    $0x7fc,%eax
+ 8048f73:	8b 00                	mov    (%eax),%eax
+ 8048f75:	29 c1                	sub    %eax,%ecx
+ 8048f77:	89 c8                	mov    %ecx,%eax
+ 8048f79:	89 54 24 08          	mov    %edx,0x8(%esp)
+ 8048f7d:	89 44 24 04          	mov    %eax,0x4(%esp)
+ 8048f81:	c7 04 24 33 94 04 08 	movl   $0x8049433,(%esp)
+ 8048f88:	e8 c3 f3 ff ff       	call   8048350 <printf@plt>
+ 8048f8d:	83 85 c4 f7 ff ff 01 	addl   $0x1,-0x83c(%ebp)
+ 8048f94:	e9 20 02 00 00       	jmp    80491b9 <LLVMFuzzerTestOneInput+0x43d>
+ 8048f99:	8d 85 e8 f7 ff ff    	lea    -0x818(%ebp),%eax
+ 8048f9f:	8b 95 c4 f7 ff ff    	mov    -0x83c(%ebp),%edx
+ 8048fa5:	c1 e2 04             	shl    $0x4,%edx
+ 8048fa8:	01 d0                	add    %edx,%eax
+ 8048faa:	c7 44 24 08 42 94 04 	movl   $0x8049442,0x8(%esp)
+ 8048fb1:	08 
+ 8048fb2:	89 44 24 04          	mov    %eax,0x4(%esp)
+ 8048fb6:	8b 85 cc f7 ff ff    	mov    -0x834(%ebp),%eax
+ 8048fbc:	89 04 24             	mov    %eax,(%esp)
+ 8048fbf:	e8 45 fd ff ff       	call   8048d09 <jsoneq>
+ 8048fc4:	85 c0                	test   %eax,%eax
+ 8048fc6:	75 76                	jne    804903e <LLVMFuzzerTestOneInput+0x2c2>
+ 8048fc8:	8b 85 c4 f7 ff ff    	mov    -0x83c(%ebp),%eax
+ 8048fce:	83 c0 01             	add    $0x1,%eax
+ 8048fd1:	c1 e0 04             	shl    $0x4,%eax
+ 8048fd4:	8d 5d e8             	lea    -0x18(%ebp),%ebx
+ 8048fd7:	01 d8                	add    %ebx,%eax
+ 8048fd9:	2d fc 07 00 00       	sub    $0x7fc,%eax
+ 8048fde:	8b 00                	mov    (%eax),%eax
+ 8048fe0:	89 c2                	mov    %eax,%edx
+ 8048fe2:	8b 85 cc f7 ff ff    	mov    -0x834(%ebp),%eax
+ 8048fe8:	01 c2                	add    %eax,%edx
+ 8048fea:	8b 85 c4 f7 ff ff    	mov    -0x83c(%ebp),%eax
+ 8048ff0:	83 c0 01             	add    $0x1,%eax
+ 8048ff3:	c1 e0 04             	shl    $0x4,%eax
+ 8048ff6:	8d 75 e8             	lea    -0x18(%ebp),%esi
+ 8048ff9:	01 f0                	add    %esi,%eax
+ 8048ffb:	2d f8 07 00 00       	sub    $0x7f8,%eax
+ 8049000:	8b 08                	mov    (%eax),%ecx
+ 8049002:	8b 85 c4 f7 ff ff    	mov    -0x83c(%ebp),%eax
+ 8049008:	83 c0 01             	add    $0x1,%eax
+ 804900b:	c1 e0 04             	shl    $0x4,%eax
+ 804900e:	8d 7d e8             	lea    -0x18(%ebp),%edi
+ 8049011:	01 f8                	add    %edi,%eax
+ 8049013:	2d fc 07 00 00       	sub    $0x7fc,%eax
+ 8049018:	8b 00                	mov    (%eax),%eax
+ 804901a:	29 c1                	sub    %eax,%ecx
+ 804901c:	89 c8                	mov    %ecx,%eax
+ 804901e:	89 54 24 08          	mov    %edx,0x8(%esp)
+ 8049022:	89 44 24 04          	mov    %eax,0x4(%esp)
+ 8049026:	c7 04 24 46 94 04 08 	movl   $0x8049446,(%esp)
+ 804902d:	e8 1e f3 ff ff       	call   8048350 <printf@plt>
+ 8049032:	83 85 c4 f7 ff ff 01 	addl   $0x1,-0x83c(%ebp)
+ 8049039:	e9 7b 01 00 00       	jmp    80491b9 <LLVMFuzzerTestOneInput+0x43d>
+ 804903e:	8d 85 e8 f7 ff ff    	lea    -0x818(%ebp),%eax
+ 8049044:	8b 95 c4 f7 ff ff    	mov    -0x83c(%ebp),%edx
+ 804904a:	c1 e2 04             	shl    $0x4,%edx
+ 804904d:	01 d0                	add    %edx,%eax
+ 804904f:	c7 44 24 08 53 94 04 	movl   $0x8049453,0x8(%esp)
+ 8049056:	08 
+ 8049057:	89 44 24 04          	mov    %eax,0x4(%esp)
+ 804905b:	8b 85 cc f7 ff ff    	mov    -0x834(%ebp),%eax
+ 8049061:	89 04 24             	mov    %eax,(%esp)
+ 8049064:	e8 a0 fc ff ff       	call   8048d09 <jsoneq>
+ 8049069:	85 c0                	test   %eax,%eax
+ 804906b:	0f 85 e7 00 00 00    	jne    8049158 <LLVMFuzzerTestOneInput+0x3dc>
+ 8049071:	c7 04 24 5a 94 04 08 	movl   $0x804945a,(%esp)
+ 8049078:	e8 e3 f2 ff ff       	call   8048360 <puts@plt>
+ 804907d:	8b 85 c4 f7 ff ff    	mov    -0x83c(%ebp),%eax
+ 8049083:	83 c0 01             	add    $0x1,%eax
+ 8049086:	c1 e0 04             	shl    $0x4,%eax
+ 8049089:	8d 5d e8             	lea    -0x18(%ebp),%ebx
+ 804908c:	01 d8                	add    %ebx,%eax
+ 804908e:	2d 00 08 00 00       	sub    $0x800,%eax
+ 8049093:	8b 00                	mov    (%eax),%eax
+ 8049095:	83 f8 02             	cmp    $0x2,%eax
+ 8049098:	74 05                	je     804909f <LLVMFuzzerTestOneInput+0x323>
+ 804909a:	e9 1a 01 00 00       	jmp    80491b9 <LLVMFuzzerTestOneInput+0x43d>
+ 804909f:	c7 85 c8 f7 ff ff 00 	movl   $0x0,-0x838(%ebp)
+ 80490a6:	00 00 00 
+ 80490a9:	eb 66                	jmp    8049111 <LLVMFuzzerTestOneInput+0x395>
+ 80490ab:	8b 85 c8 f7 ff ff    	mov    -0x838(%ebp),%eax
+ 80490b1:	8b 95 c4 f7 ff ff    	mov    -0x83c(%ebp),%edx
+ 80490b7:	01 d0                	add    %edx,%eax
+ 80490b9:	8d 50 02             	lea    0x2(%eax),%edx
+ 80490bc:	8d 85 e8 f7 ff ff    	lea    -0x818(%ebp),%eax
+ 80490c2:	c1 e2 04             	shl    $0x4,%edx
+ 80490c5:	01 d0                	add    %edx,%eax
+ 80490c7:	89 85 d8 f7 ff ff    	mov    %eax,-0x828(%ebp)
+ 80490cd:	8b 85 d8 f7 ff ff    	mov    -0x828(%ebp),%eax
+ 80490d3:	8b 40 04             	mov    0x4(%eax),%eax
+ 80490d6:	89 c2                	mov    %eax,%edx
+ 80490d8:	8b 85 cc f7 ff ff    	mov    -0x834(%ebp),%eax
+ 80490de:	01 c2                	add    %eax,%edx
+ 80490e0:	8b 85 d8 f7 ff ff    	mov    -0x828(%ebp),%eax
+ 80490e6:	8b 48 08             	mov    0x8(%eax),%ecx
+ 80490e9:	8b 85 d8 f7 ff ff    	mov    -0x828(%ebp),%eax
+ 80490ef:	8b 40 04             	mov    0x4(%eax),%eax
+ 80490f2:	29 c1                	sub    %eax,%ecx
+ 80490f4:	89 c8                	mov    %ecx,%eax
+ 80490f6:	89 54 24 08          	mov    %edx,0x8(%esp)
+ 80490fa:	89 44 24 04          	mov    %eax,0x4(%esp)
+ 80490fe:	c7 04 24 64 94 04 08 	movl   $0x8049464,(%esp)
+ 8049105:	e8 46 f2 ff ff       	call   8048350 <printf@plt>
+ 804910a:	83 85 c8 f7 ff ff 01 	addl   $0x1,-0x838(%ebp)
+ 8049111:	8b 85 c4 f7 ff ff    	mov    -0x83c(%ebp),%eax
+ 8049117:	83 c0 01             	add    $0x1,%eax
+ 804911a:	c1 e0 04             	shl    $0x4,%eax
+ 804911d:	8d 75 e8             	lea    -0x18(%ebp),%esi
+ 8049120:	01 f0                	add    %esi,%eax
+ 8049122:	2d f4 07 00 00       	sub    $0x7f4,%eax
+ 8049127:	8b 00                	mov    (%eax),%eax
+ 8049129:	3b 85 c8 f7 ff ff    	cmp    -0x838(%ebp),%eax
+ 804912f:	0f 8f 76 ff ff ff    	jg     80490ab <LLVMFuzzerTestOneInput+0x32f>
+ 8049135:	8b 85 c4 f7 ff ff    	mov    -0x83c(%ebp),%eax
+ 804913b:	83 c0 01             	add    $0x1,%eax
+ 804913e:	c1 e0 04             	shl    $0x4,%eax
+ 8049141:	8d 7d e8             	lea    -0x18(%ebp),%edi
+ 8049144:	01 f8                	add    %edi,%eax
+ 8049146:	2d f4 07 00 00       	sub    $0x7f4,%eax
+ 804914b:	8b 00                	mov    (%eax),%eax
+ 804914d:	83 c0 01             	add    $0x1,%eax
+ 8049150:	01 85 c4 f7 ff ff    	add    %eax,-0x83c(%ebp)
+ 8049156:	eb 61                	jmp    80491b9 <LLVMFuzzerTestOneInput+0x43d>
+ 8049158:	8b 85 c4 f7 ff ff    	mov    -0x83c(%ebp),%eax
+ 804915e:	c1 e0 04             	shl    $0x4,%eax
+ 8049161:	8d 5d e8             	lea    -0x18(%ebp),%ebx
+ 8049164:	01 d8                	add    %ebx,%eax
+ 8049166:	2d fc 07 00 00       	sub    $0x7fc,%eax
+ 804916b:	8b 00                	mov    (%eax),%eax
+ 804916d:	89 c2                	mov    %eax,%edx
+ 804916f:	8b 85 cc f7 ff ff    	mov    -0x834(%ebp),%eax
+ 8049175:	01 c2                	add    %eax,%edx
+ 8049177:	8b 85 c4 f7 ff ff    	mov    -0x83c(%ebp),%eax
+ 804917d:	c1 e0 04             	shl    $0x4,%eax
+ 8049180:	8d 75 e8             	lea    -0x18(%ebp),%esi
+ 8049183:	01 f0                	add    %esi,%eax
+ 8049185:	2d f8 07 00 00       	sub    $0x7f8,%eax
+ 804918a:	8b 08                	mov    (%eax),%ecx
+ 804918c:	8b 85 c4 f7 ff ff    	mov    -0x83c(%ebp),%eax
+ 8049192:	c1 e0 04             	shl    $0x4,%eax
+ 8049195:	8d 7d e8             	lea    -0x18(%ebp),%edi
+ 8049198:	01 f8                	add    %edi,%eax
+ 804919a:	2d fc 07 00 00       	sub    $0x7fc,%eax
+ 804919f:	8b 00                	mov    (%eax),%eax
+ 80491a1:	29 c1                	sub    %eax,%ecx
+ 80491a3:	89 c8                	mov    %ecx,%eax
+ 80491a5:	89 54 24 08          	mov    %edx,0x8(%esp)
+ 80491a9:	89 44 24 04          	mov    %eax,0x4(%esp)
+ 80491ad:	c7 04 24 6e 94 04 08 	movl   $0x804946e,(%esp)
+ 80491b4:	e8 97 f1 ff ff       	call   8048350 <printf@plt>
+ 80491b9:	83 85 c4 f7 ff ff 01 	addl   $0x1,-0x83c(%ebp)
+ 80491c0:	8b 85 c4 f7 ff ff    	mov    -0x83c(%ebp),%eax
+ 80491c6:	3b 85 d4 f7 ff ff    	cmp    -0x82c(%ebp),%eax
+ 80491cc:	0f 8c 7d fc ff ff    	jl     8048e4f <LLVMFuzzerTestOneInput+0xd3>
+ 80491d2:	b8 00 00 00 00       	mov    $0x0,%eax
+ 80491d7:	81 c4 5c 08 00 00    	add    $0x85c,%esp
+ 80491dd:	5b                   	pop    %ebx
+ 80491de:	5e                   	pop    %esi
+ 80491df:	5f                   	pop    %edi
+ 80491e0:	5d                   	pop    %ebp
+ 80491e1:	c3                   	ret    
+
+080491e2 <main>:
+ 80491e2:	55                   	push   %ebp
+ 80491e3:	89 e5                	mov    %esp,%ebp
+ 80491e5:	83 e4 f0             	and    $0xfffffff0,%esp
+ 80491e8:	83 ec 20             	sub    $0x20,%esp
+ 80491eb:	8b 45 0c             	mov    0xc(%ebp),%eax
+ 80491ee:	8b 40 04             	mov    0x4(%eax),%eax
+ 80491f1:	89 44 24 1c          	mov    %eax,0x1c(%esp)
+ 80491f5:	8b 44 24 1c          	mov    0x1c(%esp),%eax
+ 80491f9:	89 04 24             	mov    %eax,(%esp)
+ 80491fc:	e8 7b fb ff ff       	call   8048d7c <LLVMFuzzerTestOneInput>
+ 8049201:	90                   	nop
+ 8049202:	c9                   	leave  
+ 8049203:	c3                   	ret    
+ 8049204:	66 90                	xchg   %ax,%ax
+ 8049206:	66 90                	xchg   %ax,%ax
+ 8049208:	66 90                	xchg   %ax,%ax
+ 804920a:	66 90                	xchg   %ax,%ax
+ 804920c:	66 90                	xchg   %ax,%ax
+ 804920e:	66 90                	xchg   %ax,%ax
+
+08049210 <__libc_csu_init>:
+ 8049210:	55                   	push   %ebp
+ 8049211:	57                   	push   %edi
+ 8049212:	31 ff                	xor    %edi,%edi
+ 8049214:	56                   	push   %esi
+ 8049215:	53                   	push   %ebx
+ 8049216:	e8 c5 f1 ff ff       	call   80483e0 <__x86.get_pc_thunk.bx>
+ 804921b:	81 c3 e5 1d 00 00    	add    $0x1de5,%ebx
+ 8049221:	83 ec 1c             	sub    $0x1c,%esp
+ 8049224:	8b 6c 24 30          	mov    0x30(%esp),%ebp
+ 8049228:	8d b3 0c ff ff ff    	lea    -0xf4(%ebx),%esi
+ 804922e:	e8 e1 f0 ff ff       	call   8048314 <_init>
+ 8049233:	8d 83 08 ff ff ff    	lea    -0xf8(%ebx),%eax
+ 8049239:	29 c6                	sub    %eax,%esi
+ 804923b:	c1 fe 02             	sar    $0x2,%esi
+ 804923e:	85 f6                	test   %esi,%esi
+ 8049240:	74 27                	je     8049269 <__libc_csu_init+0x59>
+ 8049242:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
+ 8049248:	8b 44 24 38          	mov    0x38(%esp),%eax
+ 804924c:	89 2c 24             	mov    %ebp,(%esp)
+ 804924f:	89 44 24 08          	mov    %eax,0x8(%esp)
+ 8049253:	8b 44 24 34          	mov    0x34(%esp),%eax
+ 8049257:	89 44 24 04          	mov    %eax,0x4(%esp)
+ 804925b:	ff 94 bb 08 ff ff ff 	call   *-0xf8(%ebx,%edi,4)
+ 8049262:	83 c7 01             	add    $0x1,%edi
+ 8049265:	39 f7                	cmp    %esi,%edi
+ 8049267:	75 df                	jne    8049248 <__libc_csu_init+0x38>
+ 8049269:	83 c4 1c             	add    $0x1c,%esp
+ 804926c:	5b                   	pop    %ebx
+ 804926d:	5e                   	pop    %esi
+ 804926e:	5f                   	pop    %edi
+ 804926f:	5d                   	pop    %ebp
+ 8049270:	c3                   	ret    
+ 8049271:	eb 0d                	jmp    8049280 <__libc_csu_fini>
+ 8049273:	90                   	nop
+ 8049274:	90                   	nop
+ 8049275:	90                   	nop
+ 8049276:	90                   	nop
+ 8049277:	90                   	nop
+ 8049278:	90                   	nop
+ 8049279:	90                   	nop
+ 804927a:	90                   	nop
+ 804927b:	90                   	nop
+ 804927c:	90                   	nop
+ 804927d:	90                   	nop
+ 804927e:	90                   	nop
+ 804927f:	90                   	nop
+
+08049280 <__libc_csu_fini>:
+ 8049280:	f3 c3                	repz ret 
+
+Disassembly of section .fini:
+
+08049284 <_fini>:
+ 8049284:	53                   	push   %ebx
+ 8049285:	83 ec 08             	sub    $0x8,%esp
+ 8049288:	e8 53 f1 ff ff       	call   80483e0 <__x86.get_pc_thunk.bx>
+ 804928d:	81 c3 73 1d 00 00    	add    $0x1d73,%ebx
+ 8049293:	83 c4 08             	add    $0x8,%esp
+ 8049296:	5b                   	pop    %ebx
+ 8049297:	c3                   	ret    

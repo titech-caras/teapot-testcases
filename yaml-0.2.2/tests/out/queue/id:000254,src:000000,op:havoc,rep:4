@@ -1,0 +1,21 @@
+json:
+  - rigid
+  - nvert line breaks
+   spange
+yaml:
+  - slim and flexible
+  - better for configuration
+object:
+  key: value
+  array:
+    - null_value:
+    - boolean: true
+    - integer: 1
+paragraph:ll_value:
+    - b >
+   Blank lines denote
+
+   paragraph breaks
+an auto
+   @onvert line breaks
+   spa

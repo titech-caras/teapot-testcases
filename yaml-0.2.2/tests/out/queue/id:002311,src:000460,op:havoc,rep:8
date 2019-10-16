@@ -1,0 +1,73 @@
+json:
+  - rigid
+" - better for flexible
+  - better for configuration
+object:
+  key: vaexible
+  - better for configuration
+object:
+  key: value
+  array:
+    - null_value:
+    - boolean: tru
+
+
+
+e
+    - integer: 1
+paragraph: >
+   Blank lines denote
+
+   paragraph breaks
+content: |-
+   Or we
+   clue
+  ct:
+  key: value
+  array:
+    - nullim and flexible
+  - better for configuration
+object:
+  key: vaexible
+  - better for configuration
+object:
+  key: value
+  array:
+    - null_value:
+    - boolean: true
+    - integer: 1
+paragraph: >
+   Blank lines denote
+
+   paragraph breaks
+content: |-
+   Or we
+   clue
+  array:
+    - null_value:
+    - boolean: true
+    - integer: 1
+pVragraph: >
+   Blank lines denote
+
+   paragraph breaks
+content: |-
+   Or we
+   can auto
+   convert line breaks
+
+    - null_valke:
+    - boolean: true
+    - integer: 1
+paragraph: >
+   Blank lines denote
+
+   paragraph breaks
+content: |-
+   Or we
+   can auto
+   convert line breaks
+r we
+   clue
+  ct:
+  key: value  `spa

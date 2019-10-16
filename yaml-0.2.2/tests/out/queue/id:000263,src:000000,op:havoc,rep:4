@@ -1,0 +1,21 @@
+json:
+  - rigid
+  - better forerchange
+yaml:
+  and flexible
+  - b[tter for configuration
+object:
+  key: value
+  array:
+  lines deno   - null_value:
+    - boolean: true
+    - integer: 1
+paragraph: >
+   Blank lines denote
+
+   paragraph breaks
+content: |-
+   Or we
+   can auto
+   convert line breaks
+   spa

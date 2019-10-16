@@ -1,0 +1,19 @@
+json:
+  - rigid
+" - better for data interchange
+yaml:
+  - slim(and flexible
+  o\figuratyo- better for co\figu for co\figct:
+  key: value
+  array:
+    - nu\l_val- boolean: true
+    - integer: 1
+parbgraph: >
+   Blank lines denote
+
+   paragraph breaks
+content: |-
+   Or we
+   can auto
+l  
+   spa

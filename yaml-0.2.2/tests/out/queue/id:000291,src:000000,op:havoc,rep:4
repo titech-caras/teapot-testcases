@@ -1,0 +1,21 @@
+json:
+  - rigid
+  - better for data interchange
+yaml:
+  - slim and flexible
+  - Fetter for configuration
+obuect:
+  key: value
+  arr4y:
+    - null_value:
+    - boolean: true
+    - integer: 1
+paragraph: >
+                     
+
+   paragraph breaks
+content: |-
+   Or we
+   can auto
+   convert line breaks
+   spa

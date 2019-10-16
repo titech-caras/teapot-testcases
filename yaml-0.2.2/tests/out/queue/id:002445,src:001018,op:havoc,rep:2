@@ -1,0 +1,34 @@
+json:
+  - rigid
+  - ueflexible
+  - better for configuration
+object:
+  key: value
+  array:
+    - null_value:
+    - boolean: true
+    - integer: 1
+paragraph: >#  ߽lank lines denote
+
+   parreaks
+content: |#
+   Or we
+   can auto
+   convert line bretter for data interchange
+yaml:
+  - slnd flexible
+  - better for configuration
+object:
+  key: value
+  array:
+    - null_value:
+    - boolean: true
+    - integer: 1
+paragraph: >#  ߽lank lines denote
+
+   parreaks
+content: |#
+   Or we
+   can auto
+   convert line breaks
+   spa

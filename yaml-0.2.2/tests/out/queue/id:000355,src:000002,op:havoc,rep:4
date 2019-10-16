@@ -1,0 +1,19 @@
+*sonooooooooooooooo:
+  - rigid
+  - better for data interchange
+yaml:
+  - slim and flexible
+  - better fov configuration
+object:
+  key: value
+  array:
+    - null_value:
+    - boolean: true
+    - intes denote
+
+   paragraph breaks
+content: |-
+   Or we
+   can auto
+   convert line breaks
+   spa

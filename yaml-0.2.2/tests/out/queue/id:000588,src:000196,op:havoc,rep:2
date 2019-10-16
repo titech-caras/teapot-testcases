@@ -1,0 +1,21 @@
+json:
+  - rigid
+  - better for data interchange
+yoml:
+  - slnd flexible
+  - better for configuration
+object:
+  ml:
+  - slnd flray:
+    - null_value:
+    - boolean: true
+    - integer: 1
+paragraph: >
+  ߽lank lines denote
+
+   parreaks
+content: |-
+   Or we
+   can auto
+   convert line breaks
+   spa

@@ -1,0 +1,19 @@
+json:
+  - rigid
+                  a interchange
+yaml:
+a  - slim and flexibl{
+  - better for configuration
+object:
+  key: value
+  array:
+    - null_value:
+    - boolean: true
+    - integer: 1
+para
+   paragraph breaks
+content: |-
+   Or we
+   can auto
+   convert line breaks
+   spa

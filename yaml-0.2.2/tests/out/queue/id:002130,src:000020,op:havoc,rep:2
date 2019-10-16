@@ -1,0 +1,33 @@
+json:
+   rigid
+  - better for data interchange
+yaml:
+  - slim and flexible
+  - better for configuration
+object:
+  key: value
+  array:
+    - null_value:
+    - boolean: true
+    - integer: 1
+paragraph: >
+   Bllines  better for data interchange
+yaml:
+  - slim and flexible
+  - better for configuration
+object:
+  key: value
+  array:
+    - null_value:
+    - boolean: true
+    - integer: 1
+paragraph: >
+   Bllindenote
+
+   paragraph brea
+
+ontent: |-
+   Or we
+   can auto
+   cot line breaks
+   spa

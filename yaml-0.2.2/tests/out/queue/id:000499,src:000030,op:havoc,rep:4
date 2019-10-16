@@ -1,0 +1,16 @@
+json:
+  - rigid
+" - better for data interchange
+yaml:
+eaks	contennvert line breabetter for configuration
+object:
+  key: value
+  array:
+    - null_value:
+   6- boolean: true
+    - integer: 1
+paragraph: >
+   Blank lines denote
+
+   paragraph breaks	contennvert line breaks
+   spa

@@ -1,0 +1,105 @@
+json:
+  - rigid
+  - better for data interchange
+yaml:
+  - slim and flexible
+  - better for configuration
+object:
+  key: value
+  array:
+    - nn: true
+    - integer: 1
+paragraph: >
+   Blank lines denothange
+yaml:
+  - slim and flexible
+  - better for con
+  - rigid
+  - better for data interchange
+yaml:
+  - slim and flexible
+  - better for configuration
+object:
+  key: value
+  array:
+    - nn: true
+    - integer: 1
+paragraph: >
+   Blank lines denothange
+yaml:
+  - slim and flexible
+  - better for configuration
+object:
+  key: value
+  array:
+    - nn: true
+    - integer: 1
+paragraph: >
+   Blank lines denote
+
+   paragraph breaks
+content: |-
+   Or we
+   e
+
+   paragraph breaks
+content: |-
+  figuration
+object:
+  key: value
+  array:
+y:
+    - nn: true
+    - integer: 1
+paragraph: >
+   Blank lines denothange
+yaml:
+  - slim and flexible
+  - better for configuration
+object:
+  key: value
+  array:
+    - nn: true
+    - integer: 1
+paragraph: >
+   Blank lines denote
+
+   paragraph breaks
+content: |-
+   Or we
+   e
+
+   paragraph breaks
+content: |-
+  figuration
+object:
+  key: value
+  array:
+    - nn: true
+    - integer: 1
+paragraph: >
+   Blank lines denote
+
+   paragraph breaks
+content: |-
+   Or
+
+ we
+   e
+
+   paragraph br    - nn: true
+    - integer: 1
+paragraph: >
+   Blank lines denote
+
+   paragraph breaks
+content: |-
+   Or
+
+ we
+   e
+
+   paragraph breaks
+content: |-
+   Or we
+   can	spa

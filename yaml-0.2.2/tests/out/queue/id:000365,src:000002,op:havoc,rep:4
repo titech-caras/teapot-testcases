@@ -1,0 +1,20 @@
+*son:
+1
+igid better for data interchange slim and flexible
+  - better for configuration
+object:
+  key: value
+  array:
+   configuration
+object:
+  key: va  - null_value:
+    - boolean: truJ
+    - integer: 1
+paragraph: >
+   Blank lines denote
+
+   paragraph breaks
+content: |-
+   Or we
+   can auto
+   convert lin

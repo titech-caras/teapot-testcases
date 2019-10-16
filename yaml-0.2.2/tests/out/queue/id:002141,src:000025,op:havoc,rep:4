@@ -1,0 +1,25 @@
+json:
+  - rigidJ  - better for data interchange
+yaml:
+  - slim and flexible
+  - better for configuration
+object:
+  kidJ  - better for data interchange
+yaml:
+  - slim and flexidJ  - better for data interchange
+yaml:
+  - slim and flexible
+  - better for configuration
+object:
+  kidJ  - better for data interchange
+yaml:
+  - slim and flexible
+  - b: >
+   Blank lines denote
+
+   paragraph breaks
+content: |-
+   Or we
+   can auto
+   convert line breaks
+   spa

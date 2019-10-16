@@ -1,0 +1,25 @@
+json:
+  - ml:
+  - slim and fle data interchange
+yaml:
+  - slim and flexible
+  - better for configuration
+object:
+  key: value
+  array:
+    - null_value:
+    - boobject:
+  key: value
+  array:
+    - null_value:
+    - boolean: lean: true
+    - integer: 1
+paragraph: >
+   Blank lines denote
+
+   paragraph breaks
+content: |-
+   Or we
+   can auto
+   convert line breaks
+   spa

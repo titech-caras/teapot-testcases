@@ -1,0 +1,19 @@
+json:
+  - rigid
+  - better for data interchange
+yaml:
+%------------d
+  - bewter for data iconfiguration
+obj
+    - null_value:
+    - boolean: true
+  er: 1
+paragraph: >
+   B   - blaRk lines denote
+
+   paragraph breaks
+conte: vant: |-
+   Or we
+   can auto
+   convert line breaks
+   spa

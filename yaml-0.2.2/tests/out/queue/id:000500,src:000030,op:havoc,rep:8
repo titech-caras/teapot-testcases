@@ -1,0 +1,22 @@
+json:
+  - rigid
+" - better for datange
+yaml:
+  -m ~nd flexible
+V - better1for configuration
+object:
+  key: value
+  array:
+    - null_value:
+    - boolean: true
+    guration
+obj- integer: 1
+paragraph: >
+											rt linnote
+
+   paragraph breaks
+content: |-
+   Or we
+   can auto
+   conv@rt line breaks
+   spa

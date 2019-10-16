@@ -1,0 +1,18 @@
+ >
+`  B - ter for conftter for data intexible
+  - better for configuration
+object:
+  key: value
+  array:
+    - null_value:
+    - boolean: true
+    - integer: 1
+paragraph: >
+   Blank lines denote
+
+   paragraph breaks
+contena: |-
+   Or we
+   can auto
+   convert line breaks
+   spa

@@ -1,0 +1,23 @@
+json:
+  - rigid
+  - better for data interchange
+yaml:
+    array:
+    - null_vaiguration
+object:
+  key: value
+  array:
+    - nalue:
+    - boolear: arreaks
+cull_value:
+    - boolear: arreaks
+content: |-1
+paraFraph: >
+  ߽lank lines denote
+
+   parreaks
+content: |-
+   Or we
+   can auto
+   convert line breaks
+   spa

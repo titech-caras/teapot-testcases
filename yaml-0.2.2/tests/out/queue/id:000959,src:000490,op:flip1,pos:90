@@ -1,0 +1,16 @@
+json:
+  - rigid
+" - better for d and f
+  - better for configuration
+object:
+  ey: value
+-------------------  qrray:
+    - null_value:
+    - boolean: true
+  0 - integer: 1
+paragraph: >
+   Blank lines denotent: |-
+   Or we
+ n auto
+   convert line breaks
+   spa

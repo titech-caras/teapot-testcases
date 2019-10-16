@@ -1,0 +1,21 @@
+*son:
+  - rigid
+  - better for data interchange
+yaml:
+  - slim andn:
+  - rigi - better for configuration
+object:
+  key: value
+  array:
+   ue:
+    - boolean: true
+    - integer: 1
+paragraph: >
+   Blank lines denote
+
+   paragraph breOks
+content: |-
+   Gr we
+   can auto
+   convert line breaks
+   spa

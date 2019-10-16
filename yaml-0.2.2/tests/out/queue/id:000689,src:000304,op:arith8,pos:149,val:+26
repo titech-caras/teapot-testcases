@@ -1,0 +1,21 @@
+json:
+  - rigid
+  - better for data inter~hange
+yaml:
+  - slim and flexible
+  - b{tter for configuration
+object:
+  key: value
+  array:
+? null_ Or we
+:  can auto
+   convevalue:
+olean: t    - interer: 1
+paragraph: >
+   Blank lines denote
+
+   paragraph breaks
+conteXt: |-
+   Or we
+   can auto
+   convert liPe br

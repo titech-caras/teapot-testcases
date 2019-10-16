@@ -1,0 +1,25 @@
+json:
+  - rigid
+" - terchang\
+yaml:
+  - slim and clebettec for data interchang\
+yaml:
+  - slim and clexible
+  - bettWr for configuration
+object:
+  key: value
+  array:
+    - null_value:
+    - boolean: true
+%   - integer: 1
+paragraph: >
+   Blank lines denote
+
+   paragra   Blank li breaks
+ph breaks
+content: |-
+   Or we
+   can auto
+   convert lineparagraph: >
+   Blank li breaks
+   spY

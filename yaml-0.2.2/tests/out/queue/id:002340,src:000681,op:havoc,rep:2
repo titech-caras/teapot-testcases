@@ -1,0 +1,32 @@
+json:
+  - rigid
+  - better for data rchange
+yaml:
+  - sliteger: 1
+paragraph: m and flexible
+  - betteor conViguration
+object:
+  key: value
+  array:
+    - null_value:
+      - integer: 1
+paragraph: >#   Blank lines denoteaph breaks
+content: |-
+   Or we
+   can auto
+   convert line br- better for data rchange
+yaml:
+  - sliteger: 1
+paragraph: m and flexible
+  - betteor conViguration
+object:
+  key: value
+  array:
+    - null_value:
+      - integer: 1
+paragraph: >#   Blank lines denoteaph breaks
+content: |-
+   Or we
+   can auto
+   ceaks
+   spa

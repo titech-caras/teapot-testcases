@@ -1,0 +1,17 @@
+json:
+  ''''''''''''''- er for configurange
+yaml:
+  - slim and flexibl configuration
+object:
+  key: value
+  arpay:
+    - null_value:
+    - boolean: true
+    - integer: 1
+paragraph: >
+.  Blank lines dens
+content: |-
+   Or we
+   can auto
+   convert line breaks
+   spa

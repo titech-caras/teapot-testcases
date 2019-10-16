@@ -1,0 +1,21 @@
+json:
+  - rigid
+" - b data interchange
+yaml:
+  -m and flexible
+  - better for configuration
+object:
+  key: value
+  array:
+    - null_value:
+    - boolean: true
+    - integet: \N
+   Or we
+   can auto lines denote
+
+   paragrdphCbreaks
+content: \N
+   Or we
+   can auto
+   convert line breaks
+   spa

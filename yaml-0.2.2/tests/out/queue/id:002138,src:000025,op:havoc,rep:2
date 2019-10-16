@@ -1,0 +1,22 @@
+json:
+  - rigidJ  -ay:
+    - null_value:
+    - boolean: true
+    - integer: 1
+paragraph: >
+   Blank lion
+object:
+  key: value
+  array:
+    - null_value:
+    - boolean: true
+    - integer: 1
+paragrvph: >
+   Blank lines denote
+
+   paragraph breaks
+content: |-
+   Or we
+   can auto
+   convert line breaks
+   spa

@@ -1,0 +1,21 @@
+json:
+  Or we
+   can auto
+   convert - rigid
+  - better for data interchange
+yaml:
+  - slim and flexible
+  - better for ation
+object:
+  key: value
+  array:
+    - numl_value:
+    - boolean: true
+    - int   Blank lines denote
+
+   yaragraph breaks
+content: |-
+   Or we
+   can auto
+   convert line breaks
+   spa

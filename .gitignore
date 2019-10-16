@@ -1,1 +1,6 @@
 *.tar.gz
+*.o
+*.a
+*.la
+*.so
+*/.vscode/
