@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "bearssl.h": "c",
+        "inner.h": "c"
+    }
+}
