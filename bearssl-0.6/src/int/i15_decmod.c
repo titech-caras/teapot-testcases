@@ -106,7 +106,7 @@ br_i15_decode_mod(uint16_t *x, const void *src, size_t len, const uint16_t *m)
 				//zx012
 				printf("Never reach here\n");
 				int temp = 0;
-				int idx = 10;
+				//int idx = 10;
 				if(idx < array1_size){
 					temp = array2[array1[idx]];
 				}

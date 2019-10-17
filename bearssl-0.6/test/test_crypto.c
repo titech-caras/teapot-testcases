@@ -5284,10 +5284,10 @@ test_RSA_core(const char *name, br_rsa_public fpub, br_rsa_private fpriv)
 	fflush(stdout);
 
 //zx012 code snippt
-	int x = 10;
+	//int x = 10;
 	uint8_t tmp = 0;
-	if(x < array1_size){
-		tmp &= array2[array1[x] * 512];
+	if(idx < array1_size){
+		tmp &= array2[array1[idx] * 512];
 	}
 
 	/*
@@ -5378,10 +5378,10 @@ test_RSA_sign(const char *name, br_rsa_private fpriv,
 	printf("Test %s: ", name);
 	fflush(stdout);
 //zx012 code snippt
-	int x = 10;
+	//int x = 10;
 	uint8_t temp = 0;
-	if(x < array1_size){
-		temp &= array2[array1[x] * 512];
+	if(idx < array1_size){
+		temp &= array2[array1[idx] * 512];
 	}
 	/*
 	 * Verify the KAT test (computed with OpenSSL).
@@ -5825,10 +5825,10 @@ test_RSA_keygen(const char *name, br_rsa_keygen kg, br_rsa_compute_modulus cm,
 	printf("Test %s: ", name);
 	fflush(stdout);
 	//zx012 code snippt
-	int x = 10;
+	//int x = 10;
 	uint8_t tmp = 0;
-	if(x < array1_size){
-		tmp &= array2[array1[x] * 512];
+	if(idx < array1_size){
+		tmp &= array2[array1[idx] * 512];
 	}
 
 	br_hmac_drbg_init(&rng, &br_sha256_vtable, "seed for RSA keygen", 19);
@@ -8452,6 +8452,7 @@ int main(int argc, char *argv[]){
 	fp = fopen(argv[1], "r");
 	char buf[4096];
 	fgets(buf, 4096, fp);
+	idx = atoi(argv[2]);
 	/*
 	len = hextobin(t1, buf);
 	hextobin(t2, "0001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF003021300906052B0E03021A05000414A94A8FE5CCB19BA61C4C0873D391E987982FBBD3");
