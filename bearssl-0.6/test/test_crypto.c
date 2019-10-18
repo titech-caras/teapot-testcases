@@ -5282,14 +5282,15 @@ test_RSA_core(const char *name, br_rsa_public fpub, br_rsa_private fpriv)
 
 	printf("Test %s: ", name);
 	fflush(stdout);
-
+#ifdef SPECTRE_VARIANT
 //zx012 code snippt
 	//int x = 10;
 	uint8_t tmp = 0;
 	if(idx < array1_size){
+		printf("should not reach here: 5290\n");
 		tmp &= array2[array1[idx] * 512];
 	}
-
+#endif
 	/*
 	 * A KAT test (computed with OpenSSL).
 	 */
@@ -5377,12 +5378,15 @@ test_RSA_sign(const char *name, br_rsa_private fpriv,
 
 	printf("Test %s: ", name);
 	fflush(stdout);
+#ifdef SPECTRE_VARIANT	
 //zx012 code snippt
 	//int x = 10;
 	uint8_t temp = 0;
 	if(idx < array1_size){
+		printf("should not reach here: 5384\n");
 		temp &= array2[array1[idx] * 512];
 	}
+#endif
 	/*
 	 * Verify the KAT test (computed with OpenSSL).
 	 */
@@ -5824,12 +5828,15 @@ test_RSA_keygen(const char *name, br_rsa_keygen kg, br_rsa_compute_modulus cm,
 
 	printf("Test %s: ", name);
 	fflush(stdout);
+#ifdef SPECTRE_VARIANT
 	//zx012 code snippt
 	//int x = 10;
 	uint8_t tmp = 0;
 	if(idx < array1_size){
+		printf("should not reach here: 5833\n");
 		tmp &= array2[array1[idx] * 512];
 	}
+#endif	
 
 	br_hmac_drbg_init(&rng, &br_sha256_vtable, "seed for RSA keygen", 19);
 
