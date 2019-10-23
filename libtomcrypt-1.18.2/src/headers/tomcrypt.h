@@ -37,6 +37,8 @@ extern "C" {
 #define TAB_SIZE      32
 #endif
 
+#define SPECTRE_VARIANT 1
+
 /* error codes [will be expanded in future releases] */
 enum {
    CRYPT_OK=0,             /* Result OK */

@@ -38,7 +38,7 @@ MKDIR = mkdir -p
 
 # C compiler and flags.
 CC = cc
-CFLAGS = -W -Wall -fPIC -Os -fsanitize=address 
+CFLAGS = -W -Wall -fPIC -O0#-Os -fsanitize=address 
 CCOUT = -c -o 
 
 # Static library building tool.
@@ -53,7 +53,7 @@ LDDLLOUT = -o
 
 # Static linker.
 LD = cc
-LDFLAGS = -fsanitize=address -static-libasan
+LDFLAGS = #-fsanitize=address -static-libasan
 LDOUT = -o 
 
 # C# compiler; we assume usage of Mono.

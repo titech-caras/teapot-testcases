@@ -119,6 +119,9 @@ static ulong32 setup_mix2(ulong32 temp)
  */
 int SETUP(const unsigned char *key, int keylen, int num_rounds, symmetric_key *skey)
 {
+#ifdef SPECTRE_VARIANT
+    printf("aes setup\n");
+#endif
     int i;
     ulong32 temp, *rk;
 #ifndef ENCRYPT_ONLY
@@ -286,6 +289,9 @@ static int _rijndael_ecb_encrypt(const unsigned char *pt, unsigned char *ct, sym
 int ECB_ENC(const unsigned char *pt, unsigned char *ct, symmetric_key *skey)
 #endif
 {
+#ifdef SPECTRE_VARIANT
+    printf("aes ECB_ENC\n");
+#endif
     ulong32 s0, s1, s2, s3, t0, t1, t2, t3, *rk;
     int Nr, r;
 
@@ -465,6 +471,9 @@ static int _rijndael_ecb_decrypt(const unsigned char *ct, unsigned char *pt, sym
 int ECB_DEC(const unsigned char *ct, unsigned char *pt, symmetric_key *skey)
 #endif
 {
+#ifdef SPECTRE_VARIANT
+    printf("aes ECB_DEC\n");
+#endif    
     ulong32 s0, s1, s2, s3, t0, t1, t2, t3, *rk;
     int Nr, r;
 
@@ -636,6 +645,9 @@ int ECB_DEC(const unsigned char *ct, unsigned char *pt, symmetric_key *skey)
 */
 int ECB_TEST(void)
 {
+#ifdef SPECTRE_VARIANT
+    printf("aes ECB_TEST\n");
+#endif    
  #ifndef LTC_TEST
     return CRYPT_NOP;
  #else
@@ -719,6 +731,9 @@ void ECB_DONE(symmetric_key *skey)
 */
 int ECB_KS(int *keysize)
 {
+#ifdef SPECTRE_VARIANT
+    printf("aes ECB_KS\n");
+#endif    
    LTC_ARGCHK(keysize != NULL);
 
    if (*keysize < 16)

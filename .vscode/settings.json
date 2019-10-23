@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "bearssl.h": "c",
-        "inner.h": "c"
+        "inner.h": "c",
+        "tomcrypt.h": "c"
     }
 }
