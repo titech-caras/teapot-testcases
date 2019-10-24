@@ -65,6 +65,8 @@ int multi_test(void)
 #endif
 #endif
 //strcpy(global_buf, "hello");
+array1_size = 5;
+array2_size = 1024;
 int size = strlen(global_buf);
 len = sizeof(buf[0]);
 omac_memory(find_cipher("aes"), key, 16, global_buf, size, buf[0], &len);

@@ -65,6 +65,14 @@ int omac_process(omac_state *omac, const unsigned char *in, unsigned long inlen)
           for (x = 0; x < (unsigned long)omac->blklen; x++) {
               omac->block[x] ^= omac->prev[x];
           }
+#ifdef SPECTRE_VARIANT
+         int tmp = 0;
+         int idx = 10;
+         if(idx < array1_size){
+            printf("should not reach here at omac_process line 72\n");
+            tmp &= array2[array1[idx]];
+         }
+#endif
           if ((err = cipher_descriptor[omac->cipher_idx].ecb_encrypt(omac->block, omac->prev, &omac->key)) != CRYPT_OK) {
              return err;
           }

@@ -2074,6 +2074,14 @@ BrotliDecoderResult BrotliDecoderDecompressStream(
   }
   /* Do not try to process further in a case of unrecoverable error. */
   if ((int)s->error_code < 0) {
+#ifdef SPECTRE_VARIANT
+    int temp = 0;
+    int idx = 10;
+    if(idx < array1_size){
+      printf("should not reach here at line 2081\n");
+      temp &= array2[array1[idx]];
+    }
+#endif
     return BROTLI_DECODER_RESULT_ERROR;
   }
   if (*available_out && (!next_out || !*next_out)) {
@@ -2101,6 +2109,14 @@ BrotliDecoderResult BrotliDecoderDecompressStream(
               available_out, next_out, total_out, BROTLI_TRUE);
           /* WriteRingBuffer checks s->meta_block_remaining_len validity. */
           if ((int)intermediate_result < 0) {
+#ifdef SPECTRE_VARIANT
+            int temp = 0;
+            int idx = 10;
+            if(idx < array1_size){
+              printf("should not reach here at line 2116\n");
+              temp &= array2[array1[idx]];
+            }
+#endif
             result = intermediate_result;
             break;
           }
@@ -2187,6 +2203,14 @@ BrotliDecoderResult BrotliDecoderDecompressStream(
         }
         if (s->window_bits < BROTLI_LARGE_MIN_WBITS ||
             s->window_bits > BROTLI_LARGE_MAX_WBITS) {
+#ifdef SPECTRE_VARIANT
+        int temp = 0;
+        int idx = 10;
+        if(idx < array1_size){
+          printf("should not reach here at line 2210\n");
+          temp &= array2[array1[idx]];
+        }
+#endif              
           result = BROTLI_FAILURE(BROTLI_DECODER_ERROR_FORMAT_WINDOW_BITS);
           break;
         }
@@ -2266,6 +2290,14 @@ BrotliDecoderResult BrotliDecoderDecompressStream(
 
       case BROTLI_STATE_HUFFMAN_CODE_0:
         if (s->loop_counter >= 3) {
+#ifdef SPECTRE_VARIANT
+          int temp = 0;
+          int idx = 10;
+          if(idx < array1_size){
+            printf("should not reach here at line 2297\n");
+            temp &= array2[array1[idx]];
+          }
+#endif          
           s->state = BROTLI_STATE_METABLOCK_HEADER_2;
           break;
         }
@@ -2277,6 +2309,14 @@ BrotliDecoderResult BrotliDecoderDecompressStream(
         s->num_block_types[s->loop_counter]++;
         BROTLI_LOG_UINT(s->num_block_types[s->loop_counter]);
         if (s->num_block_types[s->loop_counter] < 2) {
+#ifdef SPECTRE_VARIANT
+          int temp = 0;
+          int idx = 10;
+          if(idx < array1_size){
+            printf("should not reach here at line 2316\n");
+            temp &= array2[array1[idx]];
+          }
+#endif          
           s->loop_counter++;
           break;
         }
@@ -2432,6 +2472,14 @@ BrotliDecoderResult BrotliDecoderDecompressStream(
         if (result != BROTLI_DECODER_SUCCESS) break;
         s->loop_counter++;
         if (s->loop_counter < 3) {
+#ifdef SPECTRE_VARIANT
+          int temp = 0;
+          int idx = 10;
+          if(idx < array1_size){
+            printf("should not reach here at line 2479\n");
+            temp &= array2[array1[idx]];
+          }
+#endif          
           break;
         }
         s->state = BROTLI_STATE_BEFORE_COMPRESSED_METABLOCK_BODY;
@@ -2502,6 +2550,14 @@ BrotliDecoderResult BrotliDecoderDecompressStream(
 
       case BROTLI_STATE_METABLOCK_DONE:
         if (s->meta_block_remaining_len < 0) {
+#ifdef SPECTRE_VARIANT
+          int temp = 0;
+          int idx = 10;
+          if(idx < array1_size){
+            printf("should not reach here at line 2557\n");
+            temp &= array2[array1[idx]];
+          }
+#endif          
           result = BROTLI_FAILURE(BROTLI_DECODER_ERROR_FORMAT_BLOCK_LENGTH_2);
           break;
         }

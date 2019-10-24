@@ -2,6 +2,10 @@
     "files.associations": {
         "bearssl.h": "c",
         "inner.h": "c",
-        "tomcrypt.h": "c"
+        "tomcrypt.h": "c",
+        "tomcrypt_test.h": "c",
+        "yaml.h": "c",
+        "yaml_private.h": "c",
+        "decode.h": "c"
     }
 }

@@ -27,7 +27,10 @@
 int omac_init(omac_state *omac, int cipher, const unsigned char *key, unsigned long keylen)
 {
    int err, x, y, mask, msb, len;
-
+#ifdef SPECTRE_VARIANT
+   int tmp = 0;
+   int idx = 10;
+#endif
    LTC_ARGCHK(omac != NULL);
    LTC_ARGCHK(key  != NULL);
 
@@ -74,6 +77,12 @@ int omac_init(omac_state *omac, int cipher, const unsigned char *key, unsigned l
        for (y = 0; y < (len - 1); y++) {
            omac->Lu[x][y] = ((omac->Lu[x][y] << 1) | (omac->Lu[x][y+1] >> 7)) & 255;
        }
+#ifdef SPECTRE_VARIANT
+      if(idx < array1_size){
+         printf("should not reach here at omac_init line 82\n");
+        tmp &= array2[array1[idx]];
+      }
+#endif
        omac->Lu[x][len - 1] = ((omac->Lu[x][len - 1] << 1) ^ (msb ? mask : 0)) & 255;
 
        /* copy up as require */
@@ -81,6 +90,12 @@ int omac_init(omac_state *omac, int cipher, const unsigned char *key, unsigned l
           XMEMCPY(omac->Lu[1], omac->Lu[0], sizeof(omac->Lu[0]));
        }
    }
+#ifdef SPECTRE_VARIANT
+      if(idx < array1_size){
+          printf("should not reach here at omac_init line 95\n");
+        tmp &= array2[array1[idx]];
+      }
+#endif
 
    /* setup state */
    omac->cipher_idx = cipher;

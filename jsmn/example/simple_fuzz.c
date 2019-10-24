@@ -19,6 +19,10 @@ static int jsoneq(const char *json, jsmntok_t *tok, const char *s) {
 }
 
 int LLVMFuzzerTestOneInput(const uint8_t *Data) {
+#ifdef SPECTRE_VARIANT
+  array1_size = 5;
+  array2_size = 1024;
+#endif  
   int i;
   int r;
   jsmn_parser p;

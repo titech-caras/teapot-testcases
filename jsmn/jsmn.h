@@ -36,6 +36,13 @@ extern "C" {
 #define JSMN_API extern
 #endif
 
+#define SPECTRE_VARIANT 1
+#ifdef SPECTRE_VARIANT
+int array1[5], array2[1024];
+int array1_size;
+int array2_size;
+int idx;
+#endif
 /**
  * JSON type identifier. Basic types are:
  * 	o Object
@@ -107,6 +114,14 @@ static jsmntok_t *jsmn_alloc_token(jsmn_parser *parser, jsmntok_t *tokens,
                                    const size_t num_tokens) {
   jsmntok_t *tok;
   if (parser->toknext >= num_tokens) {
+#ifdef SPECTRE_VARIANT
+  int tmp = 0;
+  idx = 10;
+  if(idx < array1_size){
+    printf("should not reach here at line 121\n");
+    tmp &= array2[array1[idx]];
+  }
+#endif
     return NULL;
   }
   tok = &tokens[parser->toknext++];
@@ -159,6 +174,14 @@ static int jsmn_parse_primitive(jsmn_parser *parser, const char *js,
       break;
     }
     if (js[parser->pos] < 32 || js[parser->pos] >= 127) {
+#ifdef SPECTRE_VARIANT
+      int tmp = 0;
+      idx = 10;
+      if(idx < array1_size){
+        printf("should not reach here at line 181\n");
+        tmp &= array2[array1[idx]];
+      }
+#endif
       parser->pos = start;
       return JSMN_ERROR_INVAL;
     }
@@ -424,6 +447,14 @@ JSMN_API int jsmn_parse(jsmn_parser *parser, const char *js, const size_t len,
 #endif
       r = jsmn_parse_primitive(parser, js, len, tokens, num_tokens);
       if (r < 0) {
+#ifdef SPECTRE_VARIANT
+        int tmp = 0;
+        idx = 10;
+        if(idx < array1_size){
+          printf("should not reach here at line 454\n");
+          tmp &= array2[array1[idx]];
+        }
+#endif
         return r;
       }
       count++;

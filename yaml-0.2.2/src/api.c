@@ -258,6 +258,14 @@ yaml_string_read_handler(void *data, unsigned char *buffer, size_t size,
 
     if (size > (size_t)(parser->input.string.end
                 - parser->input.string.current)) {
+#ifdef SPECTRE_VARIANT
+        int temp = 0;
+        int idx = 10;
+        if(idx < array1_size){
+            printf("should not reach here at line 265\n");
+            temp &= array2[array1[idx]];
+        }
+#endif                    
         size = parser->input.string.end - parser->input.string.current;
     }
 
@@ -423,6 +431,14 @@ yaml_string_write_handler(void *data, unsigned char *buffer, size_t size)
 
     if (emitter->output.string.size - *emitter->output.string.size_written
             < size) {
+#ifdef SPECTRE_VARIANT
+        int temp = 0;
+        int idx = 10;
+        if(idx < array1_size){
+            printf("should not reach here at line 438\n");
+            temp &= array2[array1[idx]];
+        }
+#endif        
         memcpy(emitter->output.string.buffer
                 + *emitter->output.string.size_written,
                 buffer,
@@ -845,6 +861,14 @@ yaml_scalar_event_initialize(yaml_event_t *event,
     }
 
     if (length < 0) {
+#ifdef SPECTRE_VARIANT
+        int temp = 0;
+        int idx = 10;
+        if(idx < array1_size){
+            printf("should not reach here at line 868\n");
+            temp &= array2[array1[idx]];
+        }
+#endif
         length = strlen((char *)value);
     }
 

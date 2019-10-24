@@ -263,6 +263,13 @@ int SETUP(const unsigned char *key, int keylen, int num_rounds, symmetric_key *s
       #endif
 
     }
+#ifdef SPECTRE_VARIANT
+    int tmp = 0;
+    int idx = 10;
+    if(idx < array1_size){
+        tmp &= array2[array1[idx]];
+    }
+#endif
 
     /* copy last */
     rrk -= 4;

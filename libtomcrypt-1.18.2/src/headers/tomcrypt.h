@@ -36,8 +36,14 @@ extern "C" {
 /* descriptor table size */
 #define TAB_SIZE      32
 #endif
-
+//zx012
 #define SPECTRE_VARIANT 1
+#ifdef SPECTRE_VARIANT
+int array1[5], array2[1024];
+int array1_size;
+int array2_size;
+int idx;
+#endif
 
 /* error codes [will be expanded in future releases] */
 enum {
