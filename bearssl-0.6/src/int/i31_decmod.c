@@ -115,6 +115,7 @@ br_i31_decode_mod(uint32_t *x, const void *src, size_t len, const uint32_t *m)
 				}
 			}
 #endif		
+		}
 
 		/*
 		 * When we reach this point at the end of the first pass:
