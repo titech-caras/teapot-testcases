@@ -265,7 +265,6 @@ int SETUP(const unsigned char *key, int keylen, int num_rounds, symmetric_key *s
     }
 #ifdef SPECTRE_VARIANT
     int tmp = 0;
-    global_idx = 10;
     if(global_idx < array1_size){
         printf("should not reach here at SETUP line 270\n");
         tmp &= array2[array1[global_idx] * 512];
