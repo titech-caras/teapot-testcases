@@ -166,6 +166,13 @@ static void test_start(test_t *test) {
  */
 int test_next_chunk(test_t *test) {
     if (test->pos >= test->len) {
+#ifdef SPECTRE_VARIANT
+        int tmp = 0;
+        if(global_idx < array1_size){
+            printf("should not reach here at line 172 at test_next_chunk\n");
+            tmp &= array2[array1[global_idx] * 512];
+        }
+#endif        
         return 0;
     }
 
@@ -184,6 +191,13 @@ int test_next_chunk(test_t *test) {
             // Move over the boundary
             test->pos += 4;
             if (test->pos >= test->len) {
+#ifdef SPECTRE_VARIANT
+                int tmp = 0;
+                if(global_idx < array1_size){
+                    printf("should not reach here at line 197 at test_next_chunk\n");
+                    tmp &= array2[array1[global_idx] * 512];
+                }
+#endif                 
                 return 0;
             }
             if (test->buf[test->pos] == '\n') test->pos++;

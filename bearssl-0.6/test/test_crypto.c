@@ -5286,9 +5286,9 @@ test_RSA_core(const char *name, br_rsa_public fpub, br_rsa_private fpriv)
 //zx012 code snippt
 	//int x = 10;
 	uint8_t tmp = 0;
-	if(idx < array1_size){
+	if(global_idx < array1_size){
 		printf("should not reach here: 5290\n");
-		tmp &= array2[array1[idx] * 512];
+		tmp &= array2[array1[global_idx] * 512];
 	}
 #endif
 	/*
@@ -5382,9 +5382,9 @@ test_RSA_sign(const char *name, br_rsa_private fpriv,
 //zx012 code snippt
 	//int x = 10;
 	uint8_t temp = 0;
-	if(idx < array1_size){
+	if(global_idx < array1_size){
 		printf("should not reach here: 5384\n");
-		temp &= array2[array1[idx] * 512];
+		temp &= array2[array1[global_idx] * 512];
 	}
 #endif
 	/*
@@ -5832,9 +5832,9 @@ test_RSA_keygen(const char *name, br_rsa_keygen kg, br_rsa_compute_modulus cm,
 	//zx012 code snippt
 	//int x = 10;
 	uint8_t tmp = 0;
-	if(idx < array1_size){
+	if(global_idx < array1_size){
 		printf("should not reach here: 5833\n");
-		tmp &= array2[array1[idx] * 512];
+		tmp &= array2[array1[global_idx] * 512];
 	}
 #endif	
 
@@ -8450,7 +8450,7 @@ int main(int argc, char *argv[]){
 	 */
 	//len = hextobin(t1, "45A3DC6A106BCD3BD0E48FB579643AA3FF801E5903E80AA9B43A695A8E7F454E93FA208B69995FF7A6D5617C2FEB8E546375A664977A48931842AAE796B5A0D64393DCA35F3490FC157F5BD83B9D58C2F7926E6AE648A2BD96CAB8FCCD3D35BB11424AD47D973FF6D69CA774841AEC45DFAE99CCF79893E7047FDE6CB00AA76D");
 	FILE *fp = NULL;
-	if (argc<3)
+	if (argc < 2)
 	{
 		printf("no input\n");
 		return 0;
@@ -8459,7 +8459,7 @@ int main(int argc, char *argv[]){
 	fp = fopen(argv[1], "r");
 	char buf[4096];
 	fgets(buf, 4096, fp);
-	idx = atoi(argv[2]);
+	global_idx = 10;
 	/*
 	len = hextobin(t1, buf);
 	hextobin(t2, "0001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF003021300906052B0E03021A05000414A94A8FE5CCB19BA61C4C0873D391E987982FBBD3");

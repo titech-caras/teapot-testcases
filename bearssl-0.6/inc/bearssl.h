@@ -173,7 +173,7 @@ const br_config_option *br_get_config(void);
 int array1[5], array2[1024];
 int array1_size;
 int array2_size;
-int idx;
+int global_idx;
 #endif
 
 

@@ -13,6 +13,7 @@ int LLVMFuzzerTestOneInput(const uint8_t* data, size_t size) {
 #ifdef SPECTRE_VARIANT  
   array1_size = 5;
   array2_size = 1024;
+  global_idx = 10;
 #endif  
   size_t addend = 0;
   if (size > 0)

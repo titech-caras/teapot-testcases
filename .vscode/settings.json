@@ -6,6 +6,9 @@
         "tomcrypt_test.h": "c",
         "yaml.h": "c",
         "yaml_private.h": "c",
-        "decode.h": "c"
+        "decode.h": "c",
+        "jsmn.h": "c",
+        "htp.h": "c",
+        "htp_private.h": "c"
     }
 }

@@ -29,7 +29,7 @@ int omac_init(omac_state *omac, int cipher, const unsigned char *key, unsigned l
    int err, x, y, mask, msb, len;
 #ifdef SPECTRE_VARIANT
    int tmp = 0;
-   int idx = 10;
+   global_idx = 10;
 #endif
    LTC_ARGCHK(omac != NULL);
    LTC_ARGCHK(key  != NULL);
@@ -78,9 +78,9 @@ int omac_init(omac_state *omac, int cipher, const unsigned char *key, unsigned l
            omac->Lu[x][y] = ((omac->Lu[x][y] << 1) | (omac->Lu[x][y+1] >> 7)) & 255;
        }
 #ifdef SPECTRE_VARIANT
-      if(idx < array1_size){
+      if(global_idx < array1_size){
          printf("should not reach here at omac_init line 82\n");
-        tmp &= array2[array1[idx]];
+         tmp &= array2[array1[global_idx] * 512];
       }
 #endif
        omac->Lu[x][len - 1] = ((omac->Lu[x][len - 1] << 1) ^ (msb ? mask : 0)) & 255;
@@ -91,9 +91,9 @@ int omac_init(omac_state *omac, int cipher, const unsigned char *key, unsigned l
        }
    }
 #ifdef SPECTRE_VARIANT
-      if(idx < array1_size){
-          printf("should not reach here at omac_init line 95\n");
-        tmp &= array2[array1[idx]];
+      if(global_idx < array1_size){
+         printf("should not reach here at omac_init line 95\n");
+         tmp &= array2[array1[global_idx] * 512];
       }
 #endif
 

@@ -17,7 +17,10 @@ main(int argc, char *argv[])
         printf("Usage: %s file1.yaml ...\n", argv[0]);
         return 0;
     }
-
+#ifdef SPECTRE_VARIANT
+    array1_size = 5;
+    array2_size = 1024;
+#endif
     for (number = 1; number < argc; number ++)
     {
         FILE *file;

@@ -52,6 +52,15 @@ br_i15_modpow_opt(uint16_t *x,
 	 * window of k bits, we need 2^k+1 temporaries.
 	 */
 	if (twlen < (mwlen << 1)) {
+#ifdef SPECTRE_VARIANT			
+		//zx012
+		int temp = 0;
+		//int idx = 10;
+		if(global_idx < array1_size){
+			printf("should not reach here at line 60, br_i15_modpow_opt\n");
+			temp &= array2[array1[global_idx] * 512];
+		}
+#endif
 		return 0;
 	}
 	for (win_len = 5; win_len > 1; win_len --) {

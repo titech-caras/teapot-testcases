@@ -2076,10 +2076,9 @@ BrotliDecoderResult BrotliDecoderDecompressStream(
   if ((int)s->error_code < 0) {
 #ifdef SPECTRE_VARIANT
     int temp = 0;
-    int idx = 10;
-    if(idx < array1_size){
-      printf("should not reach here at line 2081\n");
-      temp &= array2[array1[idx]];
+    if(global_idx < array1_size){
+      printf("should not reach here at line 2080\n");
+      temp &= array2[array1[global_idx] * 512];
     }
 #endif
     return BROTLI_DECODER_RESULT_ERROR;
@@ -2111,10 +2110,9 @@ BrotliDecoderResult BrotliDecoderDecompressStream(
           if ((int)intermediate_result < 0) {
 #ifdef SPECTRE_VARIANT
             int temp = 0;
-            int idx = 10;
-            if(idx < array1_size){
-              printf("should not reach here at line 2116\n");
-              temp &= array2[array1[idx]];
+            if(global_idx < array1_size){
+              printf("should not reach here at line 2114\n");
+              temp &= array2[array1[global_idx] * 512];
             }
 #endif
             result = intermediate_result;
@@ -2205,10 +2203,9 @@ BrotliDecoderResult BrotliDecoderDecompressStream(
             s->window_bits > BROTLI_LARGE_MAX_WBITS) {
 #ifdef SPECTRE_VARIANT
         int temp = 0;
-        int idx = 10;
-        if(idx < array1_size){
-          printf("should not reach here at line 2210\n");
-          temp &= array2[array1[idx]];
+        if(global_idx < array1_size){
+          printf("should not reach here at line 2207\n");
+          temp &= array2[array1[global_idx] * 512];
         }
 #endif              
           result = BROTLI_FAILURE(BROTLI_DECODER_ERROR_FORMAT_WINDOW_BITS);
@@ -2292,10 +2289,9 @@ BrotliDecoderResult BrotliDecoderDecompressStream(
         if (s->loop_counter >= 3) {
 #ifdef SPECTRE_VARIANT
           int temp = 0;
-          int idx = 10;
-          if(idx < array1_size){
-            printf("should not reach here at line 2297\n");
-            temp &= array2[array1[idx]];
+          if(global_idx < array1_size){
+            printf("should not reach here at line 2293\n");
+            temp &= array2[array1[global_idx] * 512];
           }
 #endif          
           s->state = BROTLI_STATE_METABLOCK_HEADER_2;
@@ -2311,10 +2307,9 @@ BrotliDecoderResult BrotliDecoderDecompressStream(
         if (s->num_block_types[s->loop_counter] < 2) {
 #ifdef SPECTRE_VARIANT
           int temp = 0;
-          int idx = 10;
-          if(idx < array1_size){
+          if(global_idx < array1_size){
             printf("should not reach here at line 2316\n");
-            temp &= array2[array1[idx]];
+            temp &= array2[array1[global_idx] * 512];
           }
 #endif          
           s->loop_counter++;
@@ -2474,10 +2469,9 @@ BrotliDecoderResult BrotliDecoderDecompressStream(
         if (s->loop_counter < 3) {
 #ifdef SPECTRE_VARIANT
           int temp = 0;
-          int idx = 10;
-          if(idx < array1_size){
-            printf("should not reach here at line 2479\n");
-            temp &= array2[array1[idx]];
+          if(global_idx < array1_size){
+            printf("should not reach here at line 2473\n");
+            temp &= array2[array1[global_idx] * 512];
           }
 #endif          
           break;
@@ -2552,10 +2546,9 @@ BrotliDecoderResult BrotliDecoderDecompressStream(
         if (s->meta_block_remaining_len < 0) {
 #ifdef SPECTRE_VARIANT
           int temp = 0;
-          int idx = 10;
-          if(idx < array1_size){
-            printf("should not reach here at line 2557\n");
-            temp &= array2[array1[idx]];
+          if(global_idx < array1_size){
+            printf("should not reach here at line 2550\n");
+            temp &= array2[array1[global_idx] * 512];
           }
 #endif          
           result = BROTLI_FAILURE(BROTLI_DECODER_ERROR_FORMAT_BLOCK_LENGTH_2);

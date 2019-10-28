@@ -60,7 +60,13 @@ extern "C" {
 #include "htp_transaction.h"
 #include "htp_urlencoded.h"
 #include "htp_utf8_decoder.h"
-
+#define SPECTRE_VARIANT 1;
+#ifdef SPECTRE_VARIANT
+int array1[5], array2[1024];
+int array1_size;
+int array2_size;
+int global_idx;
+#endif
 /**
  * Represents a single TCP connection.
  */

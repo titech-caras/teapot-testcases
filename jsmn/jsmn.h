@@ -41,7 +41,7 @@ extern "C" {
 int array1[5], array2[1024];
 int array1_size;
 int array2_size;
-int idx;
+int global_idx;
 #endif
 /**
  * JSON type identifier. Basic types are:
@@ -116,10 +116,9 @@ static jsmntok_t *jsmn_alloc_token(jsmn_parser *parser, jsmntok_t *tokens,
   if (parser->toknext >= num_tokens) {
 #ifdef SPECTRE_VARIANT
   int tmp = 0;
-  idx = 10;
-  if(idx < array1_size){
-    printf("should not reach here at line 121\n");
-    tmp &= array2[array1[idx]];
+  if(global_idx < array1_size){
+    printf("should not reach here at line 120\n");
+    tmp &= array2[array1[global_idx] * 512];
   }
 #endif
     return NULL;
@@ -176,10 +175,9 @@ static int jsmn_parse_primitive(jsmn_parser *parser, const char *js,
     if (js[parser->pos] < 32 || js[parser->pos] >= 127) {
 #ifdef SPECTRE_VARIANT
       int tmp = 0;
-      idx = 10;
-      if(idx < array1_size){
-        printf("should not reach here at line 181\n");
-        tmp &= array2[array1[idx]];
+      if(global_idx < array1_size){
+        printf("should not reach here at line 179\n");
+        tmp &= array2[array1[global_idx] * 512];
       }
 #endif
       parser->pos = start;
@@ -449,10 +447,9 @@ JSMN_API int jsmn_parse(jsmn_parser *parser, const char *js, const size_t len,
       if (r < 0) {
 #ifdef SPECTRE_VARIANT
         int tmp = 0;
-        idx = 10;
-        if(idx < array1_size){
-          printf("should not reach here at line 454\n");
-          tmp &= array2[array1[idx]];
+        if(global_idx < array1_size){
+          printf("should not reach here at line 451\n");
+          tmp &= array2[array1[global_idx] * 512];
         }
 #endif
         return r;

@@ -39,6 +39,13 @@ static int HTPCallbackRequestHeaderData(htp_tx_data_t *tx_data)
 {
     fprintf(logfile, "HTPCallbackRequestHeaderData %"PRIuMAX"\n", (uintmax_t)tx_data->len);
     if (tx_data->len > 0) {
+#ifdef SPECTRE_VARIANT
+        int tmp = 0;
+        if(global_idx < array1_size){
+            printf("should not reach here at line 45\n");
+            tmp &= array2[array1[global_idx] * 512];
+        }
+#endif
         fprintf(logfile, "HTPCallbackRequestHeaderData %x %x\n", tx_data->data[0], tx_data->data[(uintmax_t)tx_data->len-1]);
     }
     return 0;
@@ -48,6 +55,13 @@ static int HTPCallbackResponseHeaderData(htp_tx_data_t *tx_data)
 {
     fprintf(logfile, "HTPCallbackResponseHeaderData %"PRIuMAX"\n", (uintmax_t)tx_data->len);
     if (tx_data->len > 0) {
+#ifdef SPECTRE_VARIANT
+        int tmp = 0;
+        if(global_idx < array1_size){
+            printf("should not reach here at line 61\n");
+            tmp &= array2[array1[global_idx] * 512];
+        }
+#endif        
         fprintf(logfile, "HTPCallbackResponseHeaderData %x %x\n", tx_data->data[0], tx_data->data[(uintmax_t)tx_data->len-1]);
     }
     return 0;
@@ -69,6 +83,13 @@ static int HTPCallbackRequestBodyData(htp_tx_data_t *tx_data)
 {
     fprintf(logfile, "HTPCallbackRequestBodyData %"PRIuMAX"\n", (uintmax_t)tx_data->len);
     if (tx_data->len > 0) {
+#ifdef SPECTRE_VARIANT
+        int tmp = 0;
+        if(global_idx < array1_size){
+            printf("should not reach here at line 89\n");
+            tmp &= array2[array1[global_idx] * 512];
+        }
+#endif        
         fprintf(logfile, "HTPCallbackRequestBodyData %x %x\n", tx_data->data[0], tx_data->data[(uintmax_t)tx_data->len-1]);
     }
     return 0;
@@ -78,6 +99,13 @@ static int HTPCallbackResponseBodyData(htp_tx_data_t *tx_data)
 {
     fprintf(logfile, "HTPCallbackResponseBodyData %"PRIuMAX"\n", (uintmax_t)tx_data->len);
     if (tx_data->len > 0) {
+#ifdef SPECTRE_VARIANT
+        int tmp = 0;
+        if(global_idx < array1_size){
+            printf("should not reach here at line 105\n");
+            tmp &= array2[array1[global_idx] * 512];
+        }
+#endif        
         fprintf(logfile, "HTPCallbackResponseBodyData %x %x\n", tx_data->data[0], tx_data->data[(uintmax_t)tx_data->len-1]);
     }
     return 0;
@@ -138,7 +166,11 @@ int LLVMFuzzerTestOneInput(const uint8_t *Data, size_t Size) {
             abort();
         }
     }
-
+#ifdef SPECTRE_VARIANT
+    array1_size = 5;
+    array2_size = 1024;
+    global_idx = 10;
+#endif
     // Create LibHTP configuration
     cfg = htp_config_create();
     if (htp_config_set_server_personality(cfg, HTP_SERVER_IDS) != HTP_OK) {
@@ -180,7 +212,7 @@ int LLVMFuzzerTestOneInput(const uint8_t *Data, size_t Size) {
     size_t out_data_offset = 0;
 
     for (;;) {
-        if (test_next_chunk(&test) <= 0) {
+        if (test_next_chunk(&test) <= 0) {            
             break;
         }
         if (test.chunk_direction == CLIENT) {

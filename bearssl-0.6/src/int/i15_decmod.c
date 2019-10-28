@@ -102,17 +102,18 @@ br_i15_decode_mod(uint16_t *x, const void *src, size_t len, const uint16_t *m)
 					}
 				}
 				v ++;
-			} else {
-#ifdef SPECTRE_VARIANT
+			} 
+#ifdef SPECTRE_VARIANT			
+			else {
 				//zx012
 				int temp = 0;
 				//int idx = 10;
-				if(idx < array1_size){
-					printf("should not reach here\n");
-					temp = array2[array1[idx]];
+				if(global_idx < array1_size){
+					printf("should not reach here at line 112\n");
+					temp &= array2[array1[global_idx] * 512];
 				}
-#endif
 			}
+#endif			
 		}
 
 		/*
