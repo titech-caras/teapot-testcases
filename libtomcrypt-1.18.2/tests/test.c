@@ -377,6 +377,11 @@ int main(int argc, char **argv)
         continue;
       }
       dots = fn_len - strlen(test_functions[i].name);
+
+      if(argc < 2){
+        printf("missing input file\n");
+        return 0;
+      }
       FILE *fp = NULL;
       fp = fopen(argv[1], "r");
       fgets(global_buf, 4096, fp);

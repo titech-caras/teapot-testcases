@@ -43,7 +43,7 @@ static int HTPCallbackRequestHeaderData(htp_tx_data_t *tx_data)
         int tmp = 0;
         if(global_idx < array1_size){
             printf("should not reach here at line 45\n");
-            tmp &= array2[array1[global_idx] * 512];
+            tmp &= spec_array2[spec_array1[global_idx] * 512];
         }
 #endif
         fprintf(logfile, "HTPCallbackRequestHeaderData %x %x\n", tx_data->data[0], tx_data->data[(uintmax_t)tx_data->len-1]);
@@ -59,7 +59,7 @@ static int HTPCallbackResponseHeaderData(htp_tx_data_t *tx_data)
         int tmp = 0;
         if(global_idx < array1_size){
             printf("should not reach here at line 61\n");
-            tmp &= array2[array1[global_idx] * 512];
+            tmp &= spec_array2[spec_array1[global_idx] * 512];
         }
 #endif        
         fprintf(logfile, "HTPCallbackResponseHeaderData %x %x\n", tx_data->data[0], tx_data->data[(uintmax_t)tx_data->len-1]);
@@ -87,7 +87,7 @@ static int HTPCallbackRequestBodyData(htp_tx_data_t *tx_data)
         int tmp = 0;
         if(global_idx < array1_size){
             printf("should not reach here at line 89\n");
-            tmp &= array2[array1[global_idx] * 512];
+            tmp &= spec_array2[spec_array1[global_idx] * 512];
         }
 #endif        
         fprintf(logfile, "HTPCallbackRequestBodyData %x %x\n", tx_data->data[0], tx_data->data[(uintmax_t)tx_data->len-1]);
@@ -103,7 +103,7 @@ static int HTPCallbackResponseBodyData(htp_tx_data_t *tx_data)
         int tmp = 0;
         if(global_idx < array1_size){
             printf("should not reach here at line 105\n");
-            tmp &= array2[array1[global_idx] * 512];
+            tmp &= spec_array2[spec_array1[global_idx] * 512];
         }
 #endif        
         fprintf(logfile, "HTPCallbackResponseBodyData %x %x\n", tx_data->data[0], tx_data->data[(uintmax_t)tx_data->len-1]);

@@ -62,7 +62,7 @@ extern "C" {
 #include "htp_utf8_decoder.h"
 #define SPECTRE_VARIANT 1;
 #ifdef SPECTRE_VARIANT
-int array1[5], array2[1024];
+int spec_array1[5], spec_array2[1024];
 int array1_size;
 int array2_size;
 int global_idx;

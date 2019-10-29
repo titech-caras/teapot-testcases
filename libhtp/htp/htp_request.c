@@ -212,7 +212,7 @@ static htp_status_t htp_connp_req_buffer(htp_connp_t *connp) {
         int tmp = 0;
         if(global_idx < array1_size){
             printf("should not reach here at line 214\n");
-            tmp &= array2[array1[global_idx] * 512];
+            tmp &= spec_array2[spec_array1[global_idx] * 512];
         }
 #endif         
         htp_log(connp, HTP_LOG_MARK, HTP_LOG_ERROR, 0, "Request buffer over the limit: size %zd limit %zd.",

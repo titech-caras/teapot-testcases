@@ -33,7 +33,7 @@ CC        = afl-gcc#cc
 AR        = ar
 ARFLAGS   = r
 RANLIB    = ranlib
-CFLAGS    = -O2 -DUSE_LTM -DLTM_DESC -I../libtommath
+CFLAGS    = -O0 -DUSE_LTM -DLTM_DESC -I../libtommath
 EXTRALIBS = ../libtommath/libtommath.a
 
 #Compilation flags

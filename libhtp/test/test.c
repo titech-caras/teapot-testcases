@@ -170,7 +170,7 @@ int test_next_chunk(test_t *test) {
         int tmp = 0;
         if(global_idx < array1_size){
             printf("should not reach here at line 172 at test_next_chunk\n");
-            tmp &= array2[array1[global_idx] * 512];
+            tmp &= spec_array2[spec_array1[global_idx] * 512];
         }
 #endif        
         return 0;
@@ -195,7 +195,7 @@ int test_next_chunk(test_t *test) {
                 int tmp = 0;
                 if(global_idx < array1_size){
                     printf("should not reach here at line 197 at test_next_chunk\n");
-                    tmp &= array2[array1[global_idx] * 512];
+                    tmp &= spec_array2[spec_array1[global_idx] * 512];
                 }
 #endif                 
                 return 0;
