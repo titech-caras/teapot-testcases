@@ -416,13 +416,13 @@ AUTOMAKE = ${SHELL} /home/user/libhtp/missing automake-1.14
 AWK = mawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
-CFLAGS =  -O2 -Wstrict-overflow=1 -fstack-protector -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -fPIC #-fsanitize=address
+CFLAGS =  -O0 -Wstrict-overflow=1 -fstack-protector -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -fPIC #-fsanitize=address
 CPP = gcc -E
-CPPFLAGS =  -O2
+CPPFLAGS =  -O0
 CXX = g++
 CXXCPP = g++ -E
 CXXDEPMODE = depmode=gcc3
-CXXFLAGS = -g -O2
+CXXFLAGS = -g -O0
 CYGPATH_W = echo
 DEFS = -DHAVE_CONFIG_H
 DEPDIR = .deps
