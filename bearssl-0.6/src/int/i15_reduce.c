@@ -46,6 +46,7 @@ br_i15_reduce(uint16_t *x, const uint16_t *a, const uint16_t *m)
 	a_bitlen = a[0];
 	alen = (a_bitlen + 15) >> 4;
 	if (a_bitlen < m_bitlen) {
+		//zx012 insert here
 		memcpy(x + 1, a + 1, alen * sizeof *a);
 		for (u = alen; u < mlen; u ++) {
 			x[u + 1] = 0;

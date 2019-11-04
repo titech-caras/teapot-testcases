@@ -71,6 +71,7 @@ br_i15_muladd_small(uint16_t *x, uint16_t z, const uint16_t *m)
 		return;
 	}
 	if (m_bitlen <= 15) {
+		//zx012 insert here
 		uint32_t rem;
 
 		divrem16(((uint32_t)x[1] << 15) | z, m[1], &rem);

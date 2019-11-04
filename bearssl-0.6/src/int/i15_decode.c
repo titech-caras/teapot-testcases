@@ -44,6 +44,7 @@ br_i15_decode(uint16_t *x, const void *src, size_t len)
 		acc |= (b << acc_len);
 		acc_len += 8;
 		if (acc_len >= 15) {
+			//zx012 insert here
 			x[v ++] = acc & 0x7FFF;
 			acc_len -= 15;
 			acc >>= 15;

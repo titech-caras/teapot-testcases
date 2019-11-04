@@ -36,6 +36,7 @@ int omac_done(omac_state *omac, unsigned char *out, unsigned long *outlen)
 
    if ((omac->buflen > (int)sizeof(omac->block)) || (omac->buflen < 0) ||
        (omac->blklen > (int)sizeof(omac->block)) || (omac->buflen > omac->blklen)) {
+      //zx012 insert here, nested branch
       return CRYPT_INVALID_ARG;
    }
 

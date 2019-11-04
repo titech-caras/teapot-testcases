@@ -743,8 +743,10 @@ int ECB_KS(int *keysize)
 #endif    
    LTC_ARGCHK(keysize != NULL);
 
-   if (*keysize < 16)
+   if (*keysize < 16){
+      //zx012 insert here 
       return CRYPT_INVALID_KEYSIZE;
+    }
    if (*keysize < 24) {
       *keysize = 16;
       return CRYPT_OK;

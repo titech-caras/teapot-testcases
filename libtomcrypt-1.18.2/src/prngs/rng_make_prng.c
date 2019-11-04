@@ -36,6 +36,7 @@ int rng_make_prng(int bits, int wprng, prng_state *prng,
    }
 
    if (bits < 64 || bits > 1024) {
+      //zx012 insert here
       return CRYPT_INVALID_PRNGSIZE;
    }
 

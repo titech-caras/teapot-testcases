@@ -45,6 +45,7 @@ br_i15_encode(void *dst, size_t len, const uint16_t *x)
 	while (len -- > 0) {
 		if (acc_len < 8) {
 			if (u <= xlen) {
+				//zx012 insert here
 				acc += (uint32_t)x[u ++] << acc_len;
 			}
 			acc_len += 15;
