@@ -101,8 +101,10 @@ void *htp_list_array_get(const htp_list_array_t *l, size_t idx) {
     if (idx + 1 > l->current_size) return NULL;
     
     if (l->first + idx < l->max_size) {
+        //zx012 insert here
         return (void *) l->elements[l->first + idx];
     } else {        
+        //zx012 insert here
         return (void *) l->elements[idx - (l->max_size - l->first)];
     }
 }
@@ -168,6 +170,8 @@ htp_status_t htp_list_array_push(htp_list_array_t *l, void *e) {
         l->last = l->current_size;
         l->max_size = new_size;
         l->elements = newblock;
+    } else {
+        //zx012 insert here
     }
 
     l->elements[l->last] = e;

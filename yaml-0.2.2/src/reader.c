@@ -109,6 +109,7 @@ yaml_parser_update_raw_buffer(yaml_parser_t *parser)
 
     if (parser->raw_buffer.start < parser->raw_buffer.pointer
             && parser->raw_buffer.pointer < parser->raw_buffer.last) {
+        //zx012 insert here        
         memmove(parser->raw_buffer.start, parser->raw_buffer.pointer,
                 parser->raw_buffer.last - parser->raw_buffer.pointer);
     }
@@ -166,6 +167,7 @@ yaml_parser_update_buffer(yaml_parser_t *parser, size_t length)
 
     if (parser->buffer.start < parser->buffer.pointer
             && parser->buffer.pointer < parser->buffer.last) {
+        //zx012 insert here        
         size_t size = parser->buffer.last - parser->buffer.pointer;
         memmove(parser->buffer.start, parser->buffer.pointer, size);
         parser->buffer.pointer = parser->buffer.start;
@@ -243,6 +245,7 @@ yaml_parser_update_buffer(yaml_parser_t *parser, size_t length)
                     /* Check if the raw buffer contains an incomplete character. */
 
                     if (width > raw_unread) {
+                        //zx012 insert here
                         if (parser->eof) {
                             return yaml_parser_set_reader_error(parser,
                                     "incomplete UTF-8 octet sequence",
@@ -331,6 +334,7 @@ yaml_parser_update_buffer(yaml_parser_t *parser, size_t length)
                     /* Check for incomplete UTF-16 character. */
 
                     if (raw_unread < 2) {
+                        //zx012 insert here
                         if (parser->eof) {
                             return yaml_parser_set_reader_error(parser,
                                     "incomplete UTF-16 character",
@@ -461,6 +465,7 @@ yaml_parser_update_buffer(yaml_parser_t *parser, size_t length)
     }
 
     if (parser->offset >= MAX_FILE_SIZE) {
+        //zx012 insert here
         return yaml_parser_set_reader_error(parser, "input is too long",
             parser->offset, -1);
     }

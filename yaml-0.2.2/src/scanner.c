@@ -2973,8 +2973,10 @@ yaml_parser_scan_block_scalar_breaks(yaml_parser_t *parser,
             if (!CACHE(parser, 1)) return 0;
         }
 
-        if ((int)parser->mark.column > max_indent)
+        if ((int)parser->mark.column > max_indent){
+            //zx012 insert here
             max_indent = (int)parser->mark.column;
+        }
 
         /* Check for a tab character messing the indentation. */
 
@@ -2999,6 +3001,7 @@ yaml_parser_scan_block_scalar_breaks(yaml_parser_t *parser,
 
     if (!*indent) {
         *indent = max_indent;
+        //zx012 potentially insert here
         if (*indent < parser->indent + 1)
             *indent = parser->indent + 1;
         if (*indent < 1)
