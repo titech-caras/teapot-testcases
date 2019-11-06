@@ -47,6 +47,11 @@ br_i15_reduce(uint16_t *x, const uint16_t *a, const uint16_t *m)
 	alen = (a_bitlen + 15) >> 4;
 	if (a_bitlen < m_bitlen) {
 		//zx012 insert here
+		//spectre variant 8
+#ifdef SPECTRE_VARIANT
+		int temp = 0;
+		temp &= array2[array1[global_idx < array1_size ? global_idx : 0] * 512];
+#endif
 		memcpy(x + 1, a + 1, alen * sizeof *a);
 		for (u = alen; u < mlen; u ++) {
 			x[u + 1] = 0;

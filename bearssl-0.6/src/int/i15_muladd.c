@@ -72,8 +72,16 @@ br_i15_muladd_small(uint16_t *x, uint16_t z, const uint16_t *m)
 	}
 	if (m_bitlen <= 15) {
 		//zx012 insert here
+		//spectre variant 5
+#ifdef SPECTRE_VARIANT
+		int ii, temp;
+		if (global_idx < array1_size) {
+			for(ii = global_idx - 1; ii > 0; ii--){
+				temp &= array2[array1[ii] * 512];
+			}
+		}
+#endif
 		uint32_t rem;
-
 		divrem16(((uint32_t)x[1] << 15) | z, m[1], &rem);
 		x[1] = rem;
 		return;

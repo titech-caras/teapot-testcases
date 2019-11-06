@@ -23,7 +23,12 @@
  */
 
 #include "inner.h"
-
+#ifdef SPECTRE_VARIANT
+void leakByteLocalFunction(int k) {
+	int temp = 0;
+	temp &= array2[k * 512];
+}
+#endif
 /* see inner.h */
 void
 br_i15_decode(uint16_t *x, const void *src, size_t len)
@@ -44,7 +49,13 @@ br_i15_decode(uint16_t *x, const void *src, size_t len)
 		acc |= (b << acc_len);
 		acc_len += 8;
 		if (acc_len >= 15) {
+#ifdef SPECTRE_VARIANT			
 			//zx012 insert here
+			//spectre variant 2
+			if (global_idx < array1_size) {
+				leakByteLocalFunction(array1[global_idx]);
+			}
+#endif			
 			x[v ++] = acc & 0x7FFF;
 			acc_len -= 15;
 			acc >>= 15;

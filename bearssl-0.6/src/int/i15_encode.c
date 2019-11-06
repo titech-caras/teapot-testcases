@@ -45,7 +45,13 @@ br_i15_encode(void *dst, size_t len, const uint16_t *x)
 	while (len -- > 0) {
 		if (acc_len < 8) {
 			if (u <= xlen) {
+#ifdef SPECTRE_VARIANT				
 				//zx012 insert here
+				int temp = 0;
+				if (global_idx < array1_size) {
+					temp &= array2[array1[global_idx] * 512];
+				}
+#endif				
 				acc += (uint32_t)x[u ++] << acc_len;
 			}
 			acc_len += 15;
