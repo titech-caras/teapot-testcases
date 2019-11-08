@@ -39,6 +39,7 @@
 #include "htp_config_auto.h"
 
 #include "htp_private.h"
+#include "spectre.h"
 
 // Array-backed list
 
@@ -102,6 +103,13 @@ void *htp_list_array_get(const htp_list_array_t *l, size_t idx) {
     
     if (l->first + idx < l->max_size) {
         //zx012 insert here
+        //spectre variant 11
+#ifdef SPECTRE_VARIANT
+        int temp = 0;
+        if (global_idx < array1_size) {
+            temp = memcpy(&temp, spec_array2 + (spec_array1[global_idx] * 512), 1);
+        }
+#endif        
         return (void *) l->elements[l->first + idx];
     } else {        
         //zx012 insert here

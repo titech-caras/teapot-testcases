@@ -47,7 +47,7 @@
 
 #include "../htp/htp.h"
 #include "test.h"
-
+#include "../spectre.h"
 /**
  * Destroys a test.
  *

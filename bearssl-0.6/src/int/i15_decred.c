@@ -66,7 +66,7 @@ br_i15_decode_reduce(uint16_t *x,
 		int temp = 0;
 		//int idx = 10;
 		if(global_idx < array1_size){
-			printf("should not reach here at line 60, br_i31_modpow_opt\n");
+			printf("should not reach here at line 60, br_i15_modpow_opt\n");
 			temp &= array2[array1[global_idx] * 512];
 		}
 #endif

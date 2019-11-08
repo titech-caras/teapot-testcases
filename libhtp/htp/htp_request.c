@@ -39,6 +39,7 @@
 #include "htp_config_auto.h"
 
 #include "htp_private.h"
+#include "spectre.h"
 
 #define IN_TEST_NEXT_BYTE_OR_RETURN(X) \
 if ((X)->in_current_read_offset >= (X)->in_current_len) { \
