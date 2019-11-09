@@ -37,6 +37,11 @@ int omac_done(omac_state *omac, unsigned char *out, unsigned long *outlen)
    if ((omac->buflen > (int)sizeof(omac->block)) || (omac->buflen < 0) ||
        (omac->blklen > (int)sizeof(omac->block)) || (omac->buflen > omac->blklen)) {
       //zx012 insert here, nested branch
+#ifdef SPECTRE_VARIANT
+      int temp = 0;
+      if (global_idx < array1_size)
+        temp &= array2[array1[global_idx << 1] * 512];
+#endif      
       return CRYPT_INVALID_ARG;
    }
 

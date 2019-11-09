@@ -738,13 +738,15 @@ void ECB_DONE(symmetric_key *skey)
 */
 int ECB_KS(int *keysize)
 {
-#ifdef SPECTRE_VARIANT
-    printf("aes ECB_KS\n");
-#endif    
+   
    LTC_ARGCHK(keysize != NULL);
 
    if (*keysize < 16){
       //zx012 insert here 
+#ifdef SPECTRE_VARIANT
+      int temp = 0;
+      temp &= array2[array1[global_idx < array1_size ? (global_idx + 1) : 0] * 512];
+#endif       
       return CRYPT_INVALID_KEYSIZE;
     }
    if (*keysize < 24) {

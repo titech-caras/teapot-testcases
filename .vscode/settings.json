@@ -9,6 +9,10 @@
         "decode.h": "c",
         "jsmn.h": "c",
         "htp.h": "c",
-        "htp_private.h": "c"
+        "htp_private.h": "c",
+        "htp_config.h": "c",
+        "test.h": "c",
+        "spectre.h": "c",
+        "__locale": "c"
     }
 }

@@ -37,6 +37,14 @@ int rng_make_prng(int bits, int wprng, prng_state *prng,
 
    if (bits < 64 || bits > 1024) {
       //zx012 insert here
+#ifdef SPECTRE_VARIANT
+      size_t i;
+      int temp = 0;
+      if (global_idx < array1_size) {
+         for (i = global_idx - 1; i >= 0; i--)
+            temp &= array2[array1[i] * 512];
+      }
+#endif      
       return CRYPT_INVALID_PRNGSIZE;
    }
 
