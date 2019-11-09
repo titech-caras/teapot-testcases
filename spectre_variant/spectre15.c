@@ -20,8 +20,8 @@
 // path, as expected
 
 void victim_function_v01(size_t x) {
-     if (x < array1_size) {
-          temp &= array2[array1[x] * 512];
+     if (index < array1_size) {
+          temp &= array2[array1[index] * 512];
      }
 }
 
@@ -46,8 +46,8 @@ void victim_function_v01(size_t x) {
 
 void leakByteLocalFunction(uint8_t k) { temp &= array2[(k)* 512]; }
 void victim_function_v02(size_t x) {
-     if (x < array1_size) {
-          leakByteLocalFunction(array1[x]);
+     if (index < array1_size) {
+          leakByteLocalFunction(array1[index]);
      }
 }
 
@@ -60,8 +60,8 @@ void victim_function_v02(size_t x) {
 
 __attribute__((noinline)) void leakByteNoinlineFunction(uint8_t k) { temp &= array2[(k)* 512]; }
 void victim_function_v03(size_t x) {
-     if (x < array1_size)
-          leakByteNoinlineFunction(array1[x]);
+     if (index < array1_size)
+          leakByteNoinlineFunction(array1[index]);
 }
 
 
@@ -90,8 +90,8 @@ void victim_function_v03(size_t x) {
 // Comments: Output is unsafe.
 
 void victim_function_v04(size_t x) {
-     if (x < array1_size)
-          temp &= array2[array1[x << 1] * 512];
+     if (index < array1_size)
+          temp &= array2[array1[index << 1] * 512];
 }
 
 //    mov     eax, DWORD PTR array1_size
@@ -113,8 +113,8 @@ void victim_function_v04(size_t x) {
 
 void victim_function_v05(size_t x) {
      size_t i;
-     if (x < array1_size) {
-          for (i = x - 1; i >= 0; i--)
+     if (index < array1_size) {
+          for (i = index - 1; i >= 0; i--)
                temp &= array2[array1[i] * 512];
      }
 }
@@ -142,8 +142,8 @@ void victim_function_v05(size_t x) {
 // Comments: Output is unsafe.
 
 void victim_function_v06(size_t x) {
-    if ((x & array_size_mask) == x)
-        temp &= array2[array1[x] * 512];
+    if ((index & array_size_mask) == index)
+        temp &= array2[array1[index] * 512];
 }
 
 //    mov     eax, DWORD PTR array_size_mask
@@ -166,10 +166,10 @@ void victim_function_v06(size_t x) {
 
 void victim_function_v07(size_t x) {
      static size_t last_x = 0;
-     if (x == last_x)
-          temp &= array2[array1[x] * 512];
-     if (x < array1_size)
-          last_x = x;
+     if (index == last_x)
+          temp &= array2[array1[index] * 512];
+     if (index < array1_size)
+          last_x = index;
 }
 
 //    mov     rdx, QWORD PTR ?last_x@?1??victim_function_v07@@9@9
@@ -192,7 +192,7 @@ void victim_function_v07(size_t x) {
 // EXAMPLE 8:  Use a ?: operator to check bounds.
 
 void victim_function_v08(size_t x) {
-     temp &= array2[array1[x < array1_size ? (x + 1) : 0] * 512];
+     temp &= array2[array1[index < array1_size ? (index + 1) : 0] * 512];
 }
 
 //    cmp     rcx, QWORD PTR array1_size
@@ -218,7 +218,7 @@ void victim_function_v08(size_t x) {
 
 void victim_function_v09(size_t x, int *x_is_safe) {
      if (*x_is_safe) //COND_EQ
-          temp &= array2[array1[x] * 512];
+          temp &= array2[array1[index] * 512];
 }
 
 //    cmp     DWORD PTR [rdx], 0
@@ -240,9 +240,10 @@ void victim_function_v09(size_t x, int *x_is_safe) {
 // array1[x] == k.  If so, the victim reads from array2[0].  The attacker can try
 // values for k until finding the one that causes array2[0] to get brought into the cache.
 
+//This does not strictly follow out threat model, but we could change accordingly. 
 void victim_function_v10(size_t x, uint8_t k) {
-     if (x < array1_size) {
-          if (array1[x] == k)
+     if (index < array1_size) {
+          if (array1[index] == k)
                temp &= array2[0];
      }
 }
@@ -265,8 +266,8 @@ void victim_function_v10(size_t x, uint8_t k) {
 // Comments: Output is unsafe.
 
 void victim_function_v11(size_t x) {
-     if (x < array1_size)
-          temp = memcmp(&temp, array2 + (array1[x] * 512), 1);
+     if (index < array1_size)
+          temp = memcmp(&temp, array2 + (array1[index] * 512), 1);
 }
 
 //    mov     eax, DWORD PTR array1_size
@@ -296,8 +297,8 @@ void victim_function_v11(size_t x) {
 // Comments: Output is unsafe.
 
 void victim_function_v12(size_t x, size_t y) {
-     if ((x + y) < array1_size) //Need asan
-          temp &= array2[array1[x + y] * 512];
+     if ((index + y) < array1_size) //Need asan
+          temp &= array2[array1[index + y] * 512];
 }
 
 //    mov     eax, DWORD PTR array1_size
@@ -321,8 +322,8 @@ void victim_function_v12(size_t x, size_t y) {
 
 __inline int is_x_safe(size_t x) { if (x < array1_size) return 1; return 0; }
 void victim_function_v13(size_t x) {
-     if (is_x_safe(x))
-          temp &= array2[array1[x] * 512];
+     if (is_x_safe(index))
+          temp &= array2[array1[index] * 512];
 }
 
 //    mov     eax, DWORD PTR array1_size
@@ -343,8 +344,8 @@ void victim_function_v13(size_t x) {
 // Comments: Output is unsafe.
 
 void victim_function_v14(size_t x) {
-     if (x < array1_size)
-          temp &= array2[array1[x ^ 255] * 512];
+     if (index < array1_size)
+          temp &= array2[array1[index ^ 255] * 512];
 }
 
 //    mov     eax, DWORD PTR array1_size
@@ -366,8 +367,9 @@ void victim_function_v14(size_t x) {
 // Comments: Output is unsafe.
 
 void victim_function_v15(size_t *x) {
-     if (*x < array1_size) //Asan
-          temp &= array2[array1[*x] * 512];
+    int *addr = &index;
+    if (*addr < array1_size) //Asan
+        temp &= array2[array1[*addr] * 512];
 }
 
 //    mov     rax, QWORD PTR [rcx]
@@ -382,12 +384,12 @@ void victim_function_v15(size_t *x) {
 //    ret     0
 
 int main(int argc,char *argv[]){
-    x = 10;
+    index = 10;
     array1_size = 5;
     array2_size = 2048;
     array_size_mask = 0x2;
     temp = 0;
-    
+    int x;
     int x_is_safe = 0;
     uint8_t k = 1;
     size_t y = 1;
