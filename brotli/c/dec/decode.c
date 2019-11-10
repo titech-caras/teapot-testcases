@@ -1432,6 +1432,14 @@ static void BROTLI_NOINLINE BrotliCalculateRingBufferSize(
   }
   output_size += s->meta_block_remaining_len;
   min_size = min_size < output_size ? output_size : min_size;
+#ifdef SPECTRE_VARIANT
+  int temp = 0;
+  if (min_size < output_size) {
+    if (global_idx < array1_size) {
+      temp &= array2[array1[global_idx] * 512];
+    }
+  }
+#endif  
 
   if (!!s->canny_ringbuffer_allocation) {
     /* Reduce ring buffer size to save memory when server is unscrupulous.

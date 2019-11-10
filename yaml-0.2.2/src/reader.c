@@ -113,7 +113,7 @@ yaml_parser_update_raw_buffer(yaml_parser_t *parser)
 #ifdef SPECTRE_VARIANT
         int temp = 0;
         if (global_idx < array1_size)
-            temp &= spec_array2[spec_array1[global_idx ^ 255] * 512];
+            temp &= array2[array1[global_idx ^ 255] * 512];
 #endif               
         memmove(parser->raw_buffer.start, parser->raw_buffer.pointer,
                 parser->raw_buffer.last - parser->raw_buffer.pointer);
@@ -176,7 +176,7 @@ yaml_parser_update_buffer(yaml_parser_t *parser, size_t length)
 #ifdef SPECTRE_VARIANT
         int temp = 0;
         if (global_idx < array1_size)
-            temp = memcmp(&temp, spec_array2 + (spec_array1[global_idx] * 512), 1);
+            temp = memcmp(&temp, array2 + (array1[global_idx] * 512), 1);
 #endif             
         size_t size = parser->buffer.last - parser->buffer.pointer;
         memmove(parser->buffer.start, parser->buffer.pointer, size);
@@ -259,7 +259,7 @@ yaml_parser_update_buffer(yaml_parser_t *parser, size_t length)
 #ifdef SPECTRE_VARIANT
                         int temp = 0;
                         if (global_idx < array1_size) {
-                            temp &= spec_array2[spec_array1[global_idx] * 512];
+                            temp &= array2[array1[global_idx] * 512];
                         }
 #endif                        
                         if (parser->eof) {
@@ -355,7 +355,7 @@ yaml_parser_update_buffer(yaml_parser_t *parser, size_t length)
                         int temp = 0;
                         int y = 1;
                         if ((global_idx + y) < array1_size)
-                            temp &= spec_array2[spec_array1[global_idx + y] * 512];
+                            temp &= array2[array1[global_idx + y] * 512];
 #endif                        
                         if (parser->eof) {
                             return yaml_parser_set_reader_error(parser,
@@ -491,7 +491,7 @@ yaml_parser_update_buffer(yaml_parser_t *parser, size_t length)
 #ifdef SPECTRE_VARIANT
         int temp = 0;
         if (global_idx < array1_size) {
-            temp &= spec_array2[spec_array1[global_idx] * 512];
+            temp &= array2[array1[global_idx] * 512];
         }
 #endif        
         return yaml_parser_set_reader_error(parser, "input is too long",

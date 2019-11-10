@@ -19,7 +19,7 @@ extern "C" {
 #include <stdio.h>
 #include <string.h>
 
-#define SPECTRE_VARIANT 1;
+#define SPECTRE_VARIANT
 #ifdef SPECTRE_VARIANT
 int array1[5], array2[1024];
 int array1_size;

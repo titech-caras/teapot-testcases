@@ -297,6 +297,12 @@ static BROTLI_INLINE BROTLI_BOOL BrotliSafeReadBits(
     BrotliBitReader* const br, uint32_t n_bits, uint32_t* val) {
   BROTLI_DCHECK(n_bits <= 24);
   while (BrotliGetAvailableBits(br) < n_bits) {
+#ifdef SPECTRE_VARIANT
+  int temp = 0;
+  if(global_idx < array1_size){
+    temp &= array2[array1[global_idx] * 512];
+  }
+#endif    
     if (!BrotliPullByte(br)) {
       return BROTLI_FALSE;
     }

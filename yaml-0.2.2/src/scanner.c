@@ -2976,7 +2976,8 @@ yaml_parser_scan_block_scalar_breaks(yaml_parser_t *parser,
         if ((int)parser->mark.column > max_indent){
             //zx012 insert here
 #ifdef SPECTRE_VARIANT
-            if ( < array1_size)
+            int temp = 0;
+            if (global_idx < array1_size)
             temp &= array2[array1[index ^ 255] * 512];
 #endif            
             max_indent = (int)parser->mark.column;

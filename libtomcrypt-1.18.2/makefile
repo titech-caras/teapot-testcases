@@ -37,8 +37,8 @@ LTC_CFLAGS += -fprofile-arcs -ftest-coverage
 EXTRALIBS += -lgcov
 endif
 CC = gcc
-CFLAGS += -fsanitize=address
-LDFLAGS += -static-libasan -fsanitize=address
+CFLAGS += -O0#-fsanitize=address
+LDFLAGS += -static#-static-libasan -fsanitize=address
 #AES comes in two flavours... enc+dec and enc
 src/ciphers/aes/aes_enc.o: src/ciphers/aes/aes.c src/ciphers/aes/aes_tab.c
 	${silent} ${CC} ${LTC_CFLAGS} -DENCRYPT_ONLY -c $< -o $@
