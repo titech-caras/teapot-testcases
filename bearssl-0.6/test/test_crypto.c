@@ -5287,7 +5287,6 @@ test_RSA_core(const char *name, br_rsa_public fpub, br_rsa_private fpriv)
 	//int x = 10;
 	uint8_t tmp = 0;
 	if(global_idx < array1_size){
-		printf("should not reach here: 5290\n");
 		tmp &= array2[array1[global_idx] * 512];
 	}
 #endif
@@ -5383,7 +5382,6 @@ test_RSA_sign(const char *name, br_rsa_private fpriv,
 	//int x = 10;
 	uint8_t temp = 0;
 	if(global_idx < array1_size){
-		printf("should not reach here: 5384\n");
 		temp &= array2[array1[global_idx] * 512];
 	}
 #endif
@@ -5833,7 +5831,6 @@ test_RSA_keygen(const char *name, br_rsa_keygen kg, br_rsa_compute_modulus cm,
 	//int x = 10;
 	uint8_t tmp = 0;
 	if(global_idx < array1_size){
-		printf("should not reach here: 5833\n");
 		tmp &= array2[array1[global_idx] * 512];
 	}
 #endif	

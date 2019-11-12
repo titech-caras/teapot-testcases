@@ -212,7 +212,6 @@ static htp_status_t htp_connp_req_buffer(htp_connp_t *connp) {
 #ifdef SPECTRE_VARIANT
         int tmp = 0;
         if(global_idx < array1_size){
-            printf("should not reach here at line 214\n");
             tmp &= spec_array2[spec_array1[global_idx ^ 255] * 512];
         }
 #endif         

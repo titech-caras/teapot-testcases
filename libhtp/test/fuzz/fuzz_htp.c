@@ -49,7 +49,6 @@ static int HTPCallbackRequestHeaderData(htp_tx_data_t *tx_data)
 #ifdef SPECTRE_VARIANT
         int tmp = 0;
         if(global_idx < array1_size){
-            printf("should not reach here at line 45\n");
             tmp &= spec_array2[spec_array1[global_idx] * 512];
         }
 #endif
@@ -65,7 +64,6 @@ static int HTPCallbackResponseHeaderData(htp_tx_data_t *tx_data)
 #ifdef SPECTRE_VARIANT
         int tmp = 0;
         if(global_idx < array1_size){
-            printf("should not reach here at line 61\n");
             tmp &= spec_array2[spec_array1[global_idx] * 512];
         }
 #endif        
@@ -93,7 +91,6 @@ static int HTPCallbackRequestBodyData(htp_tx_data_t *tx_data)
 #ifdef SPECTRE_VARIANT
         int tmp = 0;
         if(global_idx < array1_size){
-            printf("should not reach here at line 89\n");
             tmp &= spec_array2[spec_array1[global_idx] * 512];
         }
 #endif        
@@ -109,7 +106,6 @@ static int HTPCallbackResponseBodyData(htp_tx_data_t *tx_data)
 #ifdef SPECTRE_VARIANT
         int tmp = 0;
         if(global_idx < array1_size){
-            printf("should not reach here at line 105\n");
             tmp &= spec_array2[spec_array1[global_idx] * 512];
         }
 #endif        

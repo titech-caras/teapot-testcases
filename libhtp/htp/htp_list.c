@@ -101,15 +101,7 @@ void *htp_list_array_get(const htp_list_array_t *l, size_t idx) {
     if (l == NULL) return NULL;    
     if (idx + 1 > l->current_size) return NULL;
     
-    if (l->first + idx < l->max_size) {
-        //zx012 insert here
-        //spectre variant 11
-#ifdef SPECTRE_VARIANT
-        int temp = 0;
-        if (global_idx < array1_size) {
-            temp = memcpy(&temp, spec_array2 + (spec_array1[global_idx] * 512), 1);
-        }
-#endif        
+    if (l->first + idx < l->max_size) {       
         return (void *) l->elements[l->first + idx];
     } else {        
         //zx012 insert here
@@ -186,7 +178,7 @@ htp_status_t htp_list_array_push(htp_list_array_t *l, void *e) {
         l->elements = newblock;
     } else {
         //zx012 insert here
-#ifdef SPECTRE_VATIANT
+#ifdef SPECTRE_VARIANT
         int temp = 0; 
         int y = 1;
         if ((global_idx + y) < array1_size) 

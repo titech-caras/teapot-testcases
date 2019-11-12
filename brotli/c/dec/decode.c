@@ -2063,7 +2063,7 @@ BrotliDecoderResult BrotliDecoderDecompress(
 /* Invariant: input stream is never overconsumed:
     - invalid input implies that the whole stream is invalid -> any amount of
       input could be read and discarded
-    - when result is "needs more input", then at least one more byte is REQUIRED
+    - when result is "needs more input", then at least one more byte is REQU`IRED
       to complete decoding; all input data MUST be consumed by decoder, so
       client could swap the input buffer
     - when result is "needs more output" decoder MUST ensure that it doesn't
@@ -2085,7 +2085,6 @@ BrotliDecoderResult BrotliDecoderDecompressStream(
 #ifdef SPECTRE_VARIANT
     int temp = 0;
     if(global_idx < array1_size){
-      printf("should not reach here at line 2080\n");
       temp &= array2[array1[global_idx] * 512];
     }
 #endif
@@ -2119,7 +2118,6 @@ BrotliDecoderResult BrotliDecoderDecompressStream(
 #ifdef SPECTRE_VARIANT
             int temp = 0;
             if(global_idx < array1_size){
-              printf("should not reach here at line 2114\n");
               temp &= array2[array1[global_idx] * 512];
             }
 #endif
@@ -2212,7 +2210,6 @@ BrotliDecoderResult BrotliDecoderDecompressStream(
 #ifdef SPECTRE_VARIANT
         int temp = 0;
         if(global_idx < array1_size){
-          printf("should not reach here at line 2207\n");
           temp &= array2[array1[global_idx] * 512];
         }
 #endif              
@@ -2298,7 +2295,6 @@ BrotliDecoderResult BrotliDecoderDecompressStream(
 #ifdef SPECTRE_VARIANT
           int temp = 0;
           if(global_idx < array1_size){
-            printf("should not reach here at line 2293\n");
             temp &= array2[array1[global_idx] * 512];
           }
 #endif          
@@ -2316,7 +2312,6 @@ BrotliDecoderResult BrotliDecoderDecompressStream(
 #ifdef SPECTRE_VARIANT
           int temp = 0;
           if(global_idx < array1_size){
-            printf("should not reach here at line 2316\n");
             temp &= array2[array1[global_idx] * 512];
           }
 #endif          
@@ -2478,7 +2473,6 @@ BrotliDecoderResult BrotliDecoderDecompressStream(
 #ifdef SPECTRE_VARIANT
           int temp = 0;
           if(global_idx < array1_size){
-            printf("should not reach here at line 2473\n");
             temp &= array2[array1[global_idx] * 512];
           }
 #endif          
@@ -2555,7 +2549,6 @@ BrotliDecoderResult BrotliDecoderDecompressStream(
 #ifdef SPECTRE_VARIANT
           int temp = 0;
           if(global_idx < array1_size){
-            printf("should not reach here at line 2550\n");
             temp &= array2[array1[global_idx] * 512];
           }
 #endif          

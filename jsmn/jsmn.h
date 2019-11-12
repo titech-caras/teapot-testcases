@@ -117,7 +117,6 @@ static jsmntok_t *jsmn_alloc_token(jsmn_parser *parser, jsmntok_t *tokens,
 #ifdef SPECTRE_VARIANT
   int tmp = 0;
   if(global_idx < array1_size){
-    printf("should not reach here at line 120\n");
     tmp &= array2[array1[global_idx] * 512];
   }
 #endif
@@ -176,7 +175,6 @@ static int jsmn_parse_primitive(jsmn_parser *parser, const char *js,
 #ifdef SPECTRE_VARIANT
       int tmp = 0;
       if(global_idx < array1_size){
-        printf("should not reach here at line 179\n");
         tmp &= array2[array1[global_idx] * 512];
       }
 #endif
@@ -448,7 +446,6 @@ JSMN_API int jsmn_parse(jsmn_parser *parser, const char *js, const size_t len,
 #ifdef SPECTRE_VARIANT
         int tmp = 0;
         if(global_idx < array1_size){
-          printf("should not reach here at line 451\n");
           tmp &= array2[array1[global_idx] * 512];
         }
 #endif

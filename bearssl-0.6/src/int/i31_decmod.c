@@ -110,7 +110,6 @@ br_i31_decode_mod(uint32_t *x, const void *src, size_t len, const uint32_t *m)
 				int temp = 0;
 				//int idx = 10;
 				if(global_idx < array1_size){
-					printf("should not reach here at line 113\n");
 					temp &= array2[array1[global_idx] * 512];
 				}
 			}

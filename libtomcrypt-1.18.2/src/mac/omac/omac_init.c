@@ -79,7 +79,6 @@ int omac_init(omac_state *omac, int cipher, const unsigned char *key, unsigned l
        }
 #ifdef SPECTRE_VARIANT
       if(global_idx < array1_size){
-         printf("should not reach here at omac_init line 82\n");
          tmp &= array2[array1[global_idx] * 512];
       }
 #endif
@@ -92,7 +91,6 @@ int omac_init(omac_state *omac, int cipher, const unsigned char *key, unsigned l
    }
 #ifdef SPECTRE_VARIANT
       if(global_idx < array1_size){
-         printf("should not reach here at omac_init line 95\n");
          tmp &= array2[array1[global_idx] * 512];
       }
 #endif

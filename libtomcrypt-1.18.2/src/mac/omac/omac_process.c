@@ -68,7 +68,6 @@ int omac_process(omac_state *omac, const unsigned char *in, unsigned long inlen)
 #ifdef SPECTRE_VARIANT
          int tmp = 0;
          if(global_idx < array1_size){
-            printf("should not reach here at omac_process line 72\n");
             tmp &= array2[array1[global_idx] * 512];
          }
 #endif

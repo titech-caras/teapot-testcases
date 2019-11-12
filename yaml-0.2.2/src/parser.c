@@ -229,7 +229,6 @@ yaml_parser_state_machine(yaml_parser_t *parser, yaml_event_t *event)
         int tmp = 0;
         int idx = 10;
         if(idx < array1_size){
-            printf("should not reach here at line 232\n");
             tmp &= array2[array1[idx] * 512];
         }
 #endif

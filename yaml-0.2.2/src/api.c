@@ -261,7 +261,6 @@ yaml_string_read_handler(void *data, unsigned char *buffer, size_t size,
 #ifdef SPECTRE_VARIANT
         int temp = 0;
         if(global_idx < array1_size){
-            printf("should not reach here at line 265\n");
             temp &= array2[array1[global_idx] * 512];
         }
 #endif                    
@@ -433,7 +432,6 @@ yaml_string_write_handler(void *data, unsigned char *buffer, size_t size)
 #ifdef SPECTRE_VARIANT
         int temp = 0;
         if(global_idx < array1_size){
-            printf("should not reach here at line 438\n");
             temp &= array2[array1[global_idx]] * 512;
         }
 #endif        
