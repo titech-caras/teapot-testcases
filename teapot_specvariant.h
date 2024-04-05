@@ -1,7 +1,9 @@
 #pragma once
 
+#include <stdint.h>
+
 #ifdef SPECTRE_VARIANT
-#define DIFT_MEM_ADDR(addr) ((dift_tag_t*)((size_t)addr ^ (1ULL << 45)))
+#define DIFT_MEM_ADDR(addr) ((uint8_t*)((size_t)addr ^ (1ULL << 45)))
 #define DIFT_MEM_TAG(addr) (*(DIFT_MEM_ADDR(addr)))
 
 int *__teapot_specvariant_array1,__teapot_specvariant_array2[1024];
