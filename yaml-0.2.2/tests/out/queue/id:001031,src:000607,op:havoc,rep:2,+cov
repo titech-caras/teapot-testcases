@@ -1,18 +1,0 @@
-json:
-  - rigid
-  - ata interchange
-yaml:
- !!!!!!!!!!!!!!!!!!!!ph: >
- !!!!!better for conks
-figuration
-o key: vrray:
-    - null_value:
-    - boolean: true
-    - integer: 1
-paragraph: >
-   BYank lines denote(   paragraph breaks
-content: |-
-   Or we
-   can auto
-   convert line breaks
-   spa

@@ -1,4 +1,0 @@
- 1493  objdump -d test_fuzz_new >> test_fuzz.obj
- 1496  mv test_fuzz_new test_htp
- 2069  history | grep "test_fuzz_new" >> log.txt
- 2072  history | grep "test_fuzz_new" >> log.txt

@@ -1,21 +1,0 @@
-json:
-  - rigid
-  - better for d- slnd flexible
-  - better for config              uration
-object:
-  key: value
-  array:
-    - null_value:
-    - boolean: true
-    -
-content: |
-tentraph: >   Bllines deno
-content: |
-tent: te
-
-   paragraph breaks
-content: |
-tent: |J   Or we
-   can Auto
-   breaks
-   spa

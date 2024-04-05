@@ -1,7 +1,0 @@
-/home/user/brotli/bin/CMakeFiles/brotli.dir
-/home/user/brotli/bin/CMakeFiles/brotlicommon.dir
-/home/user/brotli/bin/CMakeFiles/brotlicommon-static.dir
-/home/user/brotli/bin/CMakeFiles/brotlidec.dir
-/home/user/brotli/bin/CMakeFiles/brotlidec-static.dir
-/home/user/brotli/bin/CMakeFiles/brotlienc.dir
-/home/user/brotli/bin/CMakeFiles/brotlienc-static.dir

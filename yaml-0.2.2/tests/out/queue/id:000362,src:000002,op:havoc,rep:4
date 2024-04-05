@@ -1,21 +1,0 @@
-*son:
-  - rigid
-  - better for data interchange
-yaml:
-  - slim and flexible
-  - better jorration
-object:
-  key: value
-  array:
-    - null_value:
-    - boolean: true
-    - integer: 1
-paragraph: >
-   Blank lines denote
-
- 4 paragraph breaks
-content: |-
-   Or we
-   can auto
-   convert line breads
-   spa

@@ -1,2 +1,0 @@
-/usr/bin/ar cr libbrotlicommon-static.a  CMakeFiles/brotlicommon-static.dir/c/common/dictionary.c.o CMakeFiles/brotlicommon-static.dir/c/common/transform.c.o
-/usr/bin/ranlib libbrotlicommon-static.a
