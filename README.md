@@ -1,1 +1,0 @@
-# XFuzz_benchmark 
