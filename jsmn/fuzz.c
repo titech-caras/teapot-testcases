@@ -54,9 +54,8 @@ jsmntok_t tokens[MAX_TOKENS];
 static char data[MAX_DATA];
 
 int main(int argc, char **argv) {
-#ifdef SPECTRE_VARIANT
     __teapot_specvariant_setup();
-#endif
+
     if (argc < 2) {
         printf("Usage: fuzz <input file name>\n");
         return 1;

@@ -1,6 +1,9 @@
 # You can put your build options here
 -include config.mk
 
+fuzz: fuzz.c jsmn.h
+	$(CC) $(CFLAGS) $(LDFLAGS) $< -o $@
+
 test: test_default test_strict test_links test_strict_links
 test_default: test/tests.c jsmn.h
 	$(CC) $(CFLAGS) $(LDFLAGS) $< -o test/$@
@@ -31,6 +34,7 @@ clean:
 	rm -f *.o example/*.o
 	rm -f simple_example
 	rm -f jsondump
+	rm -f fuzz
 
 .PHONY: clean test
 
