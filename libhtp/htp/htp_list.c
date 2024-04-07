@@ -103,14 +103,8 @@ void *htp_list_array_get(const htp_list_array_t *l, size_t idx) {
     
     if (l->first + idx < l->max_size) {       
         return (void *) l->elements[l->first + idx];
-    } else {        
-        //zx012 insert here
-#ifdef SPECTRE_VARIANT
-        int temp = 0;
-        int *addr = &global_idx;
-        if (*addr < array1_size) 
-            temp &= spec_array2[spec_array1[*addr] * 512];
-#endif        
+    } else {
+        TEAPOT_SPECVARIANT_TYPE1
         return (void *) l->elements[idx - (l->max_size - l->first)];
     }
 }
@@ -177,13 +171,7 @@ htp_status_t htp_list_array_push(htp_list_array_t *l, void *e) {
         l->max_size = new_size;
         l->elements = newblock;
     } else {
-        //zx012 insert here
-#ifdef SPECTRE_VARIANT
-        int temp = 0; 
-        int y = 1;
-        if ((global_idx + y) < array1_size) 
-          temp &= spec_array2[spec_array1[global_idx + y] * 512];
-#endif        
+        TEAPOT_SPECVARIANT_TYPE1
     }
 
     l->elements[l->last] = e;

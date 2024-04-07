@@ -17,14 +17,7 @@
 #include "htp/htp.h"
 #include "test/test.h"
 #include "fuzz_htp.h"
-#include "spectre.h"
-/*#define SPECTRE_VARIANT
-#ifdef SPECTRE_VARIANT
-int spec_array1[5], spec_array2[1024];
-int array1_size;
-int array2_size;
-int global_idx;
-#endif*/
+#include "teapot_specvariant.h"
 FILE * logfile = NULL;
 
 
@@ -46,12 +39,7 @@ static int HTPCallbackRequestHeaderData(htp_tx_data_t *tx_data)
 {
     fprintf(logfile, "HTPCallbackRequestHeaderData %"PRIuMAX"\n", (uintmax_t)tx_data->len);
     if (tx_data->len > 0) {
-#ifdef SPECTRE_VARIANT
-        int tmp = 0;
-        if(global_idx < array1_size){
-            tmp &= spec_array2[spec_array1[global_idx] * 512];
-        }
-#endif
+        TEAPOT_SPECVARIANT_TYPE1
         fprintf(logfile, "HTPCallbackRequestHeaderData %x %x\n", tx_data->data[0], tx_data->data[(uintmax_t)tx_data->len-1]);
     }
     return 0;
@@ -61,12 +49,7 @@ static int HTPCallbackResponseHeaderData(htp_tx_data_t *tx_data)
 {
     fprintf(logfile, "HTPCallbackResponseHeaderData %"PRIuMAX"\n", (uintmax_t)tx_data->len);
     if (tx_data->len > 0) {
-#ifdef SPECTRE_VARIANT
-        int tmp = 0;
-        if(global_idx < array1_size){
-            tmp &= spec_array2[spec_array1[global_idx] * 512];
-        }
-#endif        
+        TEAPOT_SPECVARIANT_TYPE1
         fprintf(logfile, "HTPCallbackResponseHeaderData %x %x\n", tx_data->data[0], tx_data->data[(uintmax_t)tx_data->len-1]);
     }
     return 0;
@@ -88,12 +71,7 @@ static int HTPCallbackRequestBodyData(htp_tx_data_t *tx_data)
 {
     fprintf(logfile, "HTPCallbackRequestBodyData %"PRIuMAX"\n", (uintmax_t)tx_data->len);
     if (tx_data->len > 0) {
-#ifdef SPECTRE_VARIANT
-        int tmp = 0;
-        if(global_idx < array1_size){
-            tmp &= spec_array2[spec_array1[global_idx] * 512];
-        }
-#endif        
+        TEAPOT_SPECVARIANT_TYPE1
         fprintf(logfile, "HTPCallbackRequestBodyData %x %x\n", tx_data->data[0], tx_data->data[(uintmax_t)tx_data->len-1]);
     }
     return 0;
@@ -103,12 +81,7 @@ static int HTPCallbackResponseBodyData(htp_tx_data_t *tx_data)
 {
     fprintf(logfile, "HTPCallbackResponseBodyData %"PRIuMAX"\n", (uintmax_t)tx_data->len);
     if (tx_data->len > 0) {
-#ifdef SPECTRE_VARIANT
-        int tmp = 0;
-        if(global_idx < array1_size){
-            tmp &= spec_array2[spec_array1[global_idx] * 512];
-        }
-#endif        
+        TEAPOT_SPECVARIANT_TYPE1
         fprintf(logfile, "HTPCallbackResponseBodyData %x %x\n", tx_data->data[0], tx_data->data[(uintmax_t)tx_data->len-1]);
     }
     return 0;
@@ -169,11 +142,7 @@ int LLVMFuzzerTestOneInput(const uint8_t *Data, size_t Size) {
             abort();
         }
     }
-#ifdef SPECTRE_VARIANT
-    array1_size = 5;
-    array2_size = 1024;
-    global_idx = 10;
-#endif
+
     // Create LibHTP configuration
     cfg = htp_config_create();
     if (htp_config_set_server_personality(cfg, HTP_SERVER_IDS) != HTP_OK) {

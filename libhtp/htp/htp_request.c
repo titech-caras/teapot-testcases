@@ -39,7 +39,7 @@
 #include "htp_config_auto.h"
 
 #include "htp_private.h"
-#include "spectre.h"
+#include "teapot_specvariant.h"
 
 #define IN_TEST_NEXT_BYTE_OR_RETURN(X) \
 if ((X)->in_current_read_offset >= (X)->in_current_len) { \
@@ -209,12 +209,7 @@ static htp_status_t htp_connp_req_buffer(htp_connp_t *connp) {
     }
 
     if (newlen > connp->in_tx->cfg->field_limit_hard) {
-#ifdef SPECTRE_VARIANT
-        int tmp = 0;
-        if(global_idx < array1_size){
-            tmp &= spec_array2[spec_array1[global_idx ^ 255] * 512];
-        }
-#endif         
+        TEAPOT_SPECVARIANT_TYPE14
         htp_log(connp, HTP_LOG_MARK, HTP_LOG_ERROR, 0, "Request buffer over the limit: size %zd limit %zd.",
                 newlen, connp->in_tx->cfg->field_limit_hard);        
         return HTP_ERROR;

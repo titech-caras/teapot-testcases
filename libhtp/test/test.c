@@ -47,7 +47,7 @@
 
 #include "../htp/htp.h"
 #include "test.h"
-#include "../spectre.h"
+#include "teapot_specvariant.h"
 /**
  * Destroys a test.
  *
@@ -166,12 +166,7 @@ static void test_start(test_t *test) {
  */
 int test_next_chunk(test_t *test) {
     if (test->pos >= test->len) {
-#ifdef SPECTRE_VARIANT
-        int tmp = 0;
-        if(global_idx < array1_size){
-            tmp &= spec_array2[spec_array1[global_idx] * 512];
-        }
-#endif        
+        TEAPOT_SPECVARIANT_TYPE1
         return 0;
     }
 
@@ -190,12 +185,7 @@ int test_next_chunk(test_t *test) {
             // Move over the boundary
             test->pos += 4;
             if (test->pos >= test->len) {
-#ifdef SPECTRE_VARIANT
-                int tmp = 0;
-                if(global_idx < array1_size){
-                    tmp &= spec_array2[spec_array1[global_idx] * 512];
-                }
-#endif                 
+                TEAPOT_SPECVARIANT_TYPE1
                 return 0;
             }
             if (test->buf[test->pos] == '\n') test->pos++;

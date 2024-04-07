@@ -3,18 +3,22 @@
 #include <stdio.h>
 #include "fuzz_htp.h"
 
+#include "teapot_specvariant.h"
+
 int main(int argc, char** argv)
 {
     FILE * fp;
     uint8_t *Data;
     size_t Size;
 
-    /*if (argc == 3) {
+    __teapot_specvariant_setup();
+
+    if (argc == 3) {
         fuzz_openFile(argv[2]);
     } else if (argc != 2) {
         return 1;
-    }*/
-    //opens the file, get its size, and reads it into a buffer
+    }
+
     fp = fopen(argv[1], "rb");
     if (fp == NULL) {
         return 2;
