@@ -8,6 +8,7 @@
  * or in the file LICENSE in the source distribution.
  */
 #include <stdint.h>
+#include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <openssl/opensslconf.h>
@@ -34,16 +35,32 @@ int LLVMFuzzerTestOneInput(const uint8_t *buf, size_t len)
 
 int main(int argc, char** argv)
 {
-    FuzzerInitialize(&argc, &argv);
-
-    while (__AFL_LOOP(10000)) {
-        uint8_t *buf = malloc(BUF_SIZE);
-        size_t size = read(0, buf, BUF_SIZE);
-
-        FuzzerTestOneInput(buf, size);
-        free(buf);
+    if (argc != 2) {
+        fprintf(stderr, "Exactly one argument is expected.\n");
+        exit(EXIT_FAILURE);
     }
 
+    FILE* f = fopen(argv[1], "r");
+    if (!f) {
+        fprintf(stderr, "Failed to open input file.");
+        exit(EXIT_FAILURE);
+    }
+
+    uint8_t *buf = malloc(BUF_SIZE);
+    size_t size = 0;
+
+    size = fread(buf, 1, BUF_SIZE, f);
+    if (ferror(f)) {
+        fclose(f);
+        fprintf(stderr, "Failed read input file.");
+        exit(EXIT_FAILURE);
+    }
+
+    FuzzerInitialize(&argc, &argv);
+    FuzzerTestOneInput(buf, size);
+
+    free(buf);
+    fclose(f);
     FuzzerCleanup();
     return 0;
 }
