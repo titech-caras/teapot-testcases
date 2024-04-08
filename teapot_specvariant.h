@@ -14,7 +14,7 @@
 
 DECLARE_GLOBAL_VARIABLES(extern)
 
-void __teapot_specvariant_setup() {
+static inline void __teapot_specvariant_setup() {
     __teapot_specvariant_array1_size = 5;
     __teapot_specvariant_array2_size = 1024;
     __teapot_specvariant_global_idx = 10;
@@ -51,7 +51,7 @@ void __teapot_specvariant_setup() {
 #define TEAPOT_SPECVARIANT_TYPE11
 #define TEAPOT_SPECVARIANT_TYPE12
 #define TEAPOT_SPECVARIANT_TYPE14
-void __teapot_specvariant_setup() {}
+static inline void __teapot_specvariant_setup() {}
 #endif
 
 
