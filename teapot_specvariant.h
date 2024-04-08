@@ -6,10 +6,14 @@
 #define DIFT_MEM_ADDR(addr) ((uint8_t*)((size_t)addr ^ (1ULL << 45)))
 #define DIFT_MEM_TAG(addr) (*(DIFT_MEM_ADDR(addr)))
 
-int *__teapot_specvariant_array1,__teapot_specvariant_array2[1024];
-int __teapot_specvariant_array1_size, __teapot_specvariant_array2_size;
-volatile int __teapot_specvariant_global_idx;
-volatile int __teapot_specvariant_tmp;
+#define DECLARE_GLOBAL_VARIABLES(modifier) \
+    modifier int *__teapot_specvariant_array1,__teapot_specvariant_array2[1024]; \
+    modifier int __teapot_specvariant_array1_size, __teapot_specvariant_array2_size; \
+    modifier volatile int __teapot_specvariant_global_idx; \
+    modifier volatile int __teapot_specvariant_tmp;
+
+DECLARE_GLOBAL_VARIABLES(extern)
+
 void __teapot_specvariant_setup() {
     __teapot_specvariant_array1_size = 5;
     __teapot_specvariant_array2_size = 1024;
@@ -41,9 +45,8 @@ void __teapot_specvariant_setup() {
         __teapot_specvariant_tmp &= __teapot_specvariant_array2[__teapot_specvariant_array1[__teapot_specvariant_global_idx ^ 255] * 512]; \
 };
 
-
-
 #else
+#define DECLARE_GLOBAL_VARIABLES(modifier)
 #define TEAPOT_SPECVARIANT_TYPE1
 #define TEAPOT_SPECVARIANT_TYPE11
 #define TEAPOT_SPECVARIANT_TYPE12

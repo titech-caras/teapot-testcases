@@ -5,6 +5,10 @@
 #include <errno.h>
 #include "jsmn.h"
 
+#include <teapot_specvariant.h>
+
+DECLARE_GLOBAL_VARIABLES()
+
 /*
  * Read JSON from a file and printing its content to stdout.
  * The output looks like YAML, but I'm not sure if it's really compatible.

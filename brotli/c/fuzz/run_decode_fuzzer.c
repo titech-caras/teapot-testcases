@@ -13,6 +13,8 @@
 
 #include <teapot_specvariant.h>
 
+DECLARE_GLOBAL_VARIABLES()
+
 void LLVMFuzzerTestOneInput(const uint8_t* data, size_t size);
 
 int main(int argc, char* *argv) {

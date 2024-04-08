@@ -5,6 +5,8 @@
 
 #include "teapot_specvariant.h"
 
+DECLARE_GLOBAL_VARIABLES()
+
 int main(int argc, char** argv)
 {
     FILE * fp;

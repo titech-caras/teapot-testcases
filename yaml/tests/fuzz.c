@@ -6,6 +6,8 @@
 
 #include <teapot_specvariant.h>
 
+DECLARE_GLOBAL_VARIABLES()
+
 void LLVMFuzzerTestOneInput(const uint8_t *data, size_t size) {
     yaml_parser_t parser;
     yaml_parser_initialize(&parser);
