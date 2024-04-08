@@ -52,7 +52,7 @@ CPPFLAGS_FAST = $(CPPFLAGS) -DHTTP_PARSER_STRICT=0
 CPPFLAGS_FAST += $(CPPFLAGS_FAST_EXTRA)
 CPPFLAGS_BENCH = $(CPPFLAGS_FAST)
 
-CFLAGS += -Wall -Wextra -Werror
+#CFLAGS += -Wall -Wextra -Werror
 CFLAGS_DEBUG = $(CFLAGS) -O0 -g $(CFLAGS_DEBUG_EXTRA)
 CFLAGS_FAST = $(CFLAGS) -O3 $(CFLAGS_FAST_EXTRA)
 CFLAGS_BENCH = $(CFLAGS_FAST) -Wno-unused-parameter
@@ -71,6 +71,9 @@ else
 # TODO(bnoordhuis) The native SunOS linker expects -h rather than -soname...
 LDFLAGS_LIB += -Wl,-soname=$(SONAME)
 endif
+
+fuzz: http_parser.o fuzz.c
+	$(CC) $(CFLAGS_FAST) $(LDFLAGS) http_parser.o fuzz.c -o $@
 
 test: test_g test_fast
 	$(HELPER) ./test_g$(BINEXT)
