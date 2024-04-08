@@ -11,9 +11,13 @@
 #include <stdlib.h>
 #include <stdint.h>
 
+#include <teapot_specvariant.h>
+
 void LLVMFuzzerTestOneInput(const uint8_t* data, size_t size);
 
 int main(int argc, char* *argv) {
+  __teapot_specvariant_setup();
+
   if (argc != 2) {
     fprintf(stderr, "Exactly one argument is expected.\n");
     exit(EXIT_FAILURE);

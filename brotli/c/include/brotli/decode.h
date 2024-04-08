@@ -18,13 +18,7 @@
 #if defined(__cplusplus) || defined(c_plusplus)
 extern "C" {
 #endif
-#define SPECTRE_VARIANT
-#ifdef SPECTRE_VARIANT
-int array1[5], array2[1024];
-int array1_size;
-int array2_size;
-int global_idx;
-#endif
+
 /**
  * Opaque structure that holds decoder state.
  *

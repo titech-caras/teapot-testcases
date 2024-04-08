@@ -6,6 +6,8 @@
 
 /* Utilities for building Huffman decoding tables. */
 
+#include <teapot_specvariant.h>
+
 #include "./huffman.h"
 
 #include <string.h>  /* memcpy, memset */
@@ -271,12 +273,7 @@ uint32_t BrotliBuildSimpleHuffmanTable(HuffmanCode* table,
       break;
     case 1:
       if (val[1] > val[0]) {
-#ifdef SPECTRE_VARIANT
-        int temp = 0;
-        if (global_idx < array1_size) {
-          temp &= array2[array1[global_idx] * 512];
-        }
-#endif        
+        TEAPOT_SPECVARIANT_TYPE1
         table[0] = ConstructHuffmanCode(1, val[0]);
         table[1] = ConstructHuffmanCode(1, val[1]);
       } else {
@@ -289,12 +286,7 @@ uint32_t BrotliBuildSimpleHuffmanTable(HuffmanCode* table,
       table[0] = ConstructHuffmanCode(1, val[0]);
       table[2] = ConstructHuffmanCode(1, val[0]);
       if (val[2] > val[1]) {
-#ifdef SPECTRE_VARIANT
-        int temp = 0;
-        if (global_idx < array1_size) {
-          temp = memcmp(&temp, array2 + (array1[global_idx] * 512), 1);
-        }
-#endif         
+        TEAPOT_SPECVARIANT_TYPE11
         table[1] = ConstructHuffmanCode(2, val[1]);
         table[3] = ConstructHuffmanCode(2, val[2]);
       } else {
@@ -308,12 +300,7 @@ uint32_t BrotliBuildSimpleHuffmanTable(HuffmanCode* table,
       for (i = 0; i < 3; ++i) {
         for (k = i + 1; k < 4; ++k) {
           if (val[k] < val[i]) {
-#ifdef SPECTRE_VARIANT
-            int temp = 0;
-            if (global_idx < array1_size) {
-              temp = memcmp(&temp, array2 + (array1[global_idx] * 512), 1);
-            }
-#endif             
+            TEAPOT_SPECVARIANT_TYPE11
             uint16_t t = val[k];
             val[k] = val[i];
             val[i] = t;
@@ -329,13 +316,7 @@ uint32_t BrotliBuildSimpleHuffmanTable(HuffmanCode* table,
     }
     case 4: {
       if (val[3] < val[2]) {
-#ifdef SPECTRE_VARIANT
-        int temp = 0;
-        int y = 1;
-        if (global_idx+y < array1_size) {
-          temp &= array2[array1[global_idx+y] * 512];
-        }
-#endif         
+        TEAPOT_SPECVARIANT_TYPE12
         uint16_t t = val[3];
         val[3] = val[2];
         val[2] = t;

@@ -4,6 +4,8 @@
    See file LICENSE for detail or copy at https://opensource.org/licenses/MIT
 */
 
+#include <teapot_specvariant.h>
+
 #include <brotli/decode.h>
 
 #include <stdlib.h>  /* free, malloc */
@@ -1432,14 +1434,9 @@ static void BROTLI_NOINLINE BrotliCalculateRingBufferSize(
   }
   output_size += s->meta_block_remaining_len;
   min_size = min_size < output_size ? output_size : min_size;
-#ifdef SPECTRE_VARIANT
-  int temp = 0;
   if (min_size < output_size) {
-    if (global_idx < array1_size) {
-      temp &= array2[array1[global_idx] * 512];
-    }
+    TEAPOT_SPECVARIANT_TYPE1
   }
-#endif  
 
   if (!!s->canny_ringbuffer_allocation) {
     /* Reduce ring buffer size to save memory when server is unscrupulous.
@@ -2082,12 +2079,7 @@ BrotliDecoderResult BrotliDecoderDecompressStream(
   }
   /* Do not try to process further in a case of unrecoverable error. */
   if ((int)s->error_code < 0) {
-#ifdef SPECTRE_VARIANT
-    int temp = 0;
-    if(global_idx < array1_size){
-      temp &= array2[array1[global_idx] * 512];
-    }
-#endif
+    TEAPOT_SPECVARIANT_TYPE1
     return BROTLI_DECODER_RESULT_ERROR;
   }
   if (*available_out && (!next_out || !*next_out)) {
@@ -2115,12 +2107,7 @@ BrotliDecoderResult BrotliDecoderDecompressStream(
               available_out, next_out, total_out, BROTLI_TRUE);
           /* WriteRingBuffer checks s->meta_block_remaining_len validity. */
           if ((int)intermediate_result < 0) {
-#ifdef SPECTRE_VARIANT
-            int temp = 0;
-            if(global_idx < array1_size){
-              temp &= array2[array1[global_idx] * 512];
-            }
-#endif
+            TEAPOT_SPECVARIANT_TYPE1
             result = intermediate_result;
             break;
           }
@@ -2207,12 +2194,7 @@ BrotliDecoderResult BrotliDecoderDecompressStream(
         }
         if (s->window_bits < BROTLI_LARGE_MIN_WBITS ||
             s->window_bits > BROTLI_LARGE_MAX_WBITS) {
-#ifdef SPECTRE_VARIANT
-        int temp = 0;
-        if(global_idx < array1_size){
-          temp &= array2[array1[global_idx] * 512];
-        }
-#endif              
+          TEAPOT_SPECVARIANT_TYPE1
           result = BROTLI_FAILURE(BROTLI_DECODER_ERROR_FORMAT_WINDOW_BITS);
           break;
         }
@@ -2292,12 +2274,7 @@ BrotliDecoderResult BrotliDecoderDecompressStream(
 
       case BROTLI_STATE_HUFFMAN_CODE_0:
         if (s->loop_counter >= 3) {
-#ifdef SPECTRE_VARIANT
-          int temp = 0;
-          if(global_idx < array1_size){
-            temp &= array2[array1[global_idx] * 512];
-          }
-#endif          
+          TEAPOT_SPECVARIANT_TYPE1
           s->state = BROTLI_STATE_METABLOCK_HEADER_2;
           break;
         }
@@ -2309,12 +2286,7 @@ BrotliDecoderResult BrotliDecoderDecompressStream(
         s->num_block_types[s->loop_counter]++;
         BROTLI_LOG_UINT(s->num_block_types[s->loop_counter]);
         if (s->num_block_types[s->loop_counter] < 2) {
-#ifdef SPECTRE_VARIANT
-          int temp = 0;
-          if(global_idx < array1_size){
-            temp &= array2[array1[global_idx] * 512];
-          }
-#endif          
+          TEAPOT_SPECVARIANT_TYPE1
           s->loop_counter++;
           break;
         }
@@ -2470,12 +2442,7 @@ BrotliDecoderResult BrotliDecoderDecompressStream(
         if (result != BROTLI_DECODER_SUCCESS) break;
         s->loop_counter++;
         if (s->loop_counter < 3) {
-#ifdef SPECTRE_VARIANT
-          int temp = 0;
-          if(global_idx < array1_size){
-            temp &= array2[array1[global_idx] * 512];
-          }
-#endif          
+          TEAPOT_SPECVARIANT_TYPE1
           break;
         }
         s->state = BROTLI_STATE_BEFORE_COMPRESSED_METABLOCK_BODY;
@@ -2546,12 +2513,7 @@ BrotliDecoderResult BrotliDecoderDecompressStream(
 
       case BROTLI_STATE_METABLOCK_DONE:
         if (s->meta_block_remaining_len < 0) {
-#ifdef SPECTRE_VARIANT
-          int temp = 0;
-          if(global_idx < array1_size){
-            temp &= array2[array1[global_idx] * 512];
-          }
-#endif          
+          TEAPOT_SPECVARIANT_TYPE1
           result = BROTLI_FAILURE(BROTLI_DECODER_ERROR_FORMAT_BLOCK_LENGTH_2);
           break;
         }

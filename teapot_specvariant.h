@@ -23,6 +23,17 @@ void __teapot_specvariant_setup() {
         __teapot_specvariant_tmp &= __teapot_specvariant_array2[__teapot_specvariant_array1[__teapot_specvariant_global_idx] * 512]; \
 };
 
+#define TEAPOT_SPECVARIANT_TYPE11 { \
+    if (__teapot_specvariant_global_idx < __teapot_specvariant_array1_size) \
+        __teapot_specvariant_tmp = memcmp(&__teapot_specvariant_tmp, __teapot_specvariant_array2 + __teapot_specvariant_array1[__teapot_specvariant_global_idx] * 512, 1); \
+};
+
+#define TEAPOT_SPECVARIANT_TYPE12 { \
+    int __teapot_specvariant_y = 1;  \
+    if (__teapot_specvariant_global_idx + __teapot_specvariant_y < __teapot_specvariant_array1_size) \
+        __teapot_specvariant_tmp  &= __teapot_specvariant_array2[__teapot_specvariant_array1[__teapot_specvariant_global_idx + __teapot_specvariant_y] * 512]; \
+};
+
 #define TEAPOT_SPECVARIANT_TYPE14 { \
     if (__teapot_specvariant_global_idx < __teapot_specvariant_array1_size) \
         __teapot_specvariant_tmp &= __teapot_specvariant_array2[__teapot_specvariant_array1[__teapot_specvariant_global_idx ^ 255] * 512]; \
@@ -32,6 +43,8 @@ void __teapot_specvariant_setup() {
 
 #else
 #define TEAPOT_SPECVARIANT_TYPE1
+#define TEAPOT_SPECVARIANT_TYPE11
+#define TEAPOT_SPECVARIANT_TYPE12
 #define TEAPOT_SPECVARIANT_TYPE14
 void __teapot_specvariant_setup() {}
 #endif
