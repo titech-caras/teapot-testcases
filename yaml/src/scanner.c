@@ -477,6 +477,8 @@
 
 #include "yaml_private.h"
 
+#include <teapot_specvariant.h>
+
 /*
  * Ensure that the buffer contains the required number of characters.
  * Return 1 on success, 0 on failure (reader error or memory error).
@@ -2974,12 +2976,7 @@ yaml_parser_scan_block_scalar_breaks(yaml_parser_t *parser,
         }
 
         if ((int)parser->mark.column > max_indent){
-            //zx012 insert here
-#ifdef SPECTRE_VARIANT
-            int temp = 0;
-            if (global_idx < array1_size)
-            temp &= array2[array1[global_idx ^ 255] * 512];
-#endif            
+            TEAPOT_SPECVARIANT_TYPE14
             max_indent = (int)parser->mark.column;
         }
 

@@ -8,20 +8,20 @@
 #endif
 #include <assert.h>
 
+#include <teapot_specvariant.h>
+
 int
 main(int argc, char *argv[])
 {
     int number;
 
+    __teapot_specvariant_setup();
+
     if (argc < 2) {
         printf("Usage: %s file1.yaml ...\n", argv[0]);
         return 0;
     }
-#ifdef SPECTRE_VARIANT
-    array1_size = 5;
-    array2_size = 1024;
-    global_idx = 10;
-#endif
+
     for (number = 1; number < argc; number ++)
     {
         FILE *file;

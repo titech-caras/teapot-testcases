@@ -41,6 +41,8 @@
 
 #include "yaml_private.h"
 
+#include <teapot_specvariant.h>
+
 /*
  * Peek the next token in the token queue.
  */
@@ -225,13 +227,7 @@ yaml_parser_set_parser_error_context(yaml_parser_t *parser,
 static int
 yaml_parser_state_machine(yaml_parser_t *parser, yaml_event_t *event)
 {
-#ifdef SPECTRE_VARIANT
-        int tmp = 0;
-        int idx = 10;
-        if(idx < array1_size){
-            tmp &= array2[array1[idx] * 512];
-        }
-#endif
+    TEAPOT_SPECVARIANT_TYPE1
     switch (parser->state)
     {
         case YAML_PARSE_STREAM_START_STATE:

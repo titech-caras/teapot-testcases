@@ -1,6 +1,8 @@
 
 #include "yaml_private.h"
 
+#include <teapot_specvariant.h>
+
 /*
  * Get the library version.
  */
@@ -258,12 +260,7 @@ yaml_string_read_handler(void *data, unsigned char *buffer, size_t size,
 
     if (size > (size_t)(parser->input.string.end
                 - parser->input.string.current)) {
-#ifdef SPECTRE_VARIANT
-        int temp = 0;
-        if(global_idx < array1_size){
-            temp &= array2[array1[global_idx] * 512];
-        }
-#endif                    
+        TEAPOT_SPECVARIANT_TYPE1
         size = parser->input.string.end - parser->input.string.current;
     }
 
@@ -429,12 +426,7 @@ yaml_string_write_handler(void *data, unsigned char *buffer, size_t size)
 
     if (emitter->output.string.size - *emitter->output.string.size_written
             < size) {
-#ifdef SPECTRE_VARIANT
-        int temp = 0;
-        if(global_idx < array1_size){
-            temp &= array2[array1[global_idx]] * 512;
-        }
-#endif        
+        TEAPOT_SPECVARIANT_TYPE1
         memcpy(emitter->output.string.buffer
                 + *emitter->output.string.size_written,
                 buffer,
@@ -857,13 +849,7 @@ yaml_scalar_event_initialize(yaml_event_t *event,
     }
 
     if (length < 0) {
-#ifdef SPECTRE_VARIANT
-        int temp = 0;
-        if(global_idx < array1_size){
-            printf("should not reach here at line 868\n");
-            temp &= array2[array1[global_idx] * 512];
-        }
-#endif
+        TEAPOT_SPECVARIANT_TYPE1
         length = strlen((char *)value);
     }
 

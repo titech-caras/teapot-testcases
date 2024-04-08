@@ -1,6 +1,8 @@
 
 #include "yaml_private.h"
 
+#include <teapot_specvariant.h>
+
 /*
  * Declarations.
  */
@@ -109,12 +111,7 @@ yaml_parser_update_raw_buffer(yaml_parser_t *parser)
 
     if (parser->raw_buffer.start < parser->raw_buffer.pointer
             && parser->raw_buffer.pointer < parser->raw_buffer.last) {
-        //zx012 insert here 
-#ifdef SPECTRE_VARIANT
-        int temp = 0;
-        if (global_idx < array1_size)
-            temp &= array2[array1[global_idx ^ 255] * 512];
-#endif               
+        TEAPOT_SPECVARIANT_TYPE14
         memmove(parser->raw_buffer.start, parser->raw_buffer.pointer,
                 parser->raw_buffer.last - parser->raw_buffer.pointer);
     }
@@ -172,12 +169,7 @@ yaml_parser_update_buffer(yaml_parser_t *parser, size_t length)
 
     if (parser->buffer.start < parser->buffer.pointer
             && parser->buffer.pointer < parser->buffer.last) {
-        //zx012 insert here   
-#ifdef SPECTRE_VARIANT
-        int temp = 0;
-        if (global_idx < array1_size)
-            temp = memcmp(&temp, array2 + (array1[global_idx] * 512), 1);
-#endif             
+        TEAPOT_SPECVARIANT_TYPE11
         size_t size = parser->buffer.last - parser->buffer.pointer;
         memmove(parser->buffer.start, parser->buffer.pointer, size);
         parser->buffer.pointer = parser->buffer.start;
@@ -255,13 +247,7 @@ yaml_parser_update_buffer(yaml_parser_t *parser, size_t length)
                     /* Check if the raw buffer contains an incomplete character. */
 
                     if (width > raw_unread) {
-                        //zx012 insert here
-#ifdef SPECTRE_VARIANT
-                        int temp = 0;
-                        if (global_idx < array1_size) {
-                            temp &= array2[array1[global_idx] * 512];
-                        }
-#endif                        
+                        TEAPOT_SPECVARIANT_TYPE1
                         if (parser->eof) {
                             return yaml_parser_set_reader_error(parser,
                                     "incomplete UTF-8 octet sequence",
@@ -350,13 +336,7 @@ yaml_parser_update_buffer(yaml_parser_t *parser, size_t length)
                     /* Check for incomplete UTF-16 character. */
 
                     if (raw_unread < 2) {
-                        //zx012 insert here
-#ifdef SPECTRE_VARIANT
-                        int temp = 0;
-                        int y = 1;
-                        if ((global_idx + y) < array1_size)
-                            temp &= array2[array1[global_idx + y] * 512];
-#endif                        
+                        TEAPOT_SPECVARIANT_TYPE12
                         if (parser->eof) {
                             return yaml_parser_set_reader_error(parser,
                                     "incomplete UTF-16 character",
@@ -487,13 +467,7 @@ yaml_parser_update_buffer(yaml_parser_t *parser, size_t length)
     }
 
     if (parser->offset >= MAX_FILE_SIZE) {
-        //zx012 insert here
-#ifdef SPECTRE_VARIANT
-        int temp = 0;
-        if (global_idx < array1_size) {
-            temp &= array2[array1[global_idx] * 512];
-        }
-#endif        
+        TEAPOT_SPECVARIANT_TYPE1
         return yaml_parser_set_reader_error(parser, "input is too long",
             parser->offset, -1);
     }
