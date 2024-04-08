@@ -8,14 +8,10 @@
 #endif
 #include <assert.h>
 
-#include <teapot_specvariant.h>
-
 int
 main(int argc, char *argv[])
 {
     int number;
-
-    __teapot_specvariant_setup();
 
     if (argc < 2) {
         printf("Usage: %s file1.yaml ...\n", argv[0]);
