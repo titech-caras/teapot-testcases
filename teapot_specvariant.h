@@ -1,6 +1,8 @@
 #pragma once
 
 #include <stdint.h>
+#include <stddef.h>
+#include <stdlib.h>
 
 #ifdef SPECTRE_VARIANT
 #define DIFT_MEM_ADDR(addr) ((uint8_t*)((size_t)addr ^ (1ULL << 45)))
