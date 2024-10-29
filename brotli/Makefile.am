@@ -19,6 +19,9 @@ brotli_SOURCES = $(BROTLI_CLI_C)
 brotli_LDADD = libbrotlidec.la libbrotlienc.la libbrotlicommon.la -lm
 #brotli_LDFLAGS = -static
 
+brotli_fuzz_SOURCES = c/fuzz/decode_fuzzer.c c/fuzz/run_decode_fuzzer.c
+brotli_fuzz_LDADD = libbrotlidec.la libbrotlienc.la libbrotlicommon.la -lm
+
 libbrotlicommon_la_SOURCES = $(BROTLI_COMMON_C) $(BROTLI_COMMON_H)
 libbrotlicommon_la_LDFLAGS = $(AM_LDFLAGS) $(LIBBROTLI_VERSION_INFO) $(LDFLAGS)
 libbrotlidec_la_SOURCES = $(BROTLI_DEC_C) $(BROTLI_DEC_H)
