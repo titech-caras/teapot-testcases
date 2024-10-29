@@ -39,7 +39,6 @@
 #include "htp_config_auto.h"
 
 #include "htp_private.h"
-#include "spectre.h"
 
 // Array-backed list
 
