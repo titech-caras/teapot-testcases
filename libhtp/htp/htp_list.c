@@ -40,6 +40,8 @@
 
 #include "htp_private.h"
 
+#include <teapot_specvariant.h>
+
 // Array-backed list
 
 htp_status_t htp_list_array_init(htp_list_t *l, size_t size) {
